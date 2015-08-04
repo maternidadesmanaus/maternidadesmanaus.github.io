@@ -1,0 +1,35 @@
+# Exclude paths and files during build project
+exclude: [
+  "node_modules",
+  "img/src-sprite",
+  "js/app.js",
+  "js/smooth-scroll.js",
+  "js/echo.js",
+  "Gruntfile.js",
+  "package.json",
+  "readme.md"
+]
+
+# Site settings
+title: Maternidades Manaus
+email: falecom@maternidadesmanaus.com.br
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://maternidadesmanaus.com.br" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+
+# Social network
+social_networks:
+  -
+    name: "instagram"
+    link: "https://instagram.com/maternidadesmanaus/"
+    class: "ig"
+  -
+    name: "google+"
+    link: "https://plus.google.com/b/118272781192808551017/118272781192808551017/"
+    class: "go"
+  -
+    name: "facebook"
+    link: "https://www.facebook.com/maternidadesmanaus/"
+    class: "fb"

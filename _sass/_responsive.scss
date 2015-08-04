@@ -1,0 +1,293 @@
+.mobile {
+    .header.floating,
+    .header.logo,
+    .nav {
+        @include no-rotate45;
+        @include no-transition;
+    }
+
+    .contact {
+        .row {
+            .submit {
+                &:hover,
+                &:focus {
+                    span {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-query($on-laptop) {
+    
+}
+
+@include media-query($on-palm) {
+    .header {
+
+        .logo {
+            margin-top: 75px;
+            display: block;
+            color: $orange-color;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .nav {
+            background-color: #000;
+            position: fixed;
+            top: 0;
+            margin-top: 0 !important;
+            left: 0;
+            min-height: 60px;
+            height: auto;
+            width: 100%;
+            z-index: 2;
+
+            h2 {
+                color: $orange-color;
+                display: block;
+                font-family: "CaviarDreams";
+                font-weight: bold;
+                float: left;
+                margin: 6px 0 0 15px;
+                line-height: 45px;
+            }
+
+            .menu {
+                background: transparent url("../img/menu.png") no-repeat center center;
+                display: block;
+                width: 48px;
+                height: 48px;
+                float: right;
+                margin: 5px 10px 0 0;
+            }
+
+            ul {
+                display: none;
+                margin-top: 60px;
+                width: 100%;
+
+                li {
+                    border-top: 1px #333 solid;
+                    display: block;
+                    width: 100%;
+                    background-color: #090909;
+
+                    a {
+                        color: #ccc;
+                        text-align: center;
+                        width: 100%;
+                        margin: 0;
+                        padding: 10px 0;
+                        display: block;
+
+                    }
+
+                    &:last-child {
+                        border-bottom: 1px #333 solid;
+                    }
+                }
+            }
+
+            &.active {
+                
+                ul {
+                    display: block;
+                }
+            }
+        }
+
+        &.floating {
+            padding: 0;
+
+            span {
+                font-size: 20px;
+                margin-left: 0;
+            }
+
+            .nav {
+                ul {
+                    padding-right: 0;
+
+                    li {
+                        a {
+                            line-height: 1.5;
+                            font-size: 28px;
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    #musics {
+        margin-top: 0 !important;
+    }
+
+    #the-band {
+
+        .content > img {
+            height: auto;
+        }
+
+        .members li {
+            width: 100%;
+
+            img {
+                height: auto;
+            }
+        }
+    }
+
+    .contact {
+        .required-fields {
+            font-size: 19px;
+        }
+
+        #sent-message {
+            padding-top: 50px;
+
+            h4 {
+                line-height: 40px;
+            }
+
+            p {
+                width: 100%;
+            }
+        }
+    }
+
+    .section {
+
+
+        .wrapper {
+            width: 100%;
+
+            .content {
+                font-size: 21px;
+                line-height: 32px;
+            }
+        }
+    }
+
+    .social-media.bottom li {
+        display: inline-block;
+        height: auto;
+        width: 49%;
+    }
+
+    .footer {
+        padding-bottom: 150px;
+
+        .logo-bw {
+            float: none;
+            display: block;
+            margin: auto;
+            margin-top: 110px;
+        }
+
+        .copyright {
+            float: left;
+            width: 100%;
+            margin-top: -215px;
+            text-align: center;
+            font-size: 17px;
+        }
+    }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media
+    only screen 
+    and (min-device-width : 320px) 
+    and (max-device-width : 480px)
+{
+
+}
+
+/* Smartphones (landscape) ----------- */
+@media
+    only screen 
+    and (min-width : 321px)
+{
+
+}
+
+/* Smartphones (portrait) ----------- */
+@media
+    only screen 
+    and (max-width : 320px)
+{
+    .social-media.bar {
+        display: none !important;
+    }
+
+    .contact {
+        .required-fields {
+            padding: 0 0 0 0;
+            width: 100px;
+        }
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media
+    only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px)
+{
+    .social-media.bar {
+        display: none !important;
+    }
+}
+
+/* iPads (landscape) ----------- */
+@media
+    only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) 
+    and (orientation : landscape)
+{
+    .social-media.bar {
+        display: none !important;
+    }
+}
+
+/* iPads (portrait) ----------- */
+@media
+    only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) 
+    and (orientation : portrait)
+{
+
+}
+
+/* Desktops and laptops ----------- */
+@media
+    only screen 
+    and (min-width : 1224px)
+{
+
+}
+
+/* Large screens ----------- */
+@media
+    only screen 
+    and (min-width : 1824px)
+{
+    
+}
+
+/* iPhone 4 ----------- */
+@media
+    only screen and (-webkit-min-device-pixel-ratio : 1.5),
+    only screen and (min-device-pixel-ratio : 1.5)
+{
+
+}

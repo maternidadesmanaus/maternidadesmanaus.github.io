@@ -1,0 +1,23 @@
+<section id="social-network" class="section">
+  <div class="wrapper">
+    <h2>redes sociais</h2>
+    <div class="content">
+      <p>
+        não deixe de compartilhar essa pesquisa com seus amigos através das
+        redes sociais. siga a gente, curta, compartilhe nosso conteúdo e nos
+        ajude a divulgar o ranking das maternidades da cidade de Manaus.
+      </p>
+      <ul class="social-media bottom">
+        {% for network in site.social_networks %}
+          <li>
+            <a target="_blank" href="{{ network.link }}">
+              <i class="{{ network.class }}"></i>
+              {{ network.name }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,174 @@
+/**
+ * Basic styling
+ */
+body {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    font-weight: 300;
+    color: $text-color;
+    -webkit-text-size-adjust: 100%;
+}
+
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+    margin-bottom: $spacing-unit / 2;
+}
+
+
+/**
+ * Images
+ */
+img {
+    max-width: 100%;
+    vertical-align: middle;
+    border: none;
+}
+
+
+/**
+ * Figures
+ */
+figure > img {
+    display: block;
+}
+
+figcaption {
+    font-size: $small-font-size;
+}
+
+
+/**
+ * Lists
+ */
+ul, ol {
+    margin: 0;
+}
+
+li {
+    list-style: none;
+
+    > ul,
+    > ol {
+        margin-bottom: 0;
+    }
+}
+
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+
+
+/**
+ * Links
+ */
+a {
+    color: $brand-color;
+    text-decoration: none;
+
+    &:visited {
+        color: darken($brand-color, 15%);
+    }
+
+    &:hover,
+    &:focus {
+        color: $orange-color;
+        text-decoration: none;
+    }
+}
+
+
+/**
+ * Wrapper
+ */
+.wrapper {
+    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
+    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px 0;
+    @extend %clearfix;
+
+    @include media-query($on-laptop) {
+        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
+        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
+        padding-right: $spacing-unit / 2;
+        padding-left: $spacing-unit / 2;
+    }
+}
+
+
+/**
+ * Clearfix
+ */
+%clearfix {
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+/**
+ * Lazy loading
+ */
+.lazy {
+    background: #eee url("../img/loading.gif") no-repeat center center;
+}
+
+
+/**
+ * Fonts
+ */
+@font-face{ 
+    font-family: 'CaviarDreams';
+    src: url('../font/caviardreams.eot');
+    src: url('../font/caviardreams.eot?#iefix') format('embedded-opentype'),
+         url('../font/caviardreams.woff') format('woff'),
+         url('../font/caviardreams.ttf') format('truetype'),
+         url('WebFont../font/caviardreams.svg#webfont') format('svg');
+}
+
+@font-face{ 
+    font-family: 'MontSerrat';
+    src: url('../font/montserrat/f.eot');
+    src: url('../font/montserrat/f.eot?#iefix') format('embedded-opentype'),
+         url('../font/montserrat/f.woff') format('woff'),
+         url('../font/montserrat/f.ttf') format('truetype'),
+         url('WebFont../font/montserrat/f.svg#webfont') format('svg');
+}
+
+
+/**
+ * Sprite
+ */
+/*.logo, */.ok, .logo-bw, .fb, .go, 
+.ig, .sc, .top, .send {
+    display: inline-block;
+    background: url("../img/sprite.png") no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+}
+ 
+/*.logo { background-position: -0px -0px; width: 240px; height: 214px; }*/
+.ok { background-position: -6px -220px; width: 128px; height: 100px; }
+/*.logo-bw { background-position: -6px -321px; width: 120px; height: 108px; float: left; }*/
+.fb { background-position: -138px -219px; }
+.go { background-position: -191px -219px; }
+.ig { background-position: -138px -272px; }
+.sc { background-position: -191px -272px; }
+.top { background-position: -130px -331px; width: 36px; height: 25px; }
+.send { background-position: -169px -324px; width: 32px; height: 32px; }

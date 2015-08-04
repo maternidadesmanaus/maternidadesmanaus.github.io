@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+    <div class="page-content">
+
+      {% if page.path == "index.html" %}
+
+        {% include subtitle.html %}
+
+        {% include rate-maternity.html %}
+
+        {% include social-network.html %}
+
+      {% else %}
+
+        <div class="wrapper">
+
+          {{ content }}
+
+        </div>
+
+      {% endif %}
+
+    </div>
+
+    <script src="/js/main.js"></script>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>
