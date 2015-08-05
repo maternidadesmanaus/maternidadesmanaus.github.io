@@ -73,7 +73,7 @@ $on-laptop:        800px;
 
 // Common styles for the social media icons
 @mixin hover-social-icon {
-    background-color: #fff;
+    // background-color: #fff;
     outline: none;
     @include scale1-3;
 }

@@ -168,8 +168,8 @@ function menuNav(target) {
     // desktop
     else {
         discount = (document.querySelector("header").classList.contains("floating"))
-            ? -110
-            : -425;
+            ? -70
+            : -70;
     }
 
     smoothScroll.init({
@@ -208,7 +208,7 @@ function showFloatingMenuAndGoToTop() {
         doc.querySelector("header").classList.remove("floating");
     }
 
-    if (top > 223) {
+    if (top > 245) {
         doc.querySelector("i.heart").classList.add("fixed");
     } else {
         doc.querySelector("i.heart").classList.remove("fixed");

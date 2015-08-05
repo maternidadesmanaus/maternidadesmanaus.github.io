@@ -2,13 +2,12 @@
  * Header
  */
 .header {
-
-    /*background-color: ##FF4949 !important;*/
-    background-color: #ff5a5a;
+    background-color: #FF4E79;
     color: #fae9ed;
     padding: 80px 100px;
     position: fixed;
     width: 100%;
+    z-index: 1;
 
     @include transition;
 
@@ -111,9 +110,14 @@
     }
 }
 
+
+/**
+ * Heart icon
+ */
 i.heart {
-    background: #fff url("../img/heart.png") no-repeat center center;
+    background: #FF4E79 url("../img/heart2.png") no-repeat center center;
     border-radius: 300px;
+    border: 7px #fff solid;
     display: block;
     width: 128px;
     height: 128px;
@@ -122,11 +126,15 @@ i.heart {
     position: absolute;
     left: 0;
     right: 0;
-    top: 250px;
+    top: 130px;
 
     &.fixed {
         position: fixed;
-        top: 20px;
+        top: 25px;
+        width: 90px;
+        height: 90px;
+        background-size: 45%;
+        border-width: 5px;
     }
 }
 
@@ -222,70 +230,92 @@ i.heart {
     }
 }
 
+#rate {
+    ul {
+        text-align: center;
+        width: 100%;
+        li {
+            background: url("../img/heart-checked.png") no-repeat center center;
+            width: 64px;
+            height: 64px;
+            display: inline-block;
+            margin: 0 5px;
+            cursor: pointer;
+            opacity: 0.4;
 
-/**
- * Sections
- */
-.section {
-
-    padding-top: 50px;
-
-    .wrapper {
-        background: #f5f5f5;
-        margin: auto;
-        width: $content-width;
-        padding: 40px;
-
-        h2 {
-            margin-bottom: 40px;
-            font-family: "MontSerrat";
-            font-size: 40px;
-            color: #ff2727;
-            text-align: center;
-            background-color: #f5f5f5;
-            position: relative;
-            width: auto;
-            margin: auto;
-            display: table;
-            padding: 0 20px;
-        }
-
-        h3 {
-            color: #ff2727;
-            clear: both;
-            font-family: "MontSerrat";
-            font-size: 30px;
-            border-top: 1px #aaa solid;
-            margin-top: 40px;
-            padding: 10px 0;
-        }
-
-        .content {
-            color: #777;
-            font-size: 18px;
-            text-align: justify;
-            font-family: Helvetica, Arial, sans-serif;
-            line-height: 30px;
-            border-top: 2px red solid;
-            padding-top: 60px;
-            margin-top: -28px;
+            &:hover {
+                opacity: 0.7;
+            }
         }
     }
 }
 
 
-#subtitle {
-    background-color: #f5f5f5;
-    color: #ff5a5a;
-    font-size: 39px;
-    padding: 200px 0 10px 0;
-    text-align: center;
-    margin: 0 auto;
-    line-height: 45px;
+/**
+ * Sections
+ */
+.section {
+    background-color: #fff;
+    color: #777;
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: justify;
+    padding: 75px 0 0 0;
 
-    p {
-        font-size: 20px;
+    h2 {
+        background-color: #f0f0f0;
+        color: #FF4E79;
+        display: table;
+        font-family: "MontSerrat";
+        font-size: 40px;
         text-align: center;
+        margin: auto;
+        position: relative;
+        padding: 0 20px;
+    }
+
+    .wrapper {
+        background: #f0f0f0;
+        margin: auto;
+        padding: 35px 35px 65px 35px;
+        width: $content-width;
+
+        .content {
+            border-top: 3px #FF4E79 solid;
+            margin-top: -30px;
+            padding-top: 50px;
+        }
+    }
+
+    &.featured {
+        padding: 50px 0;
+        background-color: #f0f0f0;
+
+        h2 {
+            background-color: transparent;
+        }
+
+        .wrapper {
+            padding: 0;
+
+            .content {
+                border-top: none;
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+
+/**
+ * Summary
+ */
+#summary {
+    font-size: 22px;
+    text-align: center;
+
+    h2 {
+        margin: 60px auto 0 auto;
+        width: 80%;
     }
 }
 
@@ -477,6 +507,7 @@ i.heart {
  * Site footer
  */
 .footer {
+    background-color: #fff;
     padding: 30px 0 130px 0;
 
     .wrapper {
@@ -557,7 +588,7 @@ i.heart {
  * Page content
  */
 .page-content {
-    padding: 190px 0 30px 0;
+    padding: 190px 0 0 0;
 }
 
 .page-heading {

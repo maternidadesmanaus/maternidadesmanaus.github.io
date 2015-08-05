@@ -135,7 +135,7 @@ module.exports = function(grunt) {
                 cmd: 'jekyll build'
             },
             deploy: {
-                cmd: 'rsync -azvpog --progress --delete-excluded --exclude "Gruntfile.js" --exclude "img/src-sprite" --exclude "package.json" --exclude "node_modules/" --exclude "readme.md" -e "ssh -q" _site/ root@andrewslince:/var/www/rockfieldband/'
+                cmd: 'rsync -azvpog --progress --delete-excluded --exclude "Gruntfile.js" --exclude "img/src-sprite" --exclude "package.json" --exclude "node_modules/" --exclude "readme.md" -e "ssh -q" _site/ root@andrewslince:/var/www/maternidadesmanaus/'
             }
         }
     });

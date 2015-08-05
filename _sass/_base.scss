@@ -2,6 +2,7 @@
  * Basic styling
  */
 body {
+    background-color: #f0f0f0;
     font-family: $base-font-family;
     font-size: $base-font-size;
     line-height: $base-line-height;
@@ -157,18 +158,17 @@ a {
 /*.logo, */.ok, .logo-bw, .fb, .go, 
 .ig, .sc, .top, .send {
     display: inline-block;
-    background: url("../img/sprite.png") no-repeat;
+    /*background: url("../img/sprite.png") no-repeat;*/
     overflow: hidden;
     text-indent: -9999px;
     text-align: left;
 }
  
-/*.logo { background-position: -0px -0px; width: 240px; height: 214px; }*/
+.fb { background: url("../img/sm-fb2.png") no-repeat center center; }
+.go { background: url("../img/sm-gp2.png") no-repeat center center; }
+.ig { background: url("../img/sm-ig2.png") no-repeat center center; }
+
 .ok { background-position: -6px -220px; width: 128px; height: 100px; }
-/*.logo-bw { background-position: -6px -321px; width: 120px; height: 108px; float: left; }*/
-.fb { background-position: -138px -219px; }
-.go { background-position: -191px -219px; }
-.ig { background-position: -138px -272px; }
 .sc { background-position: -191px -272px; }
 .top { background-position: -130px -331px; width: 36px; height: 25px; }
 .send { background-position: -169px -324px; width: 32px; height: 32px; }
