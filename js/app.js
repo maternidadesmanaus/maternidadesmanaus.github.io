@@ -195,11 +195,11 @@ function showFloatingMenuAndGoToTop() {
         goToTopBtn = doc.getElementById("go-to-top") || null;
 
     // displays go to the top
-    if (goToTopBtn !== null) {
-        goToTopBtn.style.display = (top > 1000)
-            ? "block"
-            : "none";
-    }
+    // if (goToTopBtn !== null) {
+    //     goToTopBtn.style.display = (top > 1000)
+    //         ? "block"
+    //         : "none";
+    // }
 
     // displays floating menu navigation
     if (top > 213) {
