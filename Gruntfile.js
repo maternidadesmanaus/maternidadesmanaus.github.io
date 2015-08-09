@@ -94,7 +94,7 @@ module.exports = function(grunt) {
                     'img/*'
                 ],
 
-                tasks : [ 'imagemin' ]
+                tasks : [ 'imagemin', 'exec:build', 'concat' ]
             },
 
             scripts : {
