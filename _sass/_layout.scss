@@ -12,7 +12,6 @@
     @include transition;
 
     .logo {
-        font-family: "MontSerrat";
         text-transform: uppercase;
         float: left;
         outline: none;
@@ -135,6 +134,54 @@ i.heart {
         height: 90px;
         background-size: 45%;
         border-width: 5px;
+    }
+}
+
+.share-buttons {
+    margin-bottom: 50px;
+    width: 100%;
+    display: block;
+
+    li {
+        width: auto;
+        display: inline;
+        margin: 0 4px;
+
+        a {
+            color: #fff;
+            display: inline-block;
+            font-family: "MontSerrat";
+            font-weight: normal;
+            font-size: 14px;
+            text-align: right;
+            padding: 15px 12px 15px 0;
+            overflow: inherit;
+            text-indent: inherit;
+            width: calc(33% - 9px);
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            &.fb {
+                background: #5a79b8 url("../img/icon-fb.png") no-repeat -48px -28px;
+                border: 1px #5a79b8 solid;
+                padding-right: 12px;
+            }
+
+            &.tw {
+                background: #67d1f3 url("../img/icon-tw.png") no-repeat -48px -28px;
+                border: 1px #67d1f3 solid;
+                padding-right: 18px;
+            }
+
+            &.gp {
+                background: #e36b56 url("../img/icon-gp.png") no-repeat -48px -28px;
+                border: 1px #e36b56 solid;
+                padding-right: 15px;
+            }
+        }
+
     }
 }
 
@@ -262,10 +309,9 @@ i.heart {
     padding: 75px 0 0 0;
 
     h2 {
-        background-color: #f0f0f0;
+        background-color: #f5f5f5;
         color: #FF4E79;
         display: table;
-        font-family: "MontSerrat";
         font-size: 40px;
         text-align: center;
         margin: auto;
@@ -274,7 +320,7 @@ i.heart {
     }
 
     .wrapper {
-        background: #f0f0f0;
+        background: #f5f5f5;
         margin: auto;
         padding: 35px 35px 65px 35px;
         width: $content-width;
@@ -287,8 +333,9 @@ i.heart {
     }
 
     &.featured {
-        padding: 50px 0;
-        background-color: #f0f0f0;
+        /*padding: 50px 0;*/
+        padding: 35px 0 75px 0;
+        background-color: #f5f5f5;
 
         h2 {
             background-color: transparent;
@@ -310,12 +357,24 @@ i.heart {
  * Summary
  */
 #summary {
-    font-size: 22px;
+    /*font-size: 22px;
+    text-align: center;*/
+
+    font-size: 21px;
     text-align: center;
+    background: url("../img/baby-cover.jpg") no-repeat center -89px;
+    background-size: cover;
 
     h2 {
-        margin: 60px auto 0 auto;
+        margin: 10px auto 0 auto;
         width: 80%;
+    }
+
+    .wrapper {
+        color: #555;
+        padding: 20px;
+        opacity: .8;
+        background-color: #fff;
     }
 }
 
@@ -588,7 +647,8 @@ i.heart {
  * Page content
  */
 .page-content {
-    padding: 190px 0 0 0;
+    /*padding: 190px 0 0 0;*/
+    padding: 230px 0 0 0;
 }
 
 .page-heading {
