@@ -19,22 +19,42 @@ url: "http://maternidadesmanaus.com.br" # the base hostname & protocol for your 
 # Build settings
 markdown: kramdown
 
-# Social network
-social_networks:
-  -
-    name: "instagram"
-    link: "https://instagram.com/maternidadesmanaus/"
-    class: "ig"
-  -
-    name: "google+"
-    link: "https://plus.google.com/107723451370774227293"
-    class: "go"
-  -
-    name: "facebook"
-    link: "https://www.facebook.com/maternidadesmanaus/"
-    class: "fb"
+# SEO
+seo:
+  description: "Se você já deu à luz ou chegou a acompanhar um amigo(a) ou parente em alguma maternidade de Manaus (pública ou privada), avalie o serviço que você recebeu e conte um pouco dessa experiência."
+  keywords: "maternidades em manaus, maternidades manaus, maternidades de manaus, maternidades, manaus"
 
-social_sharer:
-  twitter: "https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Ajude%20a%20avaliar%20as%20maternidades%20da%20cidade%20de%20Manuas%20%7C&tw_p=tweetbutton&url=https%3A%2F%2Fmaternidadesmanaus.com.br%2F"
-  facebook: "https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmaternidadesmanaus.com.br%2F%23.VcJQC3C30X8.facebook"
-  google_plus: "https://plus.google.com/share?url=http%3A%2F%2Fmaternidadesmanaus.com.br%2F%23.VcJQSHDZK2c.google_plusone_share&t=Maternidades+Manaus"
+# Social networks configurations
+social_networks:
+  twitter:
+    name: "twitter"
+    profile_url: "https://twitter.com/maternidadesmao/"
+    class: "tw"
+    share:
+      url: "https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Ajude%20a%20avaliar%20as%20maternidades%20da%20cidade%20de%20Manuas%20%7C&tw_p=tweetbutton&url=https%3A%2F%2Fmaternidadesmanaus.com.br%2F"
+      width: "500"
+      height: "220"
+  instagram:
+    name: "instagram"
+    profile_url: "https://instagram.com/maternidadesmanaus/"
+    class: "ig"
+    share:
+      url: "https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Ajude%20a%20avaliar%20as%20maternidades%20da%20cidade%20de%20Manuas%20%7C&tw_p=tweetbutton&url=https%3A%2F%2Fmaternidadesmanaus.com.br%2F"
+      width: "500"
+      height: "500"
+  facebook:
+    name: "facebook"
+    profile_url: "https://www.facebook.com/maternidadesmanaus/"
+    class: "fb"
+    share:
+      url: "https://www.facebook.com/dialog/share?app_id=882763861758967&display=popup&href=http://maternidadesmanaus.com.br/&redirect_uri=http://maternidadesmanaus.com.br/"
+      width: "560"
+      height: "390"
+  google_plus:
+    name: "google+"
+    profile_url: "https://plus.google.com/107723451370774227293/"
+    class: "fb"
+    share:
+      url: "https://plus.google.com/share?url=http%3A%2F%2Fmaternidadesmanaus.com.br%2F&t=Maternidades+Manaus"
+      width: "500"
+      height: "475"

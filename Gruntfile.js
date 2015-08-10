@@ -21,7 +21,7 @@ module.exports = function(grunt) {
             }
         },
 
-        imagemin: {                          
+        imagemin: {
             dynamic: {                         
                 options: {                     
                     optimizationLevel: 3,
@@ -66,6 +66,7 @@ module.exports = function(grunt) {
                 src : [
                     'js/smooth-scroll.js',
                     'js/echo.js',
+                    'js/vanilla-modal.js',
                     'js/app.js'
                 ],
                 dest : '_site/js/main.js',
@@ -135,7 +136,7 @@ module.exports = function(grunt) {
                 cmd: 'jekyll build'
             },
             deploy: {
-                cmd: 'rsync -azvpog --progress --delete-excluded --exclude "Gruntfile.js" --exclude "img/src-sprite" --exclude "package.json" --exclude "node_modules/" --exclude "readme.md" -e "ssh -q" _site/ root@andrewslince:/var/www/maternidadesmanaus/'
+                cmd: 'rsync -azpog --progress --delete-excluded --exclude "Gruntfile.js" --exclude "img/src-sprite" --exclude "package.json" --exclude "node_modules/" --exclude "readme.md" -e "ssh -q" _site/ root@andrewslince:/var/www/maternidadesmanaus/'
             }
         }
     });

@@ -236,3 +236,10 @@ echo.init({
     throttle : 250,
     unload   : false
 });
+
+// register modal configurations
+function openModalSharer(url, width, height) {
+    var left = (screen.width/2)-(width/2);
+    var top = (screen.height/2)-(height/2);
+    window.open(url, '', 'width=' + width + ', height=' + height + ', scrollbars=no, left=' + left + ', top=' + top);
+}

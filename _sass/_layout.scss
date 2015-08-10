@@ -254,6 +254,7 @@ i.heart {
             }
 
             a {
+                color: #FF4E79;
                 display: block;
                 line-height: 45px;
                 text-align: center !important;
@@ -263,14 +264,13 @@ i.heart {
 
                 &:hover,
                 &:focus {
+                    text-decoration: none;
+                    outline: none;
 
                     & > i {
                         @include hover-social-icon;
                     }
 
-                    color: $orange-color;
-                    text-decoration: none;
-                    outline: none;
                 }
             }
         }
@@ -333,7 +333,6 @@ i.heart {
     }
 
     &.featured {
-        /*padding: 50px 0;*/
         padding: 35px 0 75px 0;
         background-color: #f5f5f5;
 
@@ -357,9 +356,6 @@ i.heart {
  * Summary
  */
 #summary {
-    /*font-size: 22px;
-    text-align: center;*/
-
     font-size: 21px;
     text-align: center;
     background: url("../img/baby-cover.jpg") no-repeat center -89px;
@@ -373,7 +369,7 @@ i.heart {
     .wrapper {
         color: #555;
         padding: 20px;
-        opacity: .8;
+        opacity: .65;
         background-color: #fff;
     }
 }

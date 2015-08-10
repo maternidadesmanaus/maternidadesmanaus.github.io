@@ -9,9 +9,9 @@
         nos ajudar a divulgar o ranking das maternidades da cidade de Manaus.
       </p>
       <ul class="share-buttons">
-        <li><a class="sb fb" target="_blank" href="{{ site.social_sharer.facebook }}">compartilhe no facebook</a></li>
-        <li><a class="sb tw" target="_blank" href="{{ site.social_sharer.twitter }}">compartilhe no twitter</a></li>
-        <li><a class="sb gp" target="_blank" href="{{ site.social_sharer.google_plus }}">compartilhe no google+</a></li>
+        <li><a class="sb fb" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('{{ site.social_networks.facebook.share.url }}', '{{ site.social_networks.facebook.share.width }}', '{{ site.social_networks.facebook.share.height }}');">compartilhe no facebook</a></li>
+        <li><a class="sb tw" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('{{ site.social_networks.twitter.share.url }}', '{{ site.social_networks.twitter.share.width }}', '{{ site.social_networks.twitter.share.height }}');">compartilhe no twitter</a></li>
+        <li><a class="sb gp" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('{{ site.social_networks.google_plus.share.url }}', '{{ site.social_networks.google_plus.share.width }}', '{{ site.social_networks.google_plus.share.height }}');">compartilhe no google+</a></li>
       </ul>
       <h3>siga o projeto!</h3>
       <p>
@@ -20,16 +20,25 @@
         <strong>Maternidades Manaus</strong> através das nossas páginas nas redes sociais.
       </p>
       <ul class="social-media bottom">
-        {% for network in site.social_networks %}
-          <li>
-            <a target="_blank" href="{{ network.link }}">
-              <i class="{{ network.class }}"></i>
-              {{ network.name }}
-            </a>
-          </li>
-        {% endfor %}
+        <li>
+          <a target="_blank" href="{{ site.social_networks.instagram.profile_url }}">
+            <i class="{{ site.social_networks.instagram.class }}"></i>
+            {{ site.social_networks.instagram.name }}
+          </a>
+        </li>
+        <li>
+          <a target="_blank" href="{{ site.social_networks.google_plus.profile_url }}">
+            <i class="go"></i>
+            {{ site.social_networks.google_plus.name }}
+          </a>
+        </li>
+        <li>
+          <a target="_blank" href="{{ site.social_networks.facebook.profile_url }}">
+            <i class="{{ site.social_networks.facebook.class }}"></i>
+            {{ site.social_networks.facebook.name }}
+          </a>
+        </li>
       </ul>
-
     </div>
   </div>
 </section>
