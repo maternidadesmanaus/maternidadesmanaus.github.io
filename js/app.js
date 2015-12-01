@@ -146,23 +146,15 @@ function menuNav(target) {
 
     // mobile
     if (document.body.classList.contains("mobile")) {
-
-        // ipad or google nexus
-        if (
+        discount = (
             userAgent.indexOf("ipad") > 0
             || userAgent.indexOf("nexus") > 0
-        ) {
-            discount = (document.querySelector("header").classList.contains("floating"))
-                ? -125
-                : -440;
-        }
+        )
+            // ipad or google nexus
+            ? -440
 
-        // other devices
-        else {
-            discount = (document.querySelector("header").classList.contains("floating"))
-                ? -300
-                : -610;
-        }
+            // other devices
+            : -610;
     }
 
     // desktop
