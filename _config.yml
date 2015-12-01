@@ -47,7 +47,7 @@ social_networks:
     profile_url: "https://www.facebook.com/maternidadesmanaus/"
     class: "fb"
     share:
-      url: "https://www.facebook.com/dialog/share?app_id=882763861758967&display=popup&href=http://maternidadesmanaus.com.br/&redirect_uri=http://maternidadesmanaus.com.br/"
+      url: "https://www.facebook.com/dialog/share?app_id=860473617401844&display=popup&href=http://maternidadesmanaus.com.br/&redirect_uri=http://maternidadesmanaus.com.br/"
       width: "560"
       height: "390"
   google_plus:
