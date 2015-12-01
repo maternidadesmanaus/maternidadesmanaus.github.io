@@ -189,42 +189,10 @@ function goToTop() {
     });
 }
 
-function showFloatingMenuAndGoToTop() {
-    var doc        = document,
-        top        = (window.pageYOffset || doc.documentElement.scrollTop),
-        goToTopBtn = doc.getElementById("go-to-top") || null;
-
-    // displays go to the top
-    // if (goToTopBtn !== null) {
-    //     goToTopBtn.style.display = (top > 1000)
-    //         ? "block"
-    //         : "none";
-    // }
-
-    // displays floating menu navigation
-    if (top > 213) {
-        doc.querySelector("header").classList.add("floating");
-    } else {
-        doc.querySelector("header").classList.remove("floating");
-    }
-
-    if (top > 245) {
-        doc.querySelector("i.heart").classList.add("fixed");
-    } else {
-        doc.querySelector("i.heart").classList.remove("fixed");
-    }
-}
-
 // sets the mobile flag
 if (_isMobile()) {
     document.body.classList.add("mobile");
 }
-
-showFloatingMenuAndGoToTop();
-
-window.addEventListener("scroll", function(event) {
-    showFloatingMenuAndGoToTop();
-}, false);
 
 document.querySelector(".nav .menu").addEventListener("click", function(event) {
     this.parentNode.classList.toggle("active");

@@ -5,11 +5,8 @@
     background-color: #FF4E79;
     color: #fae9ed;
     padding: 80px 100px;
-    position: fixed;
     width: 100%;
     z-index: 1;
-
-    @include transition;
 
     .logo {
         text-transform: uppercase;
@@ -22,8 +19,6 @@
         margin: 0;
         color: #fff;
         text-shadow: #af0000 1px 1px 3px;
-
-        @include transition;
     }
 
     /**
@@ -33,8 +28,6 @@
 
         float: right;
         text-align: center;
-
-        @include transition;
 
         h2 {
             display: none;
@@ -67,42 +60,6 @@
 
                 &:first-child a {
                     margin-left: 0;
-                }
-            }
-        }
-    }
-
-    /**
-     * Floating Menu Navigation
-     */
-    &.floating {
-        margin-top: 0;
-        padding: 20px 30px;
-        width: 100%;
-        z-index: 2;
-
-        @include transition;
-
-        .wrapper {
-            max-width: 100%;
-            padding: 0;
-        }
-
-        .logo {
-            font-size: 25px;
-        }
-
-        .nav {
-            margin: 0;
-
-            @include transition;
-
-            ul {
-                text-align: right;
-                margin-bottom: 0;
-
-                li a {
-                    @include transition;
                 }
             }
         }
@@ -643,8 +600,7 @@ i.heart {
  * Page content
  */
 .page-content {
-    /*padding: 190px 0 0 0;*/
-    padding: 230px 0 0 0;
+    padding: 50px 0 0 0;
 }
 
 .page-heading {
