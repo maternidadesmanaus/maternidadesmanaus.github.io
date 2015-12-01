@@ -167,9 +167,7 @@ function menuNav(target) {
 
     // desktop
     else {
-        discount = (document.querySelector("header").classList.contains("floating"))
-            ? -70
-            : -70;
+        discount = 20;
     }
 
     smoothScroll.init({
