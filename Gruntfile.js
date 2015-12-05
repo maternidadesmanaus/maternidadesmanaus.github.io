@@ -131,6 +131,9 @@ module.exports = function(grunt) {
         },
 
         exec: {
+            updateForm: {
+                cmd: 'casperjs _scripts/update-form.js'
+            },
             build: {
                 // cmd: 'jekyll build --destination ./_site/public'
                 cmd: 'jekyll build'
@@ -152,6 +155,7 @@ module.exports = function(grunt) {
 
     // register tasks
     grunt.registerTask('default', [ 'exec:build', 'concat' ]);
+    grunt.registerTask('update-form', [ 'exec:updateForm', 'exec:build', 'concat' ]);
     grunt.registerTask('deploy', [
         'exec:build',
         'uglify',

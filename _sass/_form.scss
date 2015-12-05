@@ -1,0 +1,108 @@
+#rate {
+    background-color: #fff;
+    border: 1px #e5e5e5 solid;
+    padding: 30px 20px;
+}
+
+.freebirdFormviewerViewItemsItemItem {
+    margin-bottom: 30px;
+    position: relative;
+    padding: 20px 10px 10px 10px;
+    border: 1px #fff solid;
+
+    .required-message,
+    .error-message {
+        display: none;
+        position: absolute;
+        top: -15px;
+        right: 10px;
+        padding: 5px 10px;
+        background-color: #fd1943;
+        color: #fff;
+        font-size: 14px;
+        font-style: italic;
+    }
+
+    &.error {
+        border-color: #feb0bf;
+        background-color: #fff4f6;
+    }
+}
+
+.freebirdFormviewerViewItemsItemItemTitle {
+    color: $primary-color;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+.exportInput,
+.exportTextarea {
+    border:1px #ccc solid;
+    color: #777;
+    font-family: $base-font-family;
+    font-size: 15px;
+    padding: 10px 12px;
+    width: 100%;
+}
+
+.exportTextarea {
+    height: 160px;
+}
+
+.freebirdFormviewerViewItemsRadioLabel {
+    background: url("../img/radio-empty.png") no-repeat center left;
+    cursor: pointer;
+    height: 30px;
+    display: block;
+    line-height: 32px;
+    padding-left: 26px;
+}
+
+.freebirdFormviewerViewItemsItemItemHelpText {
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 5px;
+    text-transform: lowercase;
+}
+
+.freebirdFormviewerViewNavigationPasswordWarning,
+.freebirdFormviewerViewHeaderHeader,
+.exportLabel {
+    display: none;
+}
+
+.freebirdFormviewerViewNavigationSubmitButton {
+    background-color: $primary-color;
+    border: none;
+    color: $white-color;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    width: 150px;
+    text-align: center;
+    text-transform: lowercase;
+    margin: auto;
+
+    &:hover {
+        opacity: .8;
+    }
+}
+
+/* fake select */
+
+.freebirdMaterialSelectPaperselectOptionList {
+    background: url("../img/arrow-down.png") no-repeat top right;
+    border: 1px #ccc solid;
+    cursor: pointer;
+    padding: 5px 10px;
+    height: 37px;
+    overflow: hidden;
+    position: absolute;
+    width: 807px;
+    z-index: 1;
+}
+
+.freebirdMaterialSelectPaperselectOption {
+    line-height: 28px;
+    outline: none;
+}
