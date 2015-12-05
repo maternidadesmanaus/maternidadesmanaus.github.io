@@ -7,7 +7,12 @@ casper.start(googleFormUrl, function() {
 
     console.log("parseando html do formulário...");
     var form = this.evaluate(function() {
-        return document.querySelector(".freebirdFormviewerViewCenteredContent form").innerHTML.replace(/required\=\"\"/g, '');
+        return '<form action="https://docs.google.com/forms/d/1UVB3EqhdY4abRrzRegIn19ef1bhPaX4STuFvrbpwSIg/formResponse" method="POST" target="_self">'
+            + document
+                .querySelector(".freebirdFormviewerViewCenteredContent form")
+                .innerHTML
+                .replace(/required\=\"\"/g, '');
+            + '</form>';
     });
 
     console.log("gravando arquivo com o formulário...");
