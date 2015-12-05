@@ -42,43 +42,211 @@ function _isValidEmail(email) {
 function _removeValidationError(fieldWrapper) {
 
     // remove class error on field wrapper
-    fieldWrapper.classList.remove("error");
+    fieldWrapper.querySelector(".ss-form-entry").classList.remove("error");
 
     // hides error message
-    fieldWrapper.querySelector("em").style.display = "none";
+    if (fieldWrapper.querySelector(".required-message")) {
+        fieldWrapper.querySelector(".required-message").style.display = "none";
+    }
 }
 
 function _setValidationError(fieldWrapper, message) {
 
     // set class error on field wrapper
-    fieldWrapper.classList.add("error");
+    fieldWrapper.querySelector(".ss-form-entry").classList.add("error");
 
-    // set error message
-    fieldWrapper.querySelector("em").innerHTML = message;
-    
-    // displays error message
-    fieldWrapper.querySelector("em").style.display = "block";
+    if (fieldWrapper.querySelector(".required-message")) {
+
+        // set error message
+        fieldWrapper.querySelector(".required-message").innerHTML = message;
+        
+        // displays error message
+        fieldWrapper.querySelector(".required-message").style.display = "block";
+    }
 }
 
-function sendContactMessage(frm) {
-    var frmIsValid   = true,
-        fieldWrapper = null,
-        fieldValue   = "",
-        htmlOutput   = "",
-        frmFields    = frm.querySelectorAll(
-            "input[type='text'], input[type='email'], textarea"
-        );
+function getFieldType(fieldWrapper) {
+
+    var fieldType = 'undefined';
+
+    // textarea
+    if (fieldWrapper.querySelector(".ss-paragraph-text")) {
+        fieldType = "textarea";
+    }
+
+    // select
+    else if (fieldWrapper.querySelector(".ss-select")) {
+        fieldType = "select";
+    }
+
+    // radio buttons
+    else if (fieldWrapper.querySelector(".ss-radio")) {
+        fieldType = "radios";
+    }
+
+    // input text
+    else if (fieldWrapper.querySelector(".ss-text")) {
+        fieldType = "input_text";
+    }
+
+    return fieldType;
+}
+
+function getField(fieldWrapper) {
+
+    var field = undefined;
+
+    // textarea
+    if (fieldWrapper.querySelector(".ss-paragraph-text")) {
+        field = fieldWrapper.querySelector(".ss-q-long");
+    }
+
+    // select
+    else if (fieldWrapper.querySelector(".ss-select")) {
+        field = fieldWrapper.querySelector("select");
+    }
+
+    // radio buttons
+    else if (fieldWrapper.querySelector(".ss-radio")) {
+        field = fieldWrapper.querySelector(".ss-choices");
+    }
+
+    // input text
+    else if (fieldWrapper.querySelector(".ss-text")) {
+        field = fieldWrapper.querySelector(".ss-q-short");
+    }
+
+    return field;
+}
+
+function isRequired(fieldWrapper) {
+    return (fieldWrapper.querySelector(".ss-item-required"))
+        ? true
+        : false;
+}
+
+function getFieldValue(field) {
+    
+    var nodeName   = field.nodeName.toLowerCase(),
+        fieldValue = "",
+        radios     = [];
+
+    if (nodeName === "ul") {
+        radios = field.querySelectorAll(".ss-q-radio");
+
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+                fieldValue = radios[i].value;
+            }
+        }
+    }
+
+    else if (nodeName === "input") {
+        fieldValue = field.value;
+    }
+
+    else if (nodeName === "select" && field.selectedIndex > 0) {
+        fieldValue = field.options[field.selectedIndex].text;
+    }
+
+    else if (nodeName === "textarea") {
+        fieldValue = field.value;
+    }
+
+    return fieldValue.trim();
+}
+
+function ajaxRequest(options) {
+
+    var type = options.type.toLowerCase();
+
+    // declare the variable at the top, even though it will be null at first
+    var req = null;
+
+    // figure out what kind of support we have for the XMLHttpRequest object
+    req = (window.XMLHttpRequest)
+        ? new XMLHttpRequest()  //modern browsers
+        : new ActiveXObject("Microsoft.XMLHTTP");  //good ol' lousy IE
+
+    req.overrideMimeType('text/xml');
+
+    // setup the readystatechange listener
+    req.onreadystatechange = function () {
+
+        //right now we only care about a successful and complete response
+        if (req.readyState === 4 && req.status === 200) {
+            if (options.dataType == "json") {
+                options.success(JSON.parse(req.response));
+            } else {
+                options.success(eval("(" + req.response + ")"));
+            }
+        }
+    };
+
+    // open the XMLHttpRequest connection
+    req.open(options.type, options.url, true);
+
+    if (type === "post") {
+        req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    }
+
+    // send the XMLHttpRequest request (nothing has actually been sent until this very line)
+    req.send();
+}
+
+function showFeedbackMessage(className, title, message) {
+
+    var container = document.getElementById("rate");
+
+    smoothScroll.init({
+        target   : document.getElementById("rate-maternity"),
+        discount : 4
+    });
+
+    htmlOutput  = "";
+    htmlOutput += "<div id=\"sent-message\" class=\"" + className + "\">";
+    htmlOutput += "<i></i>";
+    htmlOutput += "<h4>" + title + "</h4>";
+    htmlOutput += "<p>" + message + "</p>";
+    htmlOutput += "</div>";
+
+    // display success message
+    container.innerHTML = htmlOutput;
+
+    // run a animation on the success icon
+    setTimeout(function(){
+        container.querySelector("i").classList.add("animate");
+
+        setTimeout(function(){
+            container.querySelector("i").classList.remove("animate");
+        }, 600);
+    }, 300);
+}
+
+function submitForm(frm) {
+
+    var frmIsValid    = true,
+        fieldWrapper  = null,
+        fieldValue    = "",
+        htmlOutput    = "",
+        frmFields     = frm.querySelectorAll(".ss-form-question"),
+        fieldList     = [],
+        valuesList    = [],
+        submitDataObj = {};
 
     // validate form fields
     for (var i = 0; i < frmFields.length; i++) {
 
-        // clean blank spaces around the string
-        fieldValue = frmFields[i].value.trim();
+        var fieldWrapper    = frmFields[i],
+            fieldType       = getFieldType(fieldWrapper),
+            field           = getField(fieldWrapper),
+            fieldIsRequired = isRequired(fieldWrapper),
+            fieldValue      = getFieldValue(field);
 
-        fieldWrapper = frmFields[i].parentNode;
+        fieldList.push(field);
+        valuesList.push(fieldValue);
 
-        if (fieldValue === "") {
-
+        if (fieldValue === "" && fieldIsRequired) {
             _setValidationError(fieldWrapper, "campo obrigatório");
 
             // register flag from form error
@@ -87,39 +255,58 @@ function sendContactMessage(frm) {
             }
         }
 
-        // clean field error
         else {
-            if (frmFields[i].type === "email") {
-                if (_isValidEmail(frmFields[i].value)) {
-                    _removeValidationError(fieldWrapper);
-                } else {
-                    _setValidationError(fieldWrapper, "e-mail inválido");
-                }
-            } else {
-                _removeValidationError(fieldWrapper);
+            _removeValidationError(fieldWrapper);
+
+            if (
+                field.getAttribute("aria-label").indexOf("e-mail") != -1
+                && fieldValue !== ""
+                && !_isValidEmail(fieldValue)
+            ) {
+                _setValidationError(fieldWrapper, "e-mail inválido");
             }
         }
     }
 
     if (frmIsValid) {
 
-        htmlOutput += "<div id=\"sent-message\">";
-        htmlOutput += "<i class=\"ok\"></i>";
-        htmlOutput += "<h4>mensagem enviada com sucesso!!!</h4>";
-        htmlOutput += "<p>muito obrigado por entrar em contato com a gente e aguarde, porque vamos lhe responder logo logo.</p>";
-        htmlOutput += "</div>";
+        for (var i = 0; i < fieldList.length; i++) {
+            var name = (fieldList[i].nodeName.toLowerCase() === "ul")
+                ? fieldList[i].querySelector("input[type=radio]").name
+                : fieldList[i].name;
 
-        // display success message
-        frm.innerHTML = htmlOutput;
+            submitDataObj[name] = valuesList[i];
+        }
 
-        // run a animation on the success icon
-        setTimeout(function(){
-            frm.querySelector("i").classList.add("animate");
+        // ajaxRequest({
+        //     url: frm.action,
+        //     data: submitDataObj,
+        //     type: frm.method
+        // });
 
-            setTimeout(function(){
-                frm.querySelector("i").classList.remove("animate");
-            }, 600);
-        }, 300);
+        $.ajaxSetup({ cache: false });
+        $.ajax({
+            url: frm.action,
+            data: submitDataObj,
+            type: "POST",
+            dataType: "xml",
+            statusCode: {
+                0: function() {
+                    showFeedbackMessage(
+                        "ok",
+                        "avaliação enviada com sucesso!!!",
+                        "muito obrigado por participar desse projeto e ajudar outras mulheres a escolher a melhor maternidade de Manaus!"
+                    );
+                },
+                200: function() {
+                    showFeedbackMessage(
+                        "nok",
+                        "problemas no envio da avaliação!!!",
+                        "infelizmente, ocorreu um problema desconhecido ao enviar a sua avaliação!"
+                    );
+                }
+            }
+        });
 
     } else {
 
@@ -127,12 +314,14 @@ function sendContactMessage(frm) {
         frm.classList.add("error");
 
         // set the focus to the first invalid field
-        frm.querySelector(".row.error input, .row.error textarea").focus();
+        frm.querySelector(".ss-form-entry.error").focus();
 
         // go to the top of the form
         smoothScroll.init({
-            target   : frm,
-            discount : -120
+            target   : frm.querySelector(".ss-form-entry.error"),
+            discount : (window.innerWidth <= 600)
+                ? -220
+                : -100
         });
     }
 
@@ -179,6 +368,20 @@ function goToTop() {
     });
 }
 
+/**
+ * Register modal configurations
+ * 
+ * @param  {String}  url
+ * @param  {Integer} width
+ * @param  {Integer} height
+ * @return {Void}
+ */
+function openModalSharer(url, width, height) {
+    var left = (screen.width/2)-(width/2);
+    var top  = (screen.height/2)-(height/2);
+    window.open(url, '', 'width=' + width + ', height=' + height + ', scrollbars=no, left=' + left + ', top=' + top);
+}
+
 // sets the mobile flag
 if (_isMobile()) {
     document.body.classList.add("mobile");
@@ -195,9 +398,4 @@ echo.init({
     unload   : false
 });
 
-// register modal configurations
-function openModalSharer(url, width, height) {
-    var left = (screen.width/2)-(width/2);
-    var top = (screen.height/2)-(height/2);
-    window.open(url, '', 'width=' + width + ', height=' + height + ', scrollbars=no, left=' + left + ', top=' + top);
-}
+document.querySelector("#rate form").setAttribute("onsubmit", "return submitForm(this);");
