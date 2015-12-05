@@ -12,6 +12,31 @@ if (!String.prototype.trim) {
     };
 }
 
+function selectChoice(elm) {
+    var hasAnother = false,
+        parent = elm.parentNode,
+        nodes = parent.querySelectorAll(".freebirdFormviewerViewItemsRadioChoice");
+
+    // checks if has a another answer
+    if ((parent.classList.contains("freebirdFormviewerViewItemsRadioOtherContainer"))) {
+        nodes = parent.parentNode.querySelectorAll(".freebirdFormviewerViewItemsRadioChoice");
+        hasAnother = true;
+    }
+
+    // unselect all answers
+    for (var i = 0; i < nodes.length; i++) {
+        nodes[i].classList.remove("selected");
+    }
+
+    // select the option
+    elm.classList.add("selected");
+
+    // if has a another answer
+    if (hasAnother) {
+        parent.querySelector("input").focus();
+    }
+}
+
 function dbg(data) {
     console.log(data);
 }
@@ -387,6 +412,7 @@ if (_isMobile()) {
     document.body.classList.add("mobile");
 }
 
+// register menu navigation events
 document.querySelector(".nav .menu").addEventListener("click", function(event) {
     this.parentNode.classList.toggle("active");
 }, false);
@@ -398,4 +424,12 @@ echo.init({
     unload   : false
 });
 
+// register submit event
 document.querySelector("#rate form").setAttribute("onsubmit", "return submitForm(this);");
+
+// register select choice events
+var options = document.querySelectorAll(".LabeledRadioContainer");
+for (var i = 0; i < options.length; i++) {
+    console.log(options[i]);
+    options[i].setAttribute("onclick", 'selectChoice(this)');
+}

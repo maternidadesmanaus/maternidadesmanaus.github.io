@@ -49,13 +49,17 @@
     height: 160px;
 }
 
-.freebirdFormviewerViewItemsRadioLabel {
+.freebirdFormviewerViewItemsRadioChoice {
     background: url("../img/radio-empty.png") no-repeat center left;
     cursor: pointer;
     height: 30px;
     display: block;
     line-height: 32px;
     padding-left: 26px;
+
+    &.selected {
+        background: url("../img/radio-selected.png") no-repeat center left;
+    }
 }
 
 .freebirdFormviewerViewItemsItemItemHelpText {
