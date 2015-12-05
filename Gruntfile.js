@@ -65,8 +65,8 @@ module.exports = function(grunt) {
             scripts : {
                 src : [
                     'js/smooth-scroll.js',
+                    'js/jquery-2.1.4.min.js',
                     'js/echo.js',
-                    'js/vanilla-modal.js',
                     'js/app.js'
                 ],
                 dest : '_site/js/main.js',
@@ -78,6 +78,7 @@ module.exports = function(grunt) {
                 files : {
                     '_site/js/main.js' : [
                         'js/smooth-scroll.js',
+                        'js/jquery-2.1.4.min.js',
                         'js/echo.js',
                         'js/app.js'
                     ]
