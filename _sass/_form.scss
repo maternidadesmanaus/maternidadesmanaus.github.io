@@ -99,18 +99,42 @@
 }
 
 .freebirdMaterialSelectPaperselectOptionList {
-    background: url("../img/arrow-down.png") no-repeat top right;
+    background-color: #fff;
     border: 1px #ccc solid;
     cursor: pointer;
-    padding: 5px 10px;
     height: 37px;
     overflow: hidden;
     position: absolute;
     width: 807px;
     z-index: 1;
+
+    &.opened {
+        height: auto;
+    }
+}
+
+.freebirdMaterialSelectPaperselectOptionSeparator {
+    background: #fff url("../img/arrow-down.png") no-repeat center center;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width:32px;
+    height:32px;
 }
 
 .freebirdMaterialSelectPaperselectOption {
-    line-height: 28px;
+    padding: 5px 10px;
+
+    &.isSelected:hover {
+        background-color: #fff;
+    }
+
+    &:hover {
+        background-color: #f3f3f3;
+    }
+}
+
+.freebirdMaterialSelectPaperselectOption {
+    line-height: 26px;
     outline: none;
 }

@@ -12,7 +12,43 @@ if (!String.prototype.trim) {
     };
 }
 
-function selectChoice(elm) {
+/**
+ * Register select choice events (select)
+ * 
+ * @return {Void}
+ */
+function registerEventFromSelectField() {
+    var selectFields = document.querySelectorAll(".freebirdMaterialSelectPaperselectOption.isSelected");
+    for (var i = 0; i < selectFields.length; i++) {
+        selectFields[i].setAttribute("onclick", "openSelectChoice(this)");
+    }
+}
+
+/**
+ * Register select choice events (radio buttons)
+ * 
+ * @return {Void}
+ */
+function registerEventFromRadioButtonField() {
+    var radioButtons = document.querySelectorAll(".LabeledRadioContainer");
+    for (var i = 0; i < radioButtons.length; i++) {
+        radioButtons[i].setAttribute("onclick", "selectChoiceRadioButton(this)");
+    }
+}
+
+/**
+ * Register event to open select field
+ * 
+ * @return {Void}
+ */
+function registerEventOpenSelect(elm) {
+    var options = elm.parentNode.querySelectorAll(".freebirdMaterialSelectPaperselectOption");
+    for (var i = 0; i < options.length; i++) {
+        options[i].setAttribute("onclick", "selectChoiceDropdown(this)");
+    }
+}
+
+function selectChoiceRadioButton(elm) {
     var hasAnother = false,
         parent = elm.parentNode,
         nodes = parent.querySelectorAll(".freebirdFormviewerViewItemsRadioChoice");
@@ -35,6 +71,20 @@ function selectChoice(elm) {
     if (hasAnother) {
         parent.querySelector("input").focus();
     }
+}
+
+function selectChoiceDropdown(elm) {
+    var parent = elm.parentNode;
+    parent.querySelector(".isSelected content").innerHTML = elm.querySelector("content").innerHTML;
+    parent.classList.remove("opened");
+
+    registerEventFromSelectField();
+}
+
+function openSelectChoice(elm) {
+    elm.parentNode.classList.add("opened");
+
+    registerEventOpenSelect(elm);
 }
 
 function dbg(data) {
@@ -427,9 +477,6 @@ echo.init({
 // register submit event
 document.querySelector("#rate form").setAttribute("onsubmit", "return submitForm(this);");
 
-// register select choice events
-var options = document.querySelectorAll(".LabeledRadioContainer");
-for (var i = 0; i < options.length; i++) {
-    console.log(options[i]);
-    options[i].setAttribute("onclick", 'selectChoice(this)');
-}
+registerEventFromRadioButtonField();
+
+registerEventFromSelectField();
