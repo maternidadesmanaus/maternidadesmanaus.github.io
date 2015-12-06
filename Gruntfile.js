@@ -140,7 +140,8 @@ module.exports = function(grunt) {
                 cmd: 'jekyll build'
             },
             deploy: {
-                cmd: 'rsync -azpog --progress --delete-excluded --exclude "Gruntfile.js" --exclude "img/src-sprite" --exclude "package.json" --exclude "node_modules/" --exclude "readme.md" -e "ssh -q" _site/ root@andrewslince:/var/www/maternidadesmanaus/'
+                // cmd: 'rsync -azpog --progress --delete-excluded --exclude "Gruntfile.js" --exclude "img/src-sprite" --exclude "package.json" --exclude "node_modules/" --exclude "readme.md" -e "ssh -q" _site/ root@andrewslince:/var/www/maternidadesmanaus/'
+                cmd: 'rsync -azpog --progress --delete-excluded --exclude "Gruntfile.js" --exclude "img/src-sprite" --exclude "package.json" --exclude "node_modules/" --exclude "readme.md" -e "ssh -q" _site/ root@andrewslince.me:/var/www/beta.maternidadesmanaus.com.br/'
             }
         }
     });
@@ -161,7 +162,7 @@ module.exports = function(grunt) {
         'exec:build',
         'uglify',
         'htmlmin',
-        'imagemin',
+        // 'imagemin',
         'cssmin',
         'exec:deploy'
     ]);
