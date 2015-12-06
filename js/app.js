@@ -12,6 +12,50 @@ if (!String.prototype.trim) {
     };
 }
 
+
+function getForm() {
+    return document.querySelector("#rate form");
+}
+
+/**
+ * Defines the initial styles from the form
+ *
+ * @return {Void}
+ */
+function setFormStyles() {
+
+    var form = getForm();
+
+    // username with upper case
+    form.querySelectorAll(".freebirdFormviewerViewItemsItemItem")[0].querySelector(".exportInput").classList.add("upper");
+    
+    // email with lower case
+    form.querySelectorAll(".freebirdFormviewerViewItemsItemItem")[1].querySelector(".exportInput").classList.add("lower");
+}
+
+/**
+ * Register select choice events (another field)
+ * 
+ * @return {Void}
+ */
+function registerEventFromAnotherField() {
+    var anotherFields = document.querySelectorAll(".freebirdFormviewerViewItemsRadioOtherInput input");
+    for (var i = 0; i < anotherFields.length; i++) {
+        anotherFields[i].addEventListener("focus", function(event) {
+            this
+                .parentNode
+                .parentNode
+                .parentNode
+                .parentNode
+                .parentNode
+                .parentNode
+                .querySelector(".freebirdFormviewerViewItemsRadioChoice")
+                .classList
+                .add("selected");
+        }, false);
+    }
+}
+
 /**
  * Register select choice events (select)
  * 
@@ -50,6 +94,7 @@ function registerEventOpenSelect(elm) {
 
 function selectChoiceRadioButton(elm) {
     var hasAnother = false,
+        anotherInput = null,
         parent = elm.parentNode,
         nodes = parent.querySelectorAll(".freebirdFormviewerViewItemsRadioChoice");
 
@@ -69,7 +114,13 @@ function selectChoiceRadioButton(elm) {
 
     // if has a another answer
     if (hasAnother) {
+        parent.querySelector(".freebirdFormviewerViewItemsRadioOtherInput").style.display = "block";
         parent.querySelector("input").focus();
+    } else {
+        anotherInput = parent.parentNode.querySelector(".freebirdFormviewerViewItemsRadioOtherInput");
+        if (anotherInput !== null) {
+            anotherInput.style.display = "none";
+        }
     }
 }
 
@@ -117,26 +168,26 @@ function _isValidEmail(email) {
 function _removeValidationError(fieldWrapper) {
 
     // remove class error on field wrapper
-    fieldWrapper.querySelector(".ss-form-entry").classList.remove("error");
+    fieldWrapper.classList.remove("error");
 
     // hides error message
-    if (fieldWrapper.querySelector(".required-message")) {
-        fieldWrapper.querySelector(".required-message").style.display = "none";
+    if (fieldWrapper.querySelector(".freebirdFormviewerViewItemsItemErrorMessage")) {
+        fieldWrapper.querySelector(".freebirdFormviewerViewItemsItemErrorMessage").style.display = "none";
     }
 }
 
 function _setValidationError(fieldWrapper, message) {
 
     // set class error on field wrapper
-    fieldWrapper.querySelector(".ss-form-entry").classList.add("error");
+    fieldWrapper.classList.add("error");
 
-    if (fieldWrapper.querySelector(".required-message")) {
+    if (fieldWrapper.querySelector(".freebirdFormviewerViewItemsItemErrorMessage")) {
 
         // set error message
-        fieldWrapper.querySelector(".required-message").innerHTML = message;
+        fieldWrapper.querySelector(".freebirdFormviewerViewItemsItemErrorMessage").innerHTML = message;
         
         // displays error message
-        fieldWrapper.querySelector(".required-message").style.display = "block";
+        fieldWrapper.querySelector(".freebirdFormviewerViewItemsItemErrorMessage").style.display = "block";
     }
 }
 
@@ -145,22 +196,22 @@ function getFieldType(fieldWrapper) {
     var fieldType = 'undefined';
 
     // textarea
-    if (fieldWrapper.querySelector(".ss-paragraph-text")) {
+    if (fieldWrapper.querySelector(".exportContentArea")) {
         fieldType = "textarea";
     }
 
     // select
-    else if (fieldWrapper.querySelector(".ss-select")) {
+    else if (fieldWrapper.querySelector(".freebirdMaterialSelectPaperselectOptionList")) {
         fieldType = "select";
     }
 
     // radio buttons
-    else if (fieldWrapper.querySelector(".ss-radio")) {
+    else if (fieldWrapper.querySelector(".freebirdFormviewerViewItemsRadioChoice")) {
         fieldType = "radios";
     }
 
     // input text
-    else if (fieldWrapper.querySelector(".ss-text")) {
+    else if (fieldWrapper.querySelector(".exportContent")) {
         fieldType = "input_text";
     }
 
@@ -172,101 +223,76 @@ function getField(fieldWrapper) {
     var field = undefined;
 
     // textarea
-    if (fieldWrapper.querySelector(".ss-paragraph-text")) {
-        field = fieldWrapper.querySelector(".ss-q-long");
+    if (fieldWrapper.querySelector(".exportContentArea")) {
+        field = fieldWrapper.querySelector(".exportTextarea");
     }
 
     // select
-    else if (fieldWrapper.querySelector(".ss-select")) {
-        field = fieldWrapper.querySelector("select");
+    else if (fieldWrapper.querySelector(".freebirdMaterialSelectPaperselectOptionList")) {
+        field = fieldWrapper.querySelector(".freebirdMaterialSelectPaperselectOptionList");
     }
 
     // radio buttons
-    else if (fieldWrapper.querySelector(".ss-radio")) {
-        field = fieldWrapper.querySelector(".ss-choices");
+    else if (fieldWrapper.querySelector(".freebirdFormviewerViewItemsRadioChoice")) {
+        field = fieldWrapper;
     }
 
     // input text
-    else if (fieldWrapper.querySelector(".ss-text")) {
-        field = fieldWrapper.querySelector(".ss-q-short");
+    else if (fieldWrapper.querySelector(".exportContent")) {
+        field = fieldWrapper.querySelector(".exportInput");
     }
 
     return field;
 }
 
 function isRequired(fieldWrapper) {
-    return (fieldWrapper.querySelector(".ss-item-required"))
+    return (fieldWrapper.getAttribute("data-required") !== null)
         ? true
         : false;
 }
 
 function getFieldValue(field) {
     
-    var nodeName   = field.nodeName.toLowerCase(),
-        fieldValue = "",
-        radios     = [];
+    var classList  = field.classList,
+        fieldValue = "";
 
-    if (nodeName === "ul") {
-        radios = field.querySelectorAll(".ss-q-radio");
+    // radio button
+    if (classList.contains("freebirdFormviewerViewItemsItemItem")) {
 
-        for (var i = 0; i < radios.length; i++) {
-            if (radios[i].checked) {
-                fieldValue = radios[i].value;
-            }
+        // simple choice (radio)
+        var fieldElement = field.querySelector(".freebirdFormviewerViewItemsRadioChoice.selected span");
+        fieldValue = (fieldElement !== null)
+            ? fieldElement.innerHTML
+            : "";
+
+        // another choice (input)
+        if (fieldValue.toLowerCase().indexOf("outro") != -1) {
+            var anotherField = field.querySelector(".freebirdFormviewerViewItemsRadioOtherInput .exportInput");
+            fieldValue = (anotherField !== null && anotherField.value !== "")
+                ? fieldValue = "Outro__" + anotherField.value
+                : "";
         }
     }
 
-    else if (nodeName === "input") {
+    // input text
+    else if (classList.contains("exportInput")) {
         fieldValue = field.value;
     }
 
-    else if (nodeName === "select" && field.selectedIndex > 0) {
-        fieldValue = field.options[field.selectedIndex].text;
+    // select
+    else if (classList.contains("freebirdMaterialSelectPaperselectOptionList")) {
+        fieldValue = field.querySelector("content").innerHTML;
+        if (fieldValue === "Escolher") {
+            fieldValue = "";
+        }
     }
 
-    else if (nodeName === "textarea") {
+    // textarea
+    else if (classList.contains("exportTextarea")) {
         fieldValue = field.value;
     }
 
     return fieldValue.trim();
-}
-
-function ajaxRequest(options) {
-
-    var type = options.type.toLowerCase();
-
-    // declare the variable at the top, even though it will be null at first
-    var req = null;
-
-    // figure out what kind of support we have for the XMLHttpRequest object
-    req = (window.XMLHttpRequest)
-        ? new XMLHttpRequest()  //modern browsers
-        : new ActiveXObject("Microsoft.XMLHTTP");  //good ol' lousy IE
-
-    req.overrideMimeType('text/xml');
-
-    // setup the readystatechange listener
-    req.onreadystatechange = function () {
-
-        //right now we only care about a successful and complete response
-        if (req.readyState === 4 && req.status === 200) {
-            if (options.dataType == "json") {
-                options.success(JSON.parse(req.response));
-            } else {
-                options.success(eval("(" + req.response + ")"));
-            }
-        }
-    };
-
-    // open the XMLHttpRequest connection
-    req.open(options.type, options.url, true);
-
-    if (type === "post") {
-        req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    }
-
-    // send the XMLHttpRequest request (nothing has actually been sent until this very line)
-    req.send();
 }
 
 function showFeedbackMessage(className, title, message) {
@@ -298,13 +324,66 @@ function showFeedbackMessage(className, title, message) {
     }, 300);
 }
 
+function getFormData(fieldList, valuesList) {
+    var formData = {};
+
+    for (var i = 0; i < fieldList.length; i++) {
+        var nodeType = fieldList[i].nodeName.toLowerCase(),
+            ariaLabel = null,
+            elm = null,
+            name = "";
+
+        if (nodeType === "input" || nodeType === "textarea") {
+            ariaLabel = fieldList[i].getAttribute("aria-label");
+            elm = (
+                nodeType === "textarea"
+                || (ariaLabel !== null && ariaLabel.indexOf("e-mail") != -1)
+            )
+                
+                // input (email) or textarea
+                ? fieldList[i].parentNode.parentNode.parentNode.parentNode
+
+                // input (text)
+                : fieldList[i].parentNode.parentNode.parentNode.parentNode.parentNode;
+        }
+
+        else {
+            elm = (fieldList[i].classList.contains("freebirdFormviewerViewItemsItemItem"))
+
+                // radio
+                ? fieldList[i].querySelector("content").parentNode.parentNode
+
+                // select
+                : fieldList[i].parentNode.parentNode;
+        }
+
+        name = elm.querySelector("input[type=hidden]").name;
+
+        if (name.indexOf("other_option_response") != -1) {
+            name = name.replace(".other_option_response", "");
+
+            if (valuesList[i].indexOf("Outro__") != -1) {
+                formData[name + ".other_option_response"] = valuesList[i];
+                formData[name] = "__other_option__";
+            } else {
+                formData[name + ".other_option_response"] = "";
+                formData[name] = valuesList[i];
+            }
+        } else {
+            formData[name] = valuesList[i];
+        }
+    }
+
+    return formData;
+}
+
 function submitForm(frm) {
 
     var frmIsValid    = true,
         fieldWrapper  = null,
         fieldValue    = "",
         htmlOutput    = "",
-        frmFields     = frm.querySelectorAll(".ss-form-question"),
+        frmFields     = frm.querySelectorAll(".freebirdFormviewerViewItemsItemItem"),
         fieldList     = [],
         valuesList    = [],
         submitDataObj = {};
@@ -321,6 +400,7 @@ function submitForm(frm) {
         fieldList.push(field);
         valuesList.push(fieldValue);
 
+        // invalid field
         if (fieldValue === "" && fieldIsRequired) {
             _setValidationError(fieldWrapper, "campo obrigatório");
 
@@ -330,11 +410,12 @@ function submitForm(frm) {
             }
         }
 
+        // valid field
         else {
             _removeValidationError(fieldWrapper);
 
             if (
-                field.getAttribute("aria-label").indexOf("e-mail") != -1
+                fieldWrapper.querySelector(".freebirdFormviewerViewItemsItemItemTitle").innerHTML.indexOf("e-mail") != -1
                 && fieldValue !== ""
                 && !_isValidEmail(fieldValue)
             ) {
@@ -344,25 +425,10 @@ function submitForm(frm) {
     }
 
     if (frmIsValid) {
-
-        for (var i = 0; i < fieldList.length; i++) {
-            var name = (fieldList[i].nodeName.toLowerCase() === "ul")
-                ? fieldList[i].querySelector("input[type=radio]").name
-                : fieldList[i].name;
-
-            submitDataObj[name] = valuesList[i];
-        }
-
-        // ajaxRequest({
-        //     url: frm.action,
-        //     data: submitDataObj,
-        //     type: frm.method
-        // });
-
         $.ajaxSetup({ cache: false });
         $.ajax({
             url: frm.action,
-            data: submitDataObj,
+            data: getFormData(fieldList, valuesList),
             type: "POST",
             dataType: "xml",
             statusCode: {
@@ -382,21 +448,20 @@ function submitForm(frm) {
                 }
             }
         });
-
     } else {
 
         // register the form as invalid
         frm.classList.add("error");
 
         // set the focus to the first invalid field
-        frm.querySelector(".ss-form-entry.error").focus();
+        frm.querySelector("#rate .error").focus();
 
         // go to the top of the form
         smoothScroll.init({
-            target   : frm.querySelector(".ss-form-entry.error"),
+            target   : frm.querySelector("#rate .error"),
             discount : (window.innerWidth <= 600)
                 ? -220
-                : -100
+                : -30
         });
     }
 
@@ -475,8 +540,16 @@ echo.init({
 });
 
 // register submit event
-document.querySelector("#rate form").setAttribute("onsubmit", "return submitForm(this);");
+getForm().setAttribute("onsubmit", "return submitForm(this);");
+
+// document.querySelector(".freebirdFormviewerViewNavigationSubmitButton").addEventListener("click", function(event) {
+//     submitForm(document.querySelector("#rate form"));
+// }, false);
+
+registerEventFromAnotherField();
 
 registerEventFromRadioButtonField();
 
 registerEventFromSelectField();
+
+setFormStyles();

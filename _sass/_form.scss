@@ -10,23 +10,26 @@
     padding: 20px 10px 10px 10px;
     border: 1px #fff solid;
 
-    .required-message,
-    .error-message {
-        display: none;
-        position: absolute;
-        top: -15px;
-        right: 10px;
-        padding: 5px 10px;
-        background-color: #fd1943;
-        color: #fff;
-        font-size: 14px;
-        font-style: italic;
-    }
-
     &.error {
         border-color: #feb0bf;
         background-color: #fff4f6;
     }
+
+    &.error .freebirdFormviewerViewItemsRadioOtherInput input {
+        border-color: #feb0bf;
+    }
+}
+
+.freebirdFormviewerViewItemsItemErrorMessage {
+    display: none;
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #fd1943;
+    color: #fff;
+    font-size: 14px;
+    font-style: italic;
 }
 
 .freebirdFormviewerViewItemsItemItemTitle {
@@ -71,12 +74,19 @@
 }
 
 .freebirdFormviewerViewNavigationPasswordWarning,
+.freebirdFormviewerViewItemsItemErrorMessage,
+.freebirdFormviewerViewItemsRadioOtherInput,
 .freebirdFormviewerViewHeaderHeader,
 .exportLabel {
     display: none;
 }
 
-.freebirdFormviewerViewNavigationSubmitButton {
+.freebirdFormviewerViewNavigationSubmitButton{
+    width: 100%;
+    text-align: center;
+}
+
+.freebirdFormviewerViewNavigationSubmitButton input {
     background-color: $primary-color;
     border: none;
     color: $white-color;
@@ -87,6 +97,7 @@
     text-align: center;
     text-transform: lowercase;
     margin: auto;
+    outline: none;
 
     &:hover {
         opacity: .8;

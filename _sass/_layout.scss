@@ -515,6 +515,62 @@ i.heart {
 }
 
 
+#sent-message {
+    text-align: center;
+    padding: 30px 0;
+
+    i {
+        background-position: center center;
+        width: 128px;
+        height: 128px;
+        display: block;
+        margin: auto auto 30px auto;
+
+        @include transition;
+
+        &.animate {
+            @include scale1-3;
+        }
+    }
+
+    h4 {
+        font-size: 28px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    p {
+        font-size: 22px;
+        font-family: $base-font-family;
+        width: 650px;
+        margin: auto;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    &.ok {
+        i {
+            background-image: url("../img/ok.png");
+            height: 100px;
+        }
+
+        h4 {
+            color: #239a00;
+        }
+    }
+    
+    &.nok {
+        i {
+            background-image: url("../img/error.png");
+        }
+
+        h4 {
+            color: #ea3225;
+        }
+    }
+}
+
+
 /**
  * Site footer
  */
