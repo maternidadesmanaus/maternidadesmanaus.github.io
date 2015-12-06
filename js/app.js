@@ -12,7 +12,6 @@ if (!String.prototype.trim) {
     };
 }
 
-
 function getForm() {
     return document.querySelector("#rate form");
 }
@@ -31,6 +30,14 @@ function setFormStyles() {
     
     // email with lower case
     form.querySelectorAll(".freebirdFormviewerViewItemsItemItem")[1].querySelector(".exportInput").classList.add("lower");
+}
+
+function registerEventOnSubmitForm(frm) {
+    frm.setAttribute("onsubmit", "return submitForm(this);");
+}
+
+function removeEventOnSubmitForm(frm) {
+    frm.setAttribute("onsubmit", "return false;");
 }
 
 /**
@@ -425,6 +432,13 @@ function submitForm(frm) {
     }
 
     if (frmIsValid) {
+
+        /**
+         * removes the "onsubmit" event, to prevent which the form do not be
+         * submitted more than one time
+         */
+        removeEventOnSubmitForm(frm);
+        
         $.ajaxSetup({ cache: false });
         $.ajax({
             url: frm.action,
@@ -540,11 +554,7 @@ echo.init({
 });
 
 // register submit event
-getForm().setAttribute("onsubmit", "return submitForm(this);");
-
-// document.querySelector(".freebirdFormviewerViewNavigationSubmitButton").addEventListener("click", function(event) {
-//     submitForm(document.querySelector("#rate form"));
-// }, false);
+registerEventOnSubmitForm(getForm());
 
 registerEventFromAnotherField();
 
