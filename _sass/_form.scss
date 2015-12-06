@@ -53,7 +53,7 @@
 }
 
 .freebirdFormviewerViewItemsRadioChoice {
-    background: url("../img/radio-empty.png") no-repeat center left;
+    background: url("../img/radio-sprite.png") no-repeat -10px 7px;
     cursor: pointer;
     height: 30px;
     display: block;
@@ -62,7 +62,7 @@
     text-transform: lowercase;
 
     &.selected {
-        background: url("../img/radio-selected.png") no-repeat center left;
+        background: url("../img/radio-sprite.png") no-repeat -10px -23px;
     }
 }
 
