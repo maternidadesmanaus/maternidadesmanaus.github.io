@@ -20,8 +20,51 @@
     }
 }
 
+@include media-query(1000px) {
+
+    .share-buttons {
+        li {
+            a {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    .header {
+        .logo {
+            width: 100%;
+            margin-top: -50px;
+        }
+
+        .nav {
+            float: none;
+        }
+    }
+
+    .section {
+        .wrapper {
+            width: 100%;
+        }
+    }
+
+    .freebirdMaterialSelectPaperselectOptionList {
+        width: 100%;
+        width: calc(100% - 19px);
+    }
+}
+
 @include media-query($on-laptop) {
-    
+    .section {
+        .wrapper {
+            width: 100%;
+        }
+    }
+
+    .freebirdMaterialSelectPaperselectOptionList {
+        width: 100%;
+        width: calc(100% - 19px);
+    }
 }
 
 @include media-query($on-palm) {
@@ -64,10 +107,11 @@
         padding: 20px;
 
         i.heart {
+            background-size: 50%;
+            border-width: 5px;
+            top: 70px;
             width: 80px;
             height: 80px;
-            top: 20px;
-            background-size: 50%;
         }
 
         .logo {
@@ -75,7 +119,7 @@
             font-weight: bold;
             font-size: 20px;
             float: none;
-            margin-top: 95px;
+            margin: 0 0 40px 0px;
             width: 100%;
         }
 
