@@ -52,6 +52,17 @@
         width: 100%;
         width: calc(100% - 19px);
     }
+
+    #na-midia {
+        .wrapper {
+            padding: 0 30px;
+        }
+
+        li {
+            margin: 15px 0;
+            width: 100%;
+        }
+    }
 }
 
 @include media-query($on-laptop) {

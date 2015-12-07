@@ -279,7 +279,8 @@ i.heart {
     .wrapper {
         background: #f5f5f5;
         margin: auto;
-        padding: 35px 35px 35px 35px;
+        /*padding: 35px 35px 35px 35px;*/
+        padding: 75px 35px 35px 35px;
         width: $content-width;
 
         .content {
@@ -290,8 +291,7 @@ i.heart {
     }
 
     &.featured {
-        padding: 35px 0 75px 0;
-        background-color: #f5f5f5;
+        padding: 75px 0 35px 0;
 
         h2 {
             background-color: transparent;
@@ -331,6 +331,38 @@ i.heart {
     }
 }
 
+
+/**
+ * media
+ */
+#na-midia {
+    .wrapper {
+        background-color: #fff;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    ul {
+        margin-top: 50px;
+        text-align: center;
+
+        li {
+            display: inline-block;
+            padding: 0 5px;
+
+            img {
+                width: 170px;
+                opacity: 0.7;
+
+                &:hover {
+                    opacity:1;
+                }
+            }
+        }
+    }
+}
 
 /**
  * Social Network
