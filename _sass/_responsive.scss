@@ -25,123 +25,67 @@
 }
 
 @include media-query($on-palm) {
+
+    .freebirdMaterialSelectPaperselectOptionList {
+        width: 100%;
+        width: calc(100% - 19px);
+    }
+
+    .freebirdFormviewerViewItemsItemItemHelpText {
+        line-height: 20px;
+        margin: 3px 0 7px 0;
+    }
+
+    .freebirdFormviewerViewItemsRadioChoice {
+        line-height: 22px;
+        margin-bottom: 8px;
+        background-position: 0 2px;
+
+        &.selected {
+            background-position: 0 -67px !important;
+        }
+    }
+
+    .freebirdMaterialSelectPaperselectOptionSeparator {
+        top: 8px;
+        height: 25px;
+    }
+
+    .freebirdFormviewerViewItemsItemItemTitle {
+        line-height: 26px;
+    }
+
+    .freebirdFormviewerViewItemsItemItem {
+        border: none;
+    }
+
     .header {
 
+        padding: 20px;
+
+        i.heart {
+            width: 80px;
+            height: 80px;
+            top: 20px;
+            background-size: 50%;
+        }
+
         .logo {
-            margin-top: 75px;
             display: block;
-            color: $orange-color;
             font-weight: bold;
             font-size: 20px;
+            float: none;
+            margin-top: 95px;
+            width: 100%;
         }
 
         .nav {
-            background-color: #000;
-            position: fixed;
-            top: 0;
-            margin-top: 0 !important;
-            left: 0;
-            min-height: 60px;
-            height: auto;
-            width: 100%;
-            z-index: 2;
-
-            h2 {
-                color: $orange-color;
-                display: block;
-                font-family: "CaviarDreams";
-                font-weight: bold;
-                float: left;
-                margin: 6px 0 0 15px;
-                line-height: 45px;
-            }
-
-            .menu {
-                background: transparent url("../img/menu.png") no-repeat center center;
-                display: block;
-                width: 48px;
-                height: 48px;
-                float: right;
-                margin: 5px 10px 0 0;
-            }
-
-            ul {
-                display: none;
-                margin-top: 60px;
-                width: 100%;
-
-                li {
-                    border-top: 1px #333 solid;
-                    display: block;
-                    width: 100%;
-                    background-color: #090909;
-
-                    a {
-                        color: #ccc;
-                        text-align: center;
-                        width: 100%;
-                        margin: 0;
-                        padding: 10px 0;
-                        display: block;
-
-                    }
-
-                    &:last-child {
-                        border-bottom: 1px #333 solid;
-                    }
-                }
-            }
-
-            &.active {
-                
-                ul {
-                    display: block;
-                }
-            }
-        }
-
-        &.floating {
-            padding: 0;
-
-            span {
-                font-size: 20px;
-                margin-left: 0;
-            }
-
-            .nav {
-                ul {
-                    padding-right: 0;
-
-                    li {
-                        a {
-                            line-height: 1.5;
-                            font-size: 28px;
-                            margin-left: 0;
-                        }
-                    }
-                }
-            }
+            display: none;
         }
     }
 
-
-    #musics {
-        margin-top: 0 !important;
-    }
-
-    #the-band {
-
-        .content > img {
-            height: auto;
-        }
-
-        .members li {
-            width: 100%;
-
-            img {
-                height: auto;
-            }
-        }
+    .page-content {
+        padding: 0;
     }
 
     .contact {
@@ -164,13 +108,35 @@
 
     .section {
 
+        &.featured {
+            margin-bottom: -75px;
+        }
 
         .wrapper {
             width: 100%;
 
             .content {
-                font-size: 21px;
+                font-size: 18px;
                 line-height: 32px;
+            }
+        }
+
+        h2 {
+            font-size: 27px;
+            width: 100%;
+        }
+
+        h3 {
+            font-size: 20px;
+            text-align: center;
+        }
+    }
+
+    .share-buttons {
+        li {
+            a {
+                width: 100%;
+                margin-bottom: 30px;
             }
         }
     }
@@ -178,11 +144,11 @@
     .social-media.bottom li {
         display: inline-block;
         height: auto;
-        width: 49%;
+        width: 100%;
     }
 
     .footer {
-        padding-bottom: 150px;
+        padding-bottom: 45px;
 
         .logo-bw {
             float: none;
@@ -192,11 +158,33 @@
         }
 
         .copyright {
-            float: left;
+            float: none;
             width: 100%;
-            margin-top: -215px;
+            margin-top: 0;
             text-align: center;
-            font-size: 17px;
+            font-size: 18px;
+            line-height: 28px;
+        }
+    }
+
+    #summary {
+
+        h2 {
+            color: $primary-color;
+            font-size: 38px;
+            text-shadow: #fff 2px 2px 2px;
+            margin: 0 auto;
+        }
+
+        .wrapper {
+            opacity: 1;
+            background-color: transparent;
+
+            .content {
+                color: #333;
+                padding: 50px 20px 30px 20px;
+                font-size: 21px;
+            }
         }
     }
 }
