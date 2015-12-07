@@ -487,23 +487,13 @@ function menuNav(target) {
     var userAgent = navigator.userAgent.toLowerCase(),
         discount  = 0;
 
-    // mobile
-    if (document.body.classList.contains("mobile")) {
-        discount = (
-            userAgent.indexOf("ipad") > 0
-            || userAgent.indexOf("nexus") > 0
-        )
-            // ipad or google nexus
-            ? -440
+    discount = (document.body.classList.contains("mobile"))
 
-            // other devices
-            : -610;
-    }
+        // mobile
+        ? 75
 
-    // desktop
-    else {
-        discount = 20;
-    }
+        // desktop
+        : 20;
 
     smoothScroll.init({
         target   : target,
