@@ -171,13 +171,13 @@
     }
 
     .header {
-        padding: 40px 50px 50px;
+        padding: 20px 50px 50px;
 
         .heart {
-            background-size: 50%;
-            top: 180px;
-            width: 80px;
-            height: 80px;
+            background-size: 43%;
+            top: 152px;
+            width: 70px;
+            height: 70px;
         }
 
         .logo {
@@ -250,7 +250,7 @@
     }
 
     #summary {
-        padding: 300px 50px 50px;
+        padding: 240px 50px 50px;
     }
 
     #na-midia {
@@ -266,6 +266,10 @@
 }
 
 @include media-query(500px) {
+    .freebirdFormviewerViewItemsItemItem {
+        margin-bottom: 15px;
+    }
+
     .section {
         h2 {
             font-size: 26px;
@@ -297,6 +301,8 @@
     }
 
     .header {
+        padding: 20px 30px 50px;
+
         .logo {
             font-size: 16px;
         }
@@ -313,10 +319,10 @@
     }
 
     #summary {
-        padding: 205px 0 0 0;
+        padding: 185px 0 0 0;
 
         .wrapper {
-            padding-top: 70px;
+            padding-top: 50px;
         }
     }
 }
