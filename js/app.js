@@ -483,6 +483,10 @@ function submitForm(frm) {
 }
 
 function menuNav(target) {
+
+    // close menu
+    document.querySelector(".nav").classList.toggle("active");
+
     smoothScroll.init({
         target   : target,
         discount : 0
