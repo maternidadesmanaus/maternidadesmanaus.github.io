@@ -3,21 +3,22 @@
  */
 .header {
     background-color: #FF4E79;
-    color: #fae9ed;
-    padding: 80px 100px;
+    border-bottom: 3px #fff solid;
+    box-shadow: #000 1px 2px 10px;
+    padding: 50px 50px 100px 50px;
     width: 100%;
     z-index: 1;
+    text-align: center;
+    position: absolute;
+    opacity: 0.9;
 
     .logo {
-        text-transform: uppercase;
-        float: left;
-        outline: none;
-        width: auto;
-        text-align: center;
-        line-height: 32px;
-        font-size: 30px;
-        margin: 0;
         color: #fff;
+        width: 100%;
+        text-transform: uppercase;
+        outline: none;
+        line-height: 45px;
+        font-size: 38px;
         text-shadow: #af0000 1px 1px 3px;
     }
 
@@ -25,43 +26,39 @@
      * Menu Navigation
      */
     .nav {
-
-        float: right;
-        text-align: center;
-
         h2 {
             display: none;
         }
 
-        ul {
+        li {
+            display: inline;
+        }
 
-            li {
+        a {
+            color: #fff;
+            text-shadow: #af0000 1px 1px 3px;
+            line-height: $base-line-height;
+            font-family: "MontSerrat";
+            font-size: 20px;
+            text-decoration: none;
+            outline: none;
+            margin-left: 60px;
+            padding: 5px 10px;
+            @include transition;
 
-                display: inline;
-
-                a {
-                    color: #fff;
-                    text-shadow: #af0000 1px 1px 3px;
-                    line-height: $base-line-height;
-                    font-family: "MontSerrat";
-                    font-size: 20px;
-                    text-decoration: none;
-                    outline: none;
-                    margin-left: 40px;
-
-                    &:hover,
-                    &:focus {
-                        color:#454545 !important;
-                        text-shadow: #fff 1px 1px 2px;
-                    }
-
-                    @include transition;
-                }
-
-                &:first-child a {
-                    margin-left: 0;
-                }
+            &:hover,
+            &:focus {
+                border-bottom: 2px #fff solid;
+                text-shadow: #000 1px 1px 3px;
             }
+        }
+
+        .first {
+            margin-left: 0;
+        }
+
+        .menu {
+            display: none;
         }
     }
 }
@@ -70,10 +67,10 @@
 /**
  * Heart icon
  */
-i.heart {
+.heart {
     background: #FF4E79 url("../img/heart2.png") no-repeat center center;
-    border-radius: 300px;
-    border: 7px #fff solid;
+    border: 3px #fff solid;
+    box-shadow: #000 3px 2px 8px;
     display: block;
     width: 128px;
     height: 128px;
@@ -82,16 +79,8 @@ i.heart {
     position: absolute;
     left: 0;
     right: 0;
-    top: 130px;
-
-    &.fixed {
-        position: fixed;
-        top: 25px;
-        width: 90px;
-        height: 90px;
-        background-size: 45%;
-        border-width: 5px;
-    }
+    top: 180px;
+    @include full-radius;
 }
 
 .share-buttons {
@@ -103,42 +92,41 @@ i.heart {
         width: auto;
         display: inline;
         margin: 0 4px;
+    }
 
-        a {
-            color: #fff;
-            display: inline-block;
-            font-family: "MontSerrat";
-            font-weight: normal;
-            font-size: 14px;
-            text-align: right;
-            padding: 15px 12px 15px 0;
-            overflow: inherit;
-            text-indent: inherit;
-            width: calc(33% - 9px);
+    a {
+        color: #fff;
+        display: inline-block;
+        font-family: "MontSerrat";
+        font-weight: normal;
+        font-size: 14px;
+        text-align: right;
+        padding: 15px 12px 15px 0;
+        overflow: inherit;
+        text-indent: inherit;
+        width: calc(33% - 9px);
 
-            &:hover {
-                opacity: 0.8;
-            }
-
-            &.fb {
-                background: #5a79b8 url("../img/icon-fb.png") no-repeat -48px -28px;
-                border: 1px #5a79b8 solid;
-                padding-right: 12px;
-            }
-
-            &.tw {
-                background: #67d1f3 url("../img/icon-tw.png") no-repeat -48px -28px;
-                border: 1px #67d1f3 solid;
-                padding-right: 18px;
-            }
-
-            &.gp {
-                background: #e36b56 url("../img/icon-gp.png") no-repeat -48px -28px;
-                border: 1px #e36b56 solid;
-                padding-right: 15px;
-            }
+        &:hover {
+            opacity: 0.8;
         }
 
+        &.fb {
+            background: #5a79b8 url("../img/icon-fb.png") no-repeat -48px -28px;
+            border: 1px #5a79b8 solid;
+            padding-right: 12px;
+        }
+
+        &.tw {
+            background: #67d1f3 url("../img/icon-tw.png") no-repeat -48px -28px;
+            border: 1px #67d1f3 solid;
+            padding-right: 18px;
+        }
+
+        &.gp {
+            background: #e36b56 url("../img/icon-gp.png") no-repeat -48px -28px;
+            border: 1px #e36b56 solid;
+            padding-right: 15px;
+        }
     }
 }
 
@@ -238,6 +226,7 @@ i.heart {
     ul {
         text-align: center;
         width: 100%;
+
         li {
             background: url("../img/heart-checked.png") no-repeat center center;
             width: 64px;
@@ -260,13 +249,13 @@ i.heart {
  */
 .section {
     background-color: #fff;
-    color: #777;
+    color: #888;
     font-family: Helvetica, Arial, sans-serif;
-    text-align: justify;
-    padding: 75px 0 0 0;
+    text-align: center;
+    padding: 50px 0;
 
     h2 {
-        background-color: #f5f5f5;
+        background-color: #fff;
         color: #FF4E79;
         display: table;
         font-size: 40px;
@@ -274,36 +263,52 @@ i.heart {
         margin: auto;
         position: relative;
         padding: 0 20px;
+        line-height: 50px;
     }
 
     .wrapper {
-        background: #f5f5f5;
         margin: auto;
-        /*padding: 35px 35px 35px 35px;*/
-        padding: 75px 35px 35px 35px;
+        padding: 0;
         width: $content-width;
+    }
 
-        .content {
-            border-top: 3px #FF4E79 solid;
-            margin-top: -30px;
-            padding-top: 50px;
-        }
+    .content {
+        border-top: 3px #FF4E79 solid;
+        margin-top: -27px;
+        padding-top: 50px;
+        text-align: justify;
     }
 
     &.featured {
-        padding: 75px 0 35px 0;
+        padding: 50px 0;
+        background-size: cover;
 
         h2 {
             background-color: transparent;
         }
 
         .wrapper {
-            padding: 0;
+            background-color: #000;
+            padding: 50px;
+            opacity: 0.8;
 
-            .content {
-                border-top: none;
-                margin-top: 0;
+        }
+
+        .content {
+            border-top: none;
+            color: #e5e5e5;
+            font-size: 22px;
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 0;
+
+            strong {
+                color: $primary-color;
             }
+        }
+
+        .last {
+            margin-bottom: 0;
         }
     }
 }
@@ -313,22 +318,9 @@ i.heart {
  * Summary
  */
 #summary {
-    font-size: 21px;
-    text-align: center;
-    background: url("../img/baby-cover.jpg") no-repeat center -89px;
+    background: url("../img/bg-summary3.jpg") no-repeat center -89px;
     background-size: cover;
-
-    h2 {
-        margin: 10px auto 0 auto;
-        width: 80%;
-    }
-
-    .wrapper {
-        color: #555;
-        padding: 20px;
-        opacity: .65;
-        background-color: #fff;
-    }
+    padding: 350px 50px 140px 50px;
 }
 
 
@@ -336,30 +328,25 @@ i.heart {
  * media
  */
 #na-midia {
-    .wrapper {
-        background-color: #fff;
-    }
-
-    p {
-        text-align: center;
-    }
+    background: url("../img/bg-na-midia.jpg") no-repeat center -89px;
 
     ul {
         margin-top: 50px;
-        text-align: center;
 
         li {
             display: inline-block;
             padding: 0 5px;
+        }
+    }
 
-            img {
-                width: 170px;
-                opacity: 0.7;
+    img {
+        width: 145px;
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
 
-                &:hover {
-                    opacity:1;
-                }
-            }
+        &:hover {
+            -webkit-filter: grayscale(0);
+            filter: grayscale(0);
         }
     }
 }
@@ -607,29 +594,22 @@ i.heart {
  * Site footer
  */
 .footer {
-    background-color: #fff;
-    padding: 30px 0 30px 0;
 
     .wrapper {
-        padding: 0;
-        height: 105px;
+        padding: 30px 0;
+        border-top: 1px #ddd solid;
+        position: relative;
 
-        i {
-            @include transition;
-
-            &:hover {
-                @include rotate45;
-            }
-        }
     }
 
     .copyright {
-        text-align:center;
+        text-align: right;
         color: #333;
-        font-size:15px;
-        display:block;
-        line-height: 23px;
-        padding-top: 15px;
+        font-size: 14px;
+        display: block;
+        line-height: 17px;
+        font-style: italic;
+        font-family: serif;
 
         p {
             color: #999;
@@ -637,140 +617,19 @@ i.heart {
         }
 
         a {
+            color: $primary-color;
             outline: none;
-            border-bottom: 1px #ccc dotted;
             padding: 0 2px 2px 2px;
         }
     }
-}
-
-
-/**
- * Go to top button
- */
-#go-to-top {
-    width: 70px;
-    height: 70px;
-    background-color: #d5d5d5;
-    display: none;
-    position: fixed;
-    bottom: 45px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    opacity: 0.85;
-    box-shadow: #000 1px 1px 1px;
-    text-align: center;
-    @include full-radius;
-    @include transition;
-
-    &:hover {
-        @include scale1-3;
-        cursor: pointer;
-    }
 
     i {
-        margin-top: 20px;
-    }
-}
-
-
-@include media-query($on-laptop) {
-    
-}
-
-@include media-query($on-palm) {
-    
-}
-
-
-/**
- * Page content
- */
-.page-content {
-    padding: 50px 0 0 0;
-}
-
-.page-heading {
-    font-size: 20px;
-}
-
-.post-list {
-    margin-left: 0;
-
-    > li {
-        margin-bottom: $spacing-unit;
-    }
-}
-
-.post-meta {
-    font-size: $small-font-size;
-    color: $grey-color;
-}
-
-.post-link {
-    display: block;
-    font-size: 24px;
-}
-
-
-/**
- * Posts
- */
-.post-header {
-    margin-bottom: $spacing-unit;
-}
-
-.post-title {
-    font-size: 42px;
-    letter-spacing: -1px;
-    line-height: 1;
-
-    @include media-query($on-laptop) {
-        font-size: 36px;
-    }
-}
-
-.post-content {
-    margin-bottom: $spacing-unit;
-
-    h2 {
-        font-size: 32px;
-
-        @include media-query($on-laptop) {
-            font-size: 28px;
-        }
-    }
-
-    h3 {
-        font-size: 26px;
-
-        @include media-query($on-laptop) {
-            font-size: 22px;
-        }
-    }
-
-    h4 {
-        font-size: 20px;
-
-        @include media-query($on-laptop) {
-            font-size: 18px;
-        }
-    }
-}
-
-/**
- * Firefox Hacks
- */
-@-moz-document url-prefix() { 
-    blockquote {
-        font-size: 25px;
-        line-height: 45px;
-
-        .quote {
-            font-family: Arial;
-            top: 95px;
-        }
-
+        background: transparent url("../img/heart-gs.png") no-repeat center left;
+        display: block;
+        width: 48px;
+        height: 43px;
+        position: absolute;
+        top: 35px;
+        left: 0;
     }
 }

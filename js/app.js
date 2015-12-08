@@ -483,21 +483,9 @@ function submitForm(frm) {
 }
 
 function menuNav(target) {
-
-    var userAgent = navigator.userAgent.toLowerCase(),
-        discount  = 0;
-
-    discount = (document.body.classList.contains("mobile"))
-
-        // mobile
-        ? 75
-
-        // desktop
-        : 20;
-
     smoothScroll.init({
         target   : target,
-        discount : discount
+        discount : 0
     });
 }
 

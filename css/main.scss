@@ -53,10 +53,10 @@ $on-laptop:        800px;
 
 // Apply transition
 @mixin transition {
-    -webkit-transition: all 200ms ease 0.1s;
-       -moz-transition: all 200ms ease 0.1s;
-         -o-transition: all 200ms ease 0.1s;
-            transition: all 200ms ease 0.1s;
+    -webkit-transition: all 100ms ease 0.1s;
+       -moz-transition: all 100ms ease 0.1s;
+         -o-transition: all 100ms ease 0.1s;
+            transition: all 100ms ease 0.1s;
 }
 
 // Remove transition

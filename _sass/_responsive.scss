@@ -1,88 +1,144 @@
-.mobile {
-    .header.floating,
-    .header.logo,
-    .nav {
-        @include no-rotate45;
-        @include no-transition;
-    }
-
-    .contact {
-        .row {
-            .submit {
-                &:hover,
-                &:focus {
-                    span {
-                        display: none;
-                    }
-                }
-            }
-        }
-    }
+@include media-query(1200px) {
+    
 }
 
 @include media-query(1000px) {
-
     .share-buttons {
-        li {
-            a {
-                width: 100%;
-                margin-bottom: 30px;
-            }
-        }
-    }
-
-    .header {
-        .logo {
+        a {
             width: 100%;
-            margin-top: -50px;
-        }
-
-        .nav {
-            float: none;
+            margin-bottom: 30px;
         }
     }
 
     .section {
         .wrapper {
             width: 100%;
+            padding: 0 50px;
+        }
+
+        &.featured {
+            padding: 50px;
         }
     }
 
+    .freebirdMaterialSelectPaperselectOptionList {
+        width: 100%;
+        width: calc(100% - 19px);
+    }
+
+    #summary {
+        padding-bottom: 140px;
+        margin-bottom: -90px;
+    }
+
+    #na-midia {
+        li {
+            margin: 15px 0;
+            width: 25%;
+        }
+
+        img {
+            -webkit-filter: grayscale(0);
+            filter: grayscale(0);
+        }
+    }
+
+    .footer {
+        width: 100%;
+        padding: 0 60px;
+    }
+}
+
+@include media-query($on-laptop) {
     .freebirdMaterialSelectPaperselectOptionList {
         width: 100%;
         width: calc(100% - 19px);
     }
 
     #na-midia {
-        .wrapper {
-            padding: 0 30px;
+        li {
+            width: 40%;
+        }
+    }
+
+    .header {
+        .logo {
+            font-size: 30px;
         }
 
-        li {
-            margin: 15px 0;
+        .heart {
+            top: 195px;
+        }
+
+        .nav {
+            background-color: pink;
+            cursor: pointer;
+            display: block;
+            height: 50px;
             width: 100%;
 
-            img {
-                opacity: 1;
+            .menu {
+                color: #333;
+                display: block;
+                font-family: "MontSerrat";
+                font-style: normal;
+                font-size: 24px;
+                line-height: 50px;
+                text-align: left;
+                text-transform: lowercase;
+                padding: 0 15px;
+
+            }
+
+            ul {
+                border-top: 1px #E02F2F solid;
+                display: none;
+
+                li {
+                    display: block;
+                    width: 100%;
+                    z-index: 100;
+                    position: relative;
+                    background: pink;
+                    border-bottom: 1px #E02F2F solid;
+                    
+                    a {
+                        color: #333;
+                        display: block;
+                        margin: 0;
+                        text-shadow: none;
+                        padding: 10px;
+                        width: 100%;
+
+                        &:hover,
+                        &:focus {
+                            background-color: #E02F2F;
+                            border: none;
+                            color: #fff;
+                            text-shadow: none;
+                        }
+                    }
+                }
+            }
+
+            &.active {
+                ul {
+                    display: block;
+                }
             }
         }
     }
 }
 
-@include media-query($on-laptop) {
-    .section {
-        .wrapper {
-            width: 100%;
-        }
-    }
-
-    .freebirdMaterialSelectPaperselectOptionList {
-        width: 100%;
-        width: calc(100% - 19px);
-    }
-}
-
 @include media-query($on-palm) {
+
+    .freebirdFormviewerViewItemsItemItemTitle,
+    .freebirdFormviewerViewItemsRadioChoice,
+    .freebirdMaterialSelectPaperselectContent {
+        font-size: 16px;
+        line-height: 24px;
+        text-transform: lowercase;
+    }
 
     .freebirdMaterialSelectPaperselectOptionList {
         width: 100%;
@@ -95,9 +151,13 @@
     }
 
     .freebirdFormviewerViewItemsRadioChoice {
-        line-height: 22px;
-        margin-bottom: 8px;
+        line-height: 20px;
+        margin-bottom: 10px;
         background-position: 0 2px;
+
+        .freebirdThemedRadio {
+            top: 0;
+        }
 
         &.selected {
             background-position: 0 -67px !important;
@@ -109,37 +169,26 @@
         height: 25px;
     }
 
-    .freebirdFormviewerViewItemsItemItemTitle {
-        line-height: 26px;
-    }
 
-    .freebirdFormviewerViewItemsItemItem {
-        border: none;
+    .freebirdFormviewerViewItemsItemErrorMessage {
+        padding: 0 10px;
+        font-size: 13px;
     }
 
     .header {
+        padding: 40px 50px 50px 50px;
 
-        padding: 20px;
-
-        i.heart {
+        .heart {
             background-size: 50%;
-            border-width: 5px;
-            top: 70px;
+            top: 180px;
             width: 80px;
             height: 80px;
         }
 
         .logo {
-            display: block;
             font-weight: bold;
             font-size: 20px;
-            float: none;
-            margin: 0 0 40px 0px;
-            width: 100%;
-        }
-
-        .nav {
-            display: none;
+            margin: 0 0 20px 0px;
         }
     }
 
@@ -166,23 +215,19 @@
     }
 
     .section {
-
-        &.featured {
-            margin-bottom: -75px;
-        }
-
         .wrapper {
             width: 100%;
+        }
 
-            .content {
-                font-size: 18px;
-                line-height: 32px;
-            }
+        .content {
+            margin-top:-20px;
+            font-size: 20px;
+            line-height: 32px;
         }
 
         h2 {
-            font-size: 27px;
-            width: 100%;
+            font-size: 34px;
+            line-height: 45px;
         }
 
         h3 {
@@ -207,43 +252,74 @@
     }
 
     .footer {
-        padding-bottom: 45px;
-
-        .logo-bw {
-            float: none;
-            display: block;
-            margin: auto;
-            margin-top: 110px;
-        }
+        padding-bottom: 65px;
 
         .copyright {
-            float: none;
-            width: 100%;
-            margin-top: 0;
             text-align: center;
+        }
+
+        i {
+            top: 105px;
+            right: 0;
+            margin: auto;
+        }
+    }
+
+    #na-midia {
+        li {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        img {
+            width: 200px;
+        }
+    }
+}
+
+@include media-query(500px) {
+    .section {
+
+        h2 {
+            font-size: 26px;
+            line-height: 36px;
+            padding: 0 10px;
+        }
+
+        .content {
             font-size: 18px;
             line-height: 28px;
+        }
+
+        &.featured {
+            padding: 0;
+
+            .wrapper {
+                .content {
+                    font-size: 18px !important;
+                    line-height:28px;
+                }
+            }
+        }
+    }
+
+    .header {
+        .nav {
+            ul {
+                li {
+                    a {
+                        font-size: 18px;
+                    }
+                }
+            }
         }
     }
 
     #summary {
-
-        h2 {
-            color: $primary-color;
-            font-size: 38px;
-            text-shadow: #fff 2px 2px 2px;
-            margin: 0 auto;
-        }
+        padding: 205px 0 90px 0;
 
         .wrapper {
-            opacity: 1;
-            background-color: transparent;
-
-            .content {
-                color: #333;
-                padding: 50px 20px 30px 20px;
-                font-size: 21px;
-            }
+            padding-top: 70px;
         }
     }
 }
