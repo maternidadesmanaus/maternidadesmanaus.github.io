@@ -134,50 +134,6 @@
  * Social Media
  */
 .social-media {
-    ul {
-
-        li {
-            padding: 8px 0;
-
-            a {
-                color: transparent;
-                display: block;
-                width: 48px;
-                height: 48px;
-                @include full-radius;
-                @include transition;
-
-                &:hover,
-                &:focus {
-                    @include hover-social-icon;
-                }
-
-            }
-        }
-
-        i {
-            width: 48px;
-            height: 48px;
-        }
-    }
-
-
-    /**
-     * Floating bar
-     */
-    &.bar {
-        background-color: #000;
-        opacity: 0.8;
-        position: fixed;
-        right: 0;
-        top: 27%;
-        z-index: 1;
-        padding: 10px 20px;
-    }
-
-    /**
-     * Contact section
-     */
     &.bottom {
         margin: 0;
         text-align: center;
@@ -215,7 +171,6 @@
                     & > i {
                         @include hover-social-icon;
                     }
-
                 }
             }
         }
