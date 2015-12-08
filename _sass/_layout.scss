@@ -83,6 +83,79 @@
     @include full-radius;
 }
 
+
+/**
+ * Sections
+ */
+.section {
+    /*background-color: #fff;*/
+    color: #888;
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+
+    h2 {
+        background-color: #fff;
+        color: #FF4E79;
+        display: table;
+        font-size: 40px;
+        text-align: center;
+        margin: auto;
+        position: relative;
+        padding: 0 20px;
+        line-height: 50px;
+    }
+
+    .wrapper {
+        margin: auto;
+        padding: 50px 0;
+        width: $content-width;
+    }
+
+    .content {
+        border-top: 3px #FF4E79 solid;
+        margin-top: -27px;
+        padding-top: 50px;
+        text-align: justify;
+    }
+
+    &.featured {
+        background-size: cover;
+        padding: 50px;
+
+        h2 {
+            background-color: transparent;
+        }
+
+        .wrapper {
+            background-color: #000;
+            padding: 50px;
+            opacity: 0.7;
+
+        }
+
+        .content {
+            border-top: none;
+            color: #e5e5e5;
+            font-size: 22px;
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 0;
+
+            strong {
+                color: $primary-color;
+            }
+        }
+
+        .last {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+/**
+ * Share buttons
+ */
 .share-buttons {
     margin-bottom: 50px;
     width: 100%;
@@ -130,8 +203,9 @@
     }
 }
 
+
 /**
- * Social Media
+ * Social media
  */
 .social-media {
     &.bottom {
@@ -177,6 +251,65 @@
     }
 }
 
+
+/**
+ * Site footer
+ */
+.footer {
+
+    .wrapper {
+        padding: 30px 0;
+        border-top: 1px #ddd solid;
+        position: relative;
+
+    }
+
+    .copyright {
+        text-align: right;
+        color: #333;
+        font-size: 14px;
+        display: block;
+        line-height: 17px;
+        font-style: italic;
+        font-family: serif;
+
+        p {
+            color: #999;
+            margin-bottom: 0;
+        }
+
+        a {
+            color: $primary-color;
+            outline: none;
+            padding: 0 2px 2px 2px;
+        }
+    }
+
+    i {
+        background: transparent url("../img/heart-gs.png") no-repeat center left;
+        display: block;
+        width: 48px;
+        height: 43px;
+        position: absolute;
+        top: 35px;
+        left: 0;
+    }
+}
+
+
+/**
+ * Summary
+ */
+#summary {
+    background: url("../img/bg-summary3.jpg") no-repeat center;
+    background-size: cover;
+    padding: 350px 50px 50px;
+}
+
+
+/**
+ * Rate maternity
+ */
 #rate {
     ul {
         text-align: center;
@@ -200,90 +333,10 @@
 
 
 /**
- * Sections
- */
-.section {
-    background-color: #fff;
-    color: #888;
-    font-family: Helvetica, Arial, sans-serif;
-    text-align: center;
-    padding: 50px 0;
-
-    h2 {
-        background-color: #fff;
-        color: #FF4E79;
-        display: table;
-        font-size: 40px;
-        text-align: center;
-        margin: auto;
-        position: relative;
-        padding: 0 20px;
-        line-height: 50px;
-    }
-
-    .wrapper {
-        margin: auto;
-        padding: 0;
-        width: $content-width;
-    }
-
-    .content {
-        border-top: 3px #FF4E79 solid;
-        margin-top: -27px;
-        padding-top: 50px;
-        text-align: justify;
-    }
-
-    &.featured {
-        padding: 50px 0;
-        background-size: cover;
-
-        h2 {
-            background-color: transparent;
-        }
-
-        .wrapper {
-            background-color: #000;
-            padding: 50px;
-            opacity: 0.7;
-
-        }
-
-        .content {
-            border-top: none;
-            color: #e5e5e5;
-            font-size: 22px;
-            text-align: center;
-            padding-top: 30px;
-            margin-top: 0;
-
-            strong {
-                color: $primary-color;
-            }
-        }
-
-        .last {
-            margin-bottom: 0;
-        }
-    }
-}
-
-
-/**
- * Summary
- */
-#summary {
-    background: url("../img/bg-summary3.jpg") no-repeat center -89px;
-    background-size: cover;
-    padding: 350px 50px 140px 50px;
-}
-
-
-/**
- * media
+ * On the media
  */
 #na-midia {
-    background: url("../img/bg-na-midia.jpg") no-repeat center -89px;
+    background: url("../img/bg-na-midia.jpg") no-repeat center;
 
     ul {
         margin-top: 50px;
@@ -306,156 +359,10 @@
     }
 }
 
+
 /**
- * Social Network
+ * Sent message
  */
-.social-netwok {
-
-    margin-top: 40px;
-    height: 515px;
-
-    .row {
-        width: 100%;
-        margin-bottom: 40px;
-        position: relative;
-
-        i {
-            color: #b80207;
-            position: absolute;
-            top: 20px;
-            left: 15px;
-            font-size: 30px;
-        }
-
-        em {
-            display: none;
-            position: absolute;
-            top: -16px;
-            right: 20px;
-            font-style: italic;
-            font-size: 15px;
-            background-color: #b80207;
-            padding: 0 18px;
-            border: 1px #555 dotted;
-        }
-
-        input,
-        textarea {
-            font-family: Helvetica;
-            font-size: 18px;
-            background-color: transparent;
-            border: none;
-            border-bottom: 1px #aaa solid;
-            border-left: 1px #aaa solid;
-            color: #aaa;
-            outline: none;
-            padding: 20px 20px 20px 40px;
-            width: 100%;
-
-            &[type="text"] {
-                text-transform: uppercase;
-
-                &::-webkit-input-placeholder {
-                   text-transform:lowercase;
-                }
-
-                &:-moz-placeholder {
-                   text-transform:lowercase;
-                }
-
-                &::-moz-placeholder {
-                   text-transform:lowercase;
-                }
-
-                &:-ms-input-placeholder {  
-                   text-transform:lowercase;
-                }
-            }
-
-            &[type="email"] {
-                text-transform: lowercase;
-            }
-
-            &:focus {
-                border-left-color: $orange-color;
-                border-bottom-color: $orange-color;
-            }
-        }
-
-        textarea {
-            display: block;
-            resize: none;
-            min-height: 200px;
-        }
-
-        .submit {
-            background-color: #333;
-            border: 1px #333 solid;
-            width: 70px;
-            height: 70px;
-            outline: none;
-            @include transition;
-            @include full-radius;
-
-            span {
-                display: none;
-                position: absolute;
-                top: 20px;
-                right: 80px;
-                color: #ccc;
-                font-family: "CaviarDreams";
-                font-size: 20px;
-                font-weight: bold;
-            }
-
-            &:hover,
-            &:focus {
-                background-color: $orange-color;
-                border-color: $orange-color;
-                color: #fff;
-                cursor: pointer;
-
-                span {
-                    display: block;
-                }
-            }
-        }
-
-        &.error input,
-        &.error textarea {
-            border-left-color: #b80207 !important;
-            border-bottom-color: #b80207 !important;
-            background-color: #200001;
-        }
-
-        &.right {
-            text-align: right;
-
-            i {
-                font-family: Helvetica, Arial, sans-serif;
-                font-weight: normal;
-                top: 0;
-                left: 0;
-                position: relative;
-            }
-        }
-    }
-
-    .required-fields {
-        color: #b80207;
-        float: left;
-        font-family: "CaviarDreams";
-        font-size: 22px;
-        font-weight: bold;
-        padding: 15px 0 0 0;
-
-        i {
-            margin-right: 5px;
-        }
-    }
-}
-
-
 #sent-message {
     text-align: center;
     padding: 30px 0 0 0;
@@ -509,50 +416,5 @@
         h4 {
             color: #ea3225;
         }
-    }
-}
-
-
-/**
- * Site footer
- */
-.footer {
-
-    .wrapper {
-        padding: 30px 0;
-        border-top: 1px #ddd solid;
-        position: relative;
-
-    }
-
-    .copyright {
-        text-align: right;
-        color: #333;
-        font-size: 14px;
-        display: block;
-        line-height: 17px;
-        font-style: italic;
-        font-family: serif;
-
-        p {
-            color: #999;
-            margin-bottom: 0;
-        }
-
-        a {
-            color: $primary-color;
-            outline: none;
-            padding: 0 2px 2px 2px;
-        }
-    }
-
-    i {
-        background: transparent url("../img/heart-gs.png") no-repeat center left;
-        display: block;
-        width: 48px;
-        height: 43px;
-        position: absolute;
-        top: 35px;
-        left: 0;
     }
 }
