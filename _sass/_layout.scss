@@ -498,45 +498,12 @@
             margin-right: 5px;
         }
     }
-
-    #sent-message {
-        text-align: center;
-        padding-top: 80px;
-        font-family: "CaviarDreams";
-
-        i {
-            margin-bottom: 30px;
-
-            @include transition;
-
-            &.animate {
-                @include scale1-3;
-            }
-        }
-
-        h4 {
-            color: #239a00;
-            font-size: 28px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        p {
-            font-size: 22px;
-            font-weight: bold;
-            width: 650px;
-            margin: auto;
-            text-align: center;
-            margin-top: 40px;
-        }
-    }
 }
 
 
 #sent-message {
     text-align: center;
-    padding: 30px 0;
+    padding: 30px 0 0 0;
 
     i {
         background-position: center center;
@@ -556,6 +523,7 @@
         font-size: 28px;
         font-weight: bold;
         text-transform: uppercase;
+        line-height: 42px;
     }
 
     p {
