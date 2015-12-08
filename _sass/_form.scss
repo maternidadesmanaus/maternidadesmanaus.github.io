@@ -48,7 +48,6 @@
 
 .freebirdFormviewerViewItemsRadioChoice {
     cursor: pointer;
-    /*min-height: 30px;*/
     display: block;
     line-height: 32px;
     padding-left: 28px;
@@ -91,6 +90,7 @@
 .freebirdFormviewerViewNavigationSubmitButton{
     width: 100%;
     text-align: right;
+    outline: none;
 }
 
 .freebirdFormviewerViewNavigationSubmitButton input {
