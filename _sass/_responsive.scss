@@ -58,7 +58,7 @@
 
     .header {
         .logo {
-            font-size: 30px;
+            font-size: 40px;
         }
 
         .heart {
@@ -175,7 +175,7 @@
     }
 
     .header {
-        padding: 20px 50px 50px;
+        padding: 0 50px 50px;
 
         .heart {
             background-size: 43%;
@@ -185,9 +185,9 @@
         }
 
         .logo {
-            font-weight: bold;
-            font-size: 20px;
-            margin: 0 0 20px 0px;
+            font-size: 30px;
+            margin: 0;
+            line-height: 85px;
         }
     }
 
@@ -275,6 +275,24 @@
         margin-bottom: 20px;
     }
 
+    .header {
+        padding: 0 30px 50px;
+
+        .logo {
+            font-size: 22px;
+        }
+
+        .nav {
+            ul {
+                li {
+                    a {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+
     .section {
         h2 {
             font-size: 26px;
@@ -300,24 +318,6 @@
                 .content {
                     font-size: 18px !important;
                     line-height:28px;
-                }
-            }
-        }
-    }
-
-    .header {
-        padding: 20px 30px 50px;
-
-        .logo {
-            font-size: 16px;
-        }
-
-        .nav {
-            ul {
-                li {
-                    a {
-                        font-size: 18px;
-                    }
                 }
             }
         }
