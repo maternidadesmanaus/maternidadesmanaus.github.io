@@ -157,6 +157,10 @@
         &.selected {
             background-position: 0 -67px !important;
         }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 
     .freebirdMaterialSelectPaperselectOptionSeparator {
@@ -240,6 +244,7 @@
 
         .copyright {
             text-align: center;
+            line-height: 19px;
         }
 
         i {
@@ -267,7 +272,7 @@
 
 @include media-query(500px) {
     .freebirdFormviewerViewItemsItemItem {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
 
     .section {
