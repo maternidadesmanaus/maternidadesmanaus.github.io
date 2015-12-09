@@ -162,7 +162,7 @@ module.exports = function(grunt) {
         'exec:build',
         'uglify',
         'htmlmin',
-        // 'imagemin',
+        'imagemin',
         'cssmin',
         'exec:deploy'
     ]);
