@@ -96,7 +96,7 @@ module.exports = function(grunt) {
                     'img/*'
                 ],
 
-                tasks : [ 'imagemin', 'exec:build', 'concat' ]
+                tasks : [ 'imagemin', 'exec:buildDev', 'concat' ]
             },
 
             scripts : {
@@ -125,23 +125,37 @@ module.exports = function(grunt) {
                 ],
 
                 tasks : [
-                    'exec:build',
+                    'exec:buildDev',
                     'concat'
                 ]
             }
         },
 
         exec: {
+
+            // update google form
             updateForm: {
                 cmd: 'casperjs _scripts/update-form.js'
             },
-            build: {
-                // cmd: 'jekyll build --destination ./_site/public'
-                cmd: 'jekyll build'
+
+            // builds
+            buildDev: {
+                cmd: 'JEKYLL_ENV=development jekyll build'
             },
-            deploy: {
-                // cmd: 'rsync -azpog --progress --delete-excluded --exclude "Gruntfile.js" --exclude "img/src-sprite" --exclude "package.json" --exclude "node_modules/" --exclude "readme.md" -e "ssh -q" _site/ root@andrewslince:/var/www/maternidadesmanaus/'
+            buildStg: {
+                cmd: 'JEKYLL_ENV=staging jekyll build'
+            },
+            buildPrd: {
+                cmd: 'JEKYLL_ENV=production jekyll build'
+            },
+
+            // deploys
+            deployStg: {
                 cmd: 'rsync -azpog --progress --delete-excluded --exclude "Gruntfile.js" --exclude "img/src-sprite" --exclude "package.json" --exclude "node_modules/" --exclude "readme.md" -e "ssh -q" _site/ root@andrewslince.me:/var/www/beta.maternidadesmanaus.com.br/'
+            },
+            deployPrd: {
+                // cmd: 'rsync -azpog --progress --delete-excluded --exclude "Gruntfile.js" --exclude "img/src-sprite" --exclude "package.json" --exclude "node_modules/" --exclude "readme.md" -e "ssh -q" _site/ root@andrewslince:/var/www/maternidadesmanaus/'
+                cmd: 'echo "\nPara que seus dentes se mantenham intactos, o deploy de PRD ainda está desabilitado! :)\n"'
             }
         }
     });
@@ -156,14 +170,22 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-exec');
 
     // register tasks
-    grunt.registerTask('default', [ 'exec:build', 'concat' ]);
-    grunt.registerTask('update-form', [ 'exec:updateForm', 'exec:build', 'concat' ]);
-    grunt.registerTask('deploy', [
-        'exec:build',
+    grunt.registerTask('default', [ 'exec:buildDev', 'concat' ]);
+    grunt.registerTask('update-form', [ 'exec:updateForm', 'exec:buildDev', 'concat' ]);
+    grunt.registerTask('deploy-stg', [
+        'exec:buildStg',
         'uglify',
         'htmlmin',
         'imagemin',
         'cssmin',
-        'exec:deploy'
+        'exec:deployStg'
+    ]);
+    grunt.registerTask('deploy-prd', [
+        'exec:buildPrd',
+        'uglify',
+        'htmlmin',
+        'imagemin',
+        'cssmin',
+        'exec:deployPrd'
     ]);
 };
