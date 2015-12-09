@@ -118,7 +118,7 @@ module.exports = function(grunt) {
                     '_layouts/*.html',
                     '_includes/*.html',
                     'index.html',
-                    '**/*.html',
+                    'ranking/*.html',
 
                     // configurations
                     '_config.yml',
