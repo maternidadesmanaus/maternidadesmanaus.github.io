@@ -49,6 +49,10 @@
         width: calc(100% - 19px);
     }
 
+    #call-to-action {
+        width: 100%;
+    }
+
     #na-midia {
         li {
             width: 40%;
@@ -125,6 +129,12 @@
 }
 
 @include media-query(600px) {
+
+    #call-to-action {
+        font-size: 20px;
+        text-transform: uppercase;
+        padding: 20px;
+    }
 
     .freebirdFormviewerViewItemsItemItemTitle,
     .freebirdFormviewerViewItemsRadioChoice,
