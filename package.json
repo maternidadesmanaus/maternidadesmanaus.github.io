@@ -8,13 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:andrewslince/rockfieldband.git"
+    "url": "git@bitbucket.org:maternidadesmanaus/site.git"
   },
   "keywords": [
-    "musica",
-    "music",
-    "rock",
-    "rockfield"
+    "maternity",
+    "baby",
+    "pregnant"
   ],
   "author": "Andrews Lince <andrews.lince@gmail.com>",
   "license": "ISC",
