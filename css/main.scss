@@ -3,107 +3,12 @@
 ---
 @charset "utf-8";
 
-$primary-color: #FF4E79;
-$secondary-color: #F5F5F5;
-$white-color: #FFF;
-
-// Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
-
-$spacing-unit:     30px;
-
-$text-color:       #111;
-$background-color: #222;
-$brand-color:      #2a7ae2;
-$orange-color:     #ff2727;
-
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
-// Width of the content area
-$content-width:    1000px;
-
-$on-palm:          600px;
-$on-laptop:        800px;
-
-
-// Using media queries with like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
-}
-
-// Apply full round style
-@mixin full-radius {
-    -webkit-border-radius: 300px;
-       -moz-border-radius: 300px;
-            border-radius: 300px;
-}
-
-// Apply transition
-@mixin transition {
-    -webkit-transition: all 100ms ease 0.1s;
-       -moz-transition: all 100ms ease 0.1s;
-         -o-transition: all 100ms ease 0.1s;
-            transition: all 100ms ease 0.1s;
-}
-
-// Remove transition
-@mixin no-transition {
-    -webkit-transition: none;
-       -moz-transition: none;
-         -o-transition: none;
-            transition: none;
-}
-
-// Increase element size on the scale from 1.3
-@mixin scale1-3 {
-    -webkit-transform: scale(1.3);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: scale(1.3);  /* IE 9 */
-            transform: scale(1.3);  /* Firefox 16+, IE 10+, Opera */
-}
-
-// Common styles for the social media icons
-@mixin hover-social-icon {
-    // background-color: #fff;
-    outline: none;
-    @include scale1-3;
-}
-
-// Animate element to rotate in 45
-@mixin rotate45 {
-    -webkit-transform: rotate(45deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-       -moz-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);  /* IE 9 */
-         -o-transform: rotate(45deg);
-            transform: rotate(45deg);  /* Firefox 16+, IE 10+, Opera */
-}
-
-// Remove animate element to rotate in 45
-@mixin no-rotate45 {
-    -webkit-transform: none;
-       -moz-transform: none;
-        -ms-transform: none;
-         -o-transform: none;
-            transform: none;
-}
+@import "config";
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
     "reset",
-    "base",
-    "layout",
-    "form",
-    "responsive"
-;
+    "base2",
+    "font",
+    "default",
+    "responsive-default";

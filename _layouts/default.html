@@ -1,67 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
-
   {% include head.html %}
-
   <body>
-
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-66138437-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-
-    {% include header.html %}
-
-    <div class="page-content">
-
-      {% if page.path == "index.html" %}
-
-        {% include summary.html %}
-
-        {% include rate-maternity.html %}
-
-        <section id="na-midia" class="section featured">
-          <div class="wrapper">
-            <h2>na mídia</h2>
-            <div class="content">
-              <p>
-                Acompanhe aqui o que estão falando sobre o
-                <strong>{{ site.title }}</strong> nos principais meios de
-                comunicação da cidade.
-              </p>
-              <ul>
-                <li><a href="http://noticias.band.uol.com.br/cidades/amazonas/noticia/100000769622/para-ajudar-futuras-maes-site-faz-avaliacao-de-maternidades-do-am.html" target="_blank"><img src="/img/logo-band.png" alt="{{ site.title }} na Band"></a></li>
-                <li><a href="http://g1.globo.com/am/amazonas/bom-dia-amazonia/videos/t/edicoes/v/casal-cria-site-para-avaliar-maternidades-de-manaus/4431968/" target="_blank"><img src="/img/logo-bomdiaam.jpg" alt="{{ site.title }} no G1"></a></li>
-                <li><a href="http://new.d24am.com/plus/comportamento/site-colaborativo-avalia-maternidades-publicas-particulares-manaus/138811" target="_blank"><img src="/img/logo-d24am.png" alt="{{ site.title }} no D24am"></a></li>
-                <li><a href="https://www.facebook.com/maternidadesmanaus/photos/pb.1463442480645313.-2207520000.1449468564./1521697144819846" target="_blank"><img src="/img/logo-acritica.gif" alt="{{ site.title }} no impresso do Jornal A Crítica"></a></li>
-                <li><a href="http://acritica.uol.com.br/manaus/Amazonas-Amazonia-Casal-desenvolve-populacao-maternidades-Manaus_0_1475252464.html" target="_blank"><img src="/img/logo-acritica.jpg" alt="{{ site.title }} no Potal A Crítica.com"></a></li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {% include social-network.html %}
-
-      {% else %}
-
-        <div class="wrapper">
-
-          {{ content }}
-
-        </div>
-
-      {% endif %}
-
+    {% include scripts/google-analytics.html %}
+    <header id="header">
+      <a id="logo" href="/">{{ site.title }}</a>
+      <nav id="main-nav">
+        <i class="menu">MENU</i>
+        <ul>
+          <li><a class="first" href="{{ site.url }}#rate-maternity">faça sua avaliação</a></li>
+          <li><a href="{{ site.url }}#na-midia">na mídia</a></li>
+          <li><a href="{{ site.url }}#social-network">redes sociais</a></li>
+          <li><a href="{{ site.url }}/resultado-das-avaliacoes">resultado das avaliações</a></li>
+        </ul>
+      </nav>
+      <div id="page-title">
+        <h1>{{ page.title }}</h1>
+      </div>
+    </header>
+    <div id="subtitle">
+      <i class="heart"></i>
+      <h2>{{ page.excerpt }}</h2>
     </div>
-
-    <script src="/js/main.js"></script>
-
+    <div id="content">
+      {{ content }}
+    </div>
+    <script src="/js/default.js"></script>
     {% include footer.html %}
-
   </body>
-
 </html>

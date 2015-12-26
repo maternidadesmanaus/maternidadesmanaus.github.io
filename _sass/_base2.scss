@@ -1,0 +1,87 @@
+/* NEW BASE */
+
+/**
+ * Basic styling
+ */
+body {
+    font-family: $base-font-family;
+    line-height: $base-line-height;
+    font-weight: 300;
+    color: $text-color;
+    -webkit-text-size-adjust: 100%;
+}
+
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+    margin-bottom: $spacing-unit / 2;
+}
+
+
+/**
+ * Images
+ */
+img {
+    max-width: 100%;
+    vertical-align: middle;
+    border: none;
+}
+
+
+/**
+ * Lists
+ */
+ul, ol {
+    margin: 0;
+}
+
+li {
+    list-style: none;
+
+    > ul,
+    > ol {
+        margin-bottom: 0;
+    }
+}
+
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    color: #FF4E79;
+    font-family: "MontSerrat";
+    font-weight: 300;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+
+/**
+ * Links
+ */
+a {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+
+/**
+ * Wrapper
+ */
+.wrapper {
+    width: $content-width + 200px;
+    margin:auto;
+    position: relative;
+}

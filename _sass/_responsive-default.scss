@@ -1,0 +1,369 @@
+@include media-query(1315px) {
+    #page-title {
+        width: 100%;
+
+        h1 {
+            margin-left: 145px;
+        }
+    }
+
+    #subtitle {
+        width: 100%;
+        padding-left: 190px;
+    }
+
+    .heart {
+        left: 45px;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
+
+    .footer {
+        width: 100%;
+        padding: 40px;
+    }
+}
+
+@include media-query(1200px) {
+}
+
+@include media-query(1000px) {
+    #content {
+        width: 100%;
+        padding: 0 50px 50px 50px;
+    }
+}
+
+@include media-query(900px) {
+    #header {
+        padding-bottom: 70px;
+    }
+
+    #logo {
+        display: block;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    #main-nav {
+        float: none;
+        margin-bottom: 35px;
+        width: 100%;
+    }
+
+    #page-title {
+        margin:auto;
+        font-size: 28px;
+
+        h1 {
+            margin: auto;
+            width: 480px;
+            display: block;
+            text-align: center;
+        }
+    }
+
+    #subtitle {
+        padding: 55px 50px 50px;
+        width: 100%;
+        
+        h2 {
+            text-align: center;
+            font-size: 105%;
+            line-height: 28px;
+        }
+    }
+
+    .heart {
+        width: 70px;
+        height: 70px;
+        background-size: 44%;
+        top: -35px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    #content {
+        h2 {
+            margin: 0;
+            padding: 50px;
+            line-height: 45px;
+        }
+    }
+
+    #review-info {
+        text-align: center;
+        background-color: #f6f6f6;
+        padding: 20px 30px 30px 30px;
+    }
+
+    #qty-total-reviews {
+        font-size: 85%;
+    }
+
+    #last-update {
+        font-size: 60%;
+    }
+}
+
+@include media-query(800px) {
+    #logo {
+        font-size: 40px;
+    }
+
+    #ranking-box {
+
+        &> li {
+            margin-bottom:40px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .position2,
+        .position3 {
+            width: 100%;
+        }
+    }
+}
+
+@include media-query(650px) {
+    #logo {
+        font-size: 30px;
+    }
+
+    #page-title {
+        h1 {
+            width: 100%;
+            font-size: 22px;
+        }
+    }
+
+    #qty-total-reviews strong {
+        display: block;
+        margin: -7px 0 5px 0;
+    }
+
+    #ranking-box {
+        .badge {
+            font-size: 19px;
+        }
+
+        .position1 {
+            .wrapper-chart {
+                .legend {
+                    li {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .badge {
+                font-size: 26px;
+            }
+
+            .ct-label {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .legend li {
+        width: 100%;
+
+        &.qty-2,
+        &.qty-3,
+        &.qty-4,
+        &.qty-5 {
+            width: 100% !important;
+        }
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .footer {
+        padding: 0 30px 65px 30px;
+
+        .copyright {
+            text-align: center;
+            line-height: 19px;
+        }
+
+        i {
+            top: 105px;
+            right: 0;
+            margin: auto;
+        }
+    }
+}
+
+@include media-query(500px) {
+    #header {
+        padding: 30px 30px 55px;
+    }
+
+    #logo {
+        font-size: 26px;
+    }
+
+    #page-title {
+        h1 {
+            font-size: 19px;
+        }
+    }
+
+    #content {
+        padding: 0;
+
+        h2 {
+            padding: 30px;
+            font-size: 26px;
+            line-height: 35px;
+        }
+    }
+
+    #maternity-ranking {
+
+        .description,
+        h2 {
+            padding: 30px;
+        }
+
+        .description {
+            padding-top: 0;
+        }
+    }
+
+    #ranking-box {
+        margin-top: 50px;
+
+        .info {
+            padding: 50px 30px 30px;
+        }
+
+        .position1 {
+            h3 {
+                font-size: 40px;
+            }
+
+            .maternity-name {
+                font-size: 26px;
+            }
+        }
+    }
+
+    .wrapper-chart {
+        padding: 30px;
+        margin-bottom: 30px;
+    }
+
+    #other-statistics {
+        .wrapper-chart {
+            padding: 30px 0;
+        }
+
+        .mm-chart {
+            padding: 0 30px;
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        .legend {
+            li {
+                font-size: 90%;
+            }
+        }
+    }
+}
+
+@include media-query(400px) {
+    
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media
+    only screen 
+    and (min-device-width : 320px) 
+    and (max-device-width : 480px)
+{
+
+}
+
+/* Smartphones (landscape) ----------- */
+@media
+    only screen 
+    and (min-width : 321px)
+{
+
+}
+
+/* Smartphones (portrait) ----------- */
+@media
+    only screen 
+    and (max-width : 320px)
+{
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media
+    only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px)
+{
+
+}
+
+/* iPads (landscape) ----------- */
+@media
+    only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) 
+    and (orientation : landscape)
+{
+
+}
+
+/* iPads (portrait) ----------- */
+@media
+    only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) 
+    and (orientation : portrait)
+{
+
+}
+
+/* Desktops and laptops ----------- */
+@media
+    only screen 
+    and (min-width : 1224px)
+{
+
+}
+
+/* Large screens ----------- */
+@media
+    only screen 
+    and (min-width : 1824px)
+{
+    
+}
+
+/* iPhone 4 ----------- */
+@media
+    only screen and (-webkit-min-device-pixel-ratio : 1.5),
+    only screen and (min-device-pixel-ratio : 1.5)
+{
+
+}

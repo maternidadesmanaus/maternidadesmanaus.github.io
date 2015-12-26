@@ -1,0 +1,54 @@
+$primary-color: #FF4E79;
+$secondary-color: #F5F5F5;
+$white-color: #FFF;
+
+// Our variables
+$base-font-family: Helvetica, Arial, sans-serif;
+$base-line-height: 1.5;
+
+$spacing-unit:     30px;
+$text-color:       #111;
+
+// Width of the content area
+$content-width:    1000px;
+
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+// Apply full round style
+@mixin full-radius {
+    -webkit-border-radius: 300px;
+       -moz-border-radius: 300px;
+            border-radius: 300px;
+}
+
+// Apply transition
+@mixin transition {
+    -webkit-transition: all 100ms ease 0.1s;
+       -moz-transition: all 100ms ease 0.1s;
+         -o-transition: all 100ms ease 0.1s;
+            transition: all 100ms ease 0.1s;
+}
+
+// Increase element size on the scale from 1.3
+@mixin scale1-3 {
+    -webkit-transform: scale(1.3);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: scale(1.3);  /* IE 9 */
+            transform: scale(1.3);  /* Firefox 16+, IE 10+, Opera */
+}
+
+// Common styles for the social media icons
+@mixin hover-social-icon {
+    outline: none;
+    @include scale1-3;
+}

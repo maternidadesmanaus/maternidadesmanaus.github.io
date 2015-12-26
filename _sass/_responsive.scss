@@ -1,5 +1,4 @@
 @include media-query(1200px) {
-    
 }
 
 @include media-query(1000px) {
@@ -44,7 +43,7 @@
     }
 }
 
-@include media-query($on-laptop) {
+@include media-query(800px) {
     .freebirdMaterialSelectPaperselectOptionList {
         width: 100%;
         width: calc(100% - 19px);
@@ -125,7 +124,7 @@
     }
 }
 
-@include media-query($on-palm) {
+@include media-query(600px) {
 
     .freebirdFormviewerViewItemsItemItemTitle,
     .freebirdFormviewerViewItemsRadioChoice,

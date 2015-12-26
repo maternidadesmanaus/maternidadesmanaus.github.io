@@ -3,13 +3,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{{ site.title }}</title>
-  <meta name="description" content="{{ site.seo.description }}">
-  <meta name="keywords" content="{{ site.seo.keywords }}">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.excerpt }}">
+  <meta name="keywords" content="{{ page.keywords }}">
 
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ page.css_file | default: "/css/main.css" }}">
   <link rel="canonical" href="{{ site.url }}">
   <link rel="alternate" href="{{ site.url }}" hreflang="pt-br" />
+
+  {% if jekyll.environment == "development" %}
+    <script src="http://localhost:35729/livereload.js"></script>
+  {% endif %}
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="57x57" href="{{ site.baseurl }}img/favicon/apple-icon-57x57.png">
@@ -31,10 +35,10 @@
   <meta name="theme-color" content="#ffffff">
 
   <!-- Facebook properties -->
-  <meta property="fb:app_id"      content="882763861758967" />
-  <meta property="og:url"         content="{{ site.url }}" />
+  <meta property="fb:app_id"      content="{{ site.social_networks.facebook.app_id }}" />
+  <meta property="og:url"         content="{{ page.url | default: site.url }}" />
   <meta property="og:type"        content="website" />
-  <meta property="og:title"       content="{{ site.title }}" />
-  <meta property="og:description" content="{{ site.seo.description }}" />
-  <meta property="og:image"       content="http://maternidadesmanaus.com.br/img/favicon/apple-icon-precomposed.png" />
+  <meta property="og:title"       content="{{ page.title | default: site.title }}" />
+  <meta property="og:description" content="{{ page.excerpt }}" />
+  <meta property="og:image"       content="{{ page.thumbnail | default: "/img/favicon/apple-icon-precomposed.png" }}" />
 </head>

@@ -16,7 +16,10 @@ module.exports = function(grunt) {
             },
             target: {
                 files: {
-                    '_site/css/main.css': [ '_site/css/main.css' ]
+                    '_site/css/main.css': [
+                        'bower_components/chartist/dist/chartist.min.css',
+                        '_site/css/main.css'
+                    ]
                 }
             }
         },
@@ -70,6 +73,19 @@ module.exports = function(grunt) {
                     'js/app.js'
                 ],
                 dest : '_site/js/main.js',
+            },
+            js_default: {
+                src: [
+                    'bower_components/chartist/dist/chartist.min.js'
+                ],
+                dest: '_site/js/default.js'
+            },
+            css: {
+                src: [
+                    'bower_components/chartist/dist/chartist.min.css',
+                    '_site/css/main.css'
+                ],
+                dest: '_site/css/main.css'
             }
         },
 
@@ -83,12 +99,22 @@ module.exports = function(grunt) {
                         'js/app.js'
                     ]
                 }
+            },
+            js_default : {
+                files: {
+                    '_site/js/default.js' : [
+                        'bower_components/chartist/dist/chartist.min.js'
+                    ]
+                }
             }
         },
 
         watch: {
             options: {
-                event: ['changed', 'added', 'deleted']
+                event: ['changed', 'added', 'deleted'],
+                spawn : true,
+                atBegin : true,
+                livereload : true
             },
 
             images : {
@@ -118,7 +144,7 @@ module.exports = function(grunt) {
                     '_layouts/*.html',
                     '_includes/*.html',
                     'index.html',
-                    'ranking/*.html',
+                    'resultado-das-avaliacoes/*.html',
 
                     // configurations
                     '_config.yml',
@@ -177,7 +203,7 @@ module.exports = function(grunt) {
         'exec:buildStg',
         'uglify',
         'htmlmin',
-        'imagemin',
+        // 'imagemin',
         'cssmin',
         'exec:deployStg'
     ]);

@@ -118,7 +118,7 @@
     }
 
     &.featured {
-        background-size: cover;
+        background-size: cover !important;
         padding: 50px;
 
         h2 {

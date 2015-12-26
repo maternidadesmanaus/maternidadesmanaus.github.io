@@ -1,23 +1,15 @@
 ---
-layout: default
+layout: home
+title: "Maternidades Manaus"
+css_file: /css/home.css
+excerpt: "Se você já deu à luz ou chegou a acompanhar um amigo(a) ou parente em alguma maternidade de Manaus (pública ou privada), avalie o serviço que você recebeu e conte um pouco dessa experiência."
+keywords: "maternidades em manaus, maternidades manaus, maternidades de manaus, maternidades, manaus"
 ---
 
-<div class="home">
+{% include summary.html %}
 
-  <h1 class="page-heading">Posts</h1>
+{% include rate-maternity.html %}
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+{% include on-the-media.html %}
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+{% include social-network.html %}

@@ -1,6 +1,7 @@
 # Exclude paths and files during build project
 exclude: [
   "node_modules",
+  "bower_components",
   "img/src-sprite",
   "js/app.js",
   "js/smooth-scroll.js",
@@ -12,17 +13,12 @@ exclude: [
 
 # Site settings
 title: Maternidades Manaus
-email: falecom@maternidadesmanaus.com.br
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://maternidadesmanaus.com.br" # the base hostname & protocol for your site
+email: maternidadesmanaus@gmail.com
+baseurl: "/" # the subpath of your site, e.g. /blog/
+url: "http://local.maternidadesmanaus.com.br" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
-
-# SEO
-seo:
-  description: "Se você já deu à luz ou chegou a acompanhar um amigo(a) ou parente em alguma maternidade de Manaus (pública ou privada), avalie o serviço que você recebeu e conte um pouco dessa experiência."
-  keywords: "maternidades em manaus, maternidades manaus, maternidades de manaus, maternidades, manaus"
 
 # Social networks configurations
 social_networks:
@@ -44,6 +40,7 @@ social_networks:
       height: "500"
   facebook:
     name: "facebook"
+    app_id: "860473617401844"
     profile_url: "https://www.facebook.com/maternidadesmanaus/"
     class: "fb"
     share:

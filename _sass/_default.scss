@@ -1,0 +1,495 @@
+/**
+ * Site header
+ */
+#header {
+    background: url("../img/bg-header2.jpg") no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    padding: 50px 50px 40px 50px;
+}
+
+#page-title {
+    width: 900px;
+    margin: 70px auto auto;
+
+    h1 {
+        background-color: #FF4E79;
+        color: #fff;
+        display: inline-block;
+        font-size: 34px;
+        padding: 15px 30px;
+        opacity: 0.87;
+        text-shadow: #000 1px 1px 1px;
+        text-transform: lowercase;
+        margin: 0;
+        width: auto;
+    }
+}
+
+#main-nav {
+    background: #FF4E79;
+    cursor: pointer;
+    float: right;
+    height: 50px;
+    overflow: hidden;
+    opacity: 0.87;
+    padding: 0 15px;
+    width: 320px;
+
+    .menu {
+        background: url("../img/icon-menu.png") no-repeat center right 5px;
+        color: #fff;
+        display: block;
+        font-family: "MontSerrat";
+        font-style: normal;
+        font-size: 20px;
+        text-align: left;
+        text-transform: uppercase;
+        line-height: 50px;
+    }
+
+    &.active {
+        .wrapper {
+            height: 150px;
+        }
+    }
+
+    &ul {
+
+    }
+}
+
+#subtitle {
+    padding: 20px 0;
+    position: relative;
+    width: 900px;
+    margin: auto;
+
+    h2 {
+        color: #aaa;
+        font-family: serif;
+        font-weight: normal;
+        font-size: 20px;
+        font-style: italic;
+        text-align: justify;
+        margin: 0;
+    }
+}
+
+#logo {
+    color: #fff;
+    font-family: "Sofia";
+    font-size: 40px;
+    outline: none;
+    line-height: 45px;
+    text-decoration: none;
+    text-shadow: #af0000 1px 1px 3px;
+    width: 100%;
+}
+
+/**
+ * Heart icon
+ */
+.heart {
+    background: #FF4E79 url("../img/heart2.png") no-repeat center center;
+    border: 3px #fff solid;
+    box-shadow: #000 3px 2px 8px;
+    display: block;
+    width: 120px;
+    height: 120px;
+    z-index: 1;
+    position: absolute;
+    left: -155px;
+    top: -60px;
+    @include full-radius;
+}
+
+#content {
+    min-height: 400px;
+    width: 900px;
+    margin: 0 auto 50px auto;
+
+    h2 {
+        color: $primary-color;
+        font-size: 36px;
+        margin: 50px auto;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+#review-info {
+    color: #999;
+    font-family: "MontSerrat";
+    font-size: 25px;
+    text-align: right;
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+#qty-total-reviews {
+    font-size: 26px;
+
+    strong {
+        color: $primary-color;
+        font-size: 34px;
+    }
+}
+
+#last-update {
+    color: #fcba39;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: serif;
+}
+
+.ct-label {
+    fill: #fff !important;
+    font-size: 14px;
+    font-family: "MontSerrat";
+}
+
+.wrapper-chart {
+    opacity: 0.7;
+    padding: 50px;
+    margin-bottom: 50px;
+
+    h5 {
+        font-size: 20px;
+        border-bottom: 1px $primary-color solid;
+        margin-bottom: 30px;
+        text-transform: lowercase;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.legend {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    text-transform: lowercase;
+
+    li {
+        color: #fff;
+        width: 45%;
+        padding: 7px;
+        float: none !important;
+        display: inline-block;
+        font-size: 14px;
+
+        &.qty-3 {
+            width: 33%;
+        }
+
+        &.qty-5 {
+            width: 20%;
+        }
+    }
+}
+
+.slice0 {
+    background-color: #d70206;
+}
+
+.slice1 {
+    background-color: #f05b4f;
+}
+
+.slice2 {
+    background-color: #f4c63d;
+}
+
+.slice3 {
+    background-color: #d17905;
+}
+
+.slice4 {
+    background-color: #453d3f;
+}
+
+#ranking-box {
+    margin-top: 80px;
+
+    li {
+        float: left;
+        position: relative;
+    }
+
+    h3 {
+        background-color: #fcba39;
+        border: 8px #fff solid;
+        color: #fff;
+        font-family: serif;
+        font-style: italic;
+        font-size: 28px;
+        font-weight: bold;
+        margin: auto;
+        opacity: 0.8;
+        position: absolute;
+        left: 0;
+        line-height: 45px;
+        right: 0;
+        text-align: center;
+        top: -30px;
+        height: 62px;
+        width: 62px;
+        @include full-radius;
+    }
+
+    .info {
+        padding: 50px;
+        text-align: center;
+    }
+
+    .maternity-name {
+        font-weight: normal;
+    }
+
+    .badge {
+        background: url("../img/badge-gold.png") no-repeat center left;
+        color: #fcba39;
+        display: block;
+        font-weight: bold;
+        font-size: 24px;
+        font-family: serif;
+        margin:  0 auto 30px auto;
+        height: 45px;
+        text-align: right;
+        line-height: 45px;
+        width: 185px;
+    }
+
+    .position1 {
+        margin-bottom: 40px;
+        width: 100%;
+
+        h3 {
+            font-size: 50px;
+            line-height: 72px;
+            top: -50px;
+            height: 90px;
+            width: 90px;
+        }
+
+        .info {
+            background: url("../img/bg/bg-gold1.png");
+        }
+
+        .maternity-name {
+            font-size: 30px;
+            color: #555;
+        }
+
+        .badge {
+            font-size: 34px;
+            width: 240px;
+        }
+
+        .wrapper-chart {
+            background-color: #fffae6;
+
+            .legend {
+                li {
+                    font-size: 18px;
+                    width: 33%;
+                }
+            }
+
+            h5 {
+                text-align: left;
+            }
+        }
+
+        .ct-label {
+            font-size: 20px;
+        }
+    }
+
+    .position2 {
+        float: left;
+        width: 48%;
+
+        h3 {
+            background-color: #777;
+        }
+
+        .info {
+            background: url("../img/bg/bg-silver.png");
+        }
+
+        .maternity-name {
+            font-size: 20px;
+            color: #555;
+        }
+
+        .badge {
+            background-image: url("../img/badge-silver.png");
+            color: #999;
+        }
+
+        .wrapper-chart {
+            background-color: #fff;
+        }
+    }
+
+    .position3 {
+        float: right;
+        width: 48%;
+
+        h3 {
+            background-color: #a63039;
+        }
+
+        .info {
+            background: url("../img/bg/bg-bronze.png");
+        }
+
+        .maternity-name {
+            font-size: 20px;
+            color: #555;
+        }
+
+        .badge {
+            background-image: url("../img/badge-bronze.png");
+            color: #a63039;
+        }
+
+        .wrapper-chart {
+            background-color: #fdfbfb;
+        }
+    }
+
+    .star {
+        color: #fcba39;
+        font-size: 35px;
+    }
+}
+
+.ct-slice-pie {
+    stroke: #fff;
+}
+
+#other-statistics {
+    h3 {
+        margin: 20px auto 0 auto;
+        border-bottom: 1px $primary-color solid;
+        text-transform: lowercase;
+    }
+
+    &::first-child {
+        margin-top: 0;
+    }
+
+    .ct-label {
+        font-size: 18px;
+    }
+
+    .legend {
+        li {
+            padding: 10px;
+            font-size: 18px;
+
+            &.qty-2 {
+                width: 33%;
+            }
+        }
+
+    }
+}
+
+.mm-chart {
+    margin-bottom: 50px;
+}
+
+.description {
+    color: #777;
+    text-transform: lowercase;
+    font-size: 18px;
+
+    ul {
+        margin-left: 20px;
+
+        li {
+            list-style-type: square;
+            margin-bottom: 10px;
+
+            strong {
+                color: $primary-color;
+            }
+
+            ul li {
+                list-style-type: circle;
+                font-size: 15px;
+                line-height: 20px;
+                font-style: italic;
+                margin-bottom: 0;
+
+                strong {
+                    color: #777;
+                }
+            }
+        }
+    }
+
+    em {
+        text-decoration: underline;
+    }
+}
+
+.chart-container {
+    margin-top: -20px;
+    position: relative;
+    z-index: -1;
+}
+
+
+/**
+ * Site footer
+ */
+.footer {
+
+    .wrapper {
+        padding: 30px 0;
+        border-top: 1px #ddd solid;
+        position: relative;
+
+    }
+
+    .copyright {
+        text-align: right;
+        color: #333;
+        font-size: 14px;
+        display: block;
+        line-height: 17px;
+        font-style: italic;
+        font-family: serif;
+
+        p {
+            color: #999;
+            margin-bottom: 0;
+        }
+
+        a {
+            color: $primary-color;
+            outline: none;
+            padding: 0 2px 2px 2px;
+        }
+    }
+
+    i {
+        background: transparent url("../img/heart-gs.png") no-repeat center left;
+        display: block;
+        width: 48px;
+        height: 43px;
+        position: absolute;
+        top: 35px;
+        left: 0;
+    }
+}
