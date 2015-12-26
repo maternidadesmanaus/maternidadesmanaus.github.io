@@ -37,7 +37,7 @@
     width: 320px;
 
     .menu {
-        background: url("../img/icon-menu.png") no-repeat center right 5px;
+        background: url("../img/icon-menu-w.png") no-repeat center right;
         color: #fff;
         display: block;
         font-family: "MontSerrat";
@@ -45,17 +45,34 @@
         font-size: 20px;
         text-align: left;
         text-transform: uppercase;
+        text-shadow: #000 1px 1px 1px;
         line-height: 50px;
     }
 
-    &.active {
-        .wrapper {
-            height: 150px;
+    a {
+        border-top: 1px #ccc solid;
+        color: #fff;
+        display: block;
+        font-family: "MontSerrat";
+        font-size: 17px;
+        text-align: center;
+        line-height: 40px;
+        text-shadow: #000 1px 1px 1px;
+        width: 100%;
+
+        &:hover {
+            background-color:#e70038;
         }
     }
 
-    &ul {
+    &.active {
+        height: 270px;
+    }
 
+    li:last-child {
+        a {
+            border-bottom:1px #ccc solid;
+        }
     }
 }
 
