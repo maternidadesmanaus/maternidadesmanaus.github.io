@@ -62,3 +62,32 @@ if (_isMobile()) {
 document.querySelector("#main-nav .menu").addEventListener("click", function(event) {
     this.parentNode.classList.toggle("active");
 }, false);
+
+// register go to top navigation
+document.querySelector("#go-to-top").addEventListener("click", function(event) {
+    smoothScroll.init({
+        target : document.body
+    });
+}, false);
+
+document.querySelector("#share").addEventListener("click", function(event) {
+    this.parentNode.classList.toggle("active");
+}, false);
+
+document.querySelector("#float-share-bar .close").addEventListener("click", function(event) {
+    this.parentNode.classList.toggle("active");
+}, false);
+
+window.addEventListener("scroll", function(){
+    var bar = document.getElementById("float-share-bar");
+
+    // if (!bar.classList.contains("active")) {
+    //     bar.style.display = (window.pageYOffset > 2200)
+    //         ? "block"
+    //         : bar.style.display = "none";
+    // }
+    
+    bar.style.display = (window.pageYOffset > 300)
+        ? "block"
+        : bar.style.display = "none";
+});

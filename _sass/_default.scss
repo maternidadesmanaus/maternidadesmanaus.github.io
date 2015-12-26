@@ -1,4 +1,102 @@
 /**
+ * Share buttons
+ */
+
+#float-share-bar {
+    display: none;
+}
+
+.share-buttons {
+    margin-bottom: 50px;
+    width: 100%;
+    display: block;
+
+    li {
+        display: block;
+        margin-top: 20px;
+    }
+
+    a {
+        color: transparent;
+        display: inline-block;
+        font-family: "MontSerrat";
+        font-weight: normal;
+        font-size: 14px;
+        text-align: right;
+        padding: 15px 12px 15px 0;
+        overflow: inherit;
+        text-indent: inherit;
+        width: 100%;
+        @include transition;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &.fb {
+            background: #5a79b8 url("../img/icon-fb2.png") no-repeat center left 12px;
+            border: 1px #5a79b8 solid;
+            padding-right: 12px;
+        }
+
+        &.tw {
+            background: #67d1f3 url("../img/icon-twitter2.png") no-repeat center left 12px;
+            border: 1px #67d1f3 solid;
+            padding-right: 18px;
+        }
+
+        &.gp {
+            background: #e36b56 url("../img/icon-go2.png") no-repeat center left 12px;
+            border: 1px #e36b56 solid;
+            padding-right: 15px;
+        }
+    }
+}
+
+#float-share-bar .close,
+#share-content p,
+#share {
+    display: none;
+}
+
+.share-buttons {
+    li {
+        margin-top: 0;
+    }
+
+    a {
+        width: 50px;
+        text-indent: -999px;
+
+        &:hover {
+            width: 70px;
+        }
+    }
+}
+
+#share-content {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    margin-top: -100px;
+}
+
+#go-to-top {
+    background: #e5e5e5 url("../img/arrow-top.png") no-repeat center center;
+    border-radius: 200px;
+    bottom: 40px;
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    right: 70px;
+    z-index: 5;
+
+    &:hover {
+        background-color: #eee;
+    }
+}
+
+/**
  * Site header
  */
 #header {
@@ -476,7 +574,7 @@
         padding: 30px 0;
         border-top: 1px #ddd solid;
         position: relative;
-
+        width: 900px;
     }
 
     .copyright {

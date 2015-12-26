@@ -77,6 +77,7 @@ module.exports = function(grunt) {
             js_default: {
                 src: [
                     'bower_components/chartist/dist/chartist.min.js',
+                    'js/smooth-scroll.js',
                     'js/default.js'
                 ],
                 dest: '_site/js/default.js'
@@ -105,6 +106,7 @@ module.exports = function(grunt) {
                 files: {
                     '_site/js/default.js' : [
                         'bower_components/chartist/dist/chartist.min.js',
+                        'js/smooth-scroll.js',
                         'js/default.js'
                     ]
                 }

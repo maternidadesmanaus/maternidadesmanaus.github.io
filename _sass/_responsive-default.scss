@@ -20,19 +20,35 @@
         width: 100%;
     }
 
-    .footer {
-        width: 100%;
-        padding: 40px;
+    #go-to-top {
+        right: 30px;
     }
 }
 
 @include media-query(1200px) {
+    #go-to-top {
+        width: 60px;
+        height: 60px;
+        bottom: 25px;
+        right: 0;
+        left: 0;
+        margin: auto;
+    }
 }
 
 @include media-query(1000px) {
     #content {
         width: 100%;
         padding: 0 50px 50px 50px;
+    }
+
+    .footer {
+        width: 100%;
+        padding: 0 50px;
+
+        .wrapper {
+            width: 100%;
+        }
     }
 }
 
@@ -115,7 +131,6 @@
     }
 
     #ranking-box {
-
         &> li {
             margin-bottom:40px;
 
@@ -124,9 +139,23 @@
             }
         }
 
+        .position1 {
+            .wrapper-chart {
+                h5 {
+                    text-align: center;
+                }
+            }
+        }
+
         .position2,
         .position3 {
             width: 100%;
+        }
+    }
+
+    #other-statistics {
+        h3 {
+            text-align: center;
         }
     }
 }
@@ -188,7 +217,7 @@
     }
 
     .footer {
-        padding: 0 30px 65px 30px;
+        padding: 0 30px 125px 30px;
 
         .copyright {
             text-align: center;
@@ -199,6 +228,110 @@
             top: 105px;
             right: 0;
             margin: auto;
+        }
+    }
+
+    #float-share-bar {
+        bottom: 0;
+        position: fixed;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+
+        .close {
+            background-color: #FF4E79;
+            border-radius: 100px;
+            color: #fff;
+            display: none;
+            font-family: serif;
+            font-size: 22px;
+            font-style: italic;
+            width: 35px;
+            height: 35px;
+            text-align: center;
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            line-height: 31px;
+            font-weight: bold;
+        }
+
+        &>a {
+            line-height: 60px;
+            text-align: center;
+            bottom: 0;
+            border-radius: 0;
+            right: 0;
+            left: initial;
+        }
+
+        &.active {
+            background-color: #000;
+            height: 100%;
+
+            #share-content {
+                display: block;
+            }
+
+            &>a {
+                display: none;
+            }
+
+            .close {
+                display: block;
+            }
+        }
+    }
+
+    #share {
+        background: #4c8d31 url("../img/icon-share.png") no-repeat center left 25px;
+        color: #c3e5b5;
+        display: block;
+        font-size: 16px;
+        float: left;
+        width: 80%;
+        padding-left: 30px;
+    }
+
+    #go-to-top {
+        background: #09669e url("../img/arrow-top-blue.png") no-repeat center center;
+        float: right;
+        width: 20%;
+    }
+
+    #share-content {
+        color: #fff;
+        display: none;
+        width: 290px;
+        height: 240px;
+        position:absolute;
+        text-align: center;
+        top:50%;
+        left:50%;
+        margin-top:-120px;
+        margin-left:-145px;
+
+        p {
+            font-family: "MontSerrat";
+            font-size: 22px;
+            color: $primary-color;
+            display: block;
+        }
+    }
+
+    .share-buttons {
+        li {
+            margin-bottom: 20px;
+
+            a {
+                text-indent: initial;
+                color: #fff;
+                width: 100%;
+
+                &:hover {
+                    width: 100%;
+                }
+            }
         }
     }
 }
@@ -287,7 +420,25 @@
 }
 
 @include media-query(400px) {
-    
+    #share-content {
+        width: 250px;
+        margin-left:-125px;
+
+        p {
+            font-size: 18px;
+        }
+    }
+
+    .share-buttons {
+        a {
+            font-size: 12px;
+        }
+    }
+
+    #share {
+        font-size: 14px;
+        padding-left: 40px;
+    }
 }
 
 /* Smartphones (portrait and landscape) ----------- */

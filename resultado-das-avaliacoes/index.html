@@ -8,6 +8,20 @@ thumbnail: "/img/ranking.jpg"
 
 {% assign resultInfo = site.data.results %}
 
+<div id="float-share-bar">
+    <a href="javascript:void(0);" id="share">compartilhe os resultados</a>
+    <a href="javascript:void(0);" id="go-to-top">&nbsp;</a>
+    <i class="close">x</i>
+    <div id="share-content">
+        <p>escolha a rede social</p>
+        <ul class="share-buttons">
+            <li><a class="sb fb" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('{{ site.social_networks.facebook.share.url }}resultado-das-avaliacoes/', '{{ site.social_networks.facebook.share.width }}', '{{ site.social_networks.facebook.share.height }}');">compartilhe no facebook</a></li>
+            <li><a class="sb tw" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('{{ site.social_networks.twitter.share.url }}resultado-das-avaliacoes/', '{{ site.social_networks.twitter.share.width }}', '{{ site.social_networks.twitter.share.height }}');">compartilhe no twitter</a></li>
+            <li><a class="sb gp" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('{{ site.social_networks.google_plus.share.url }}resultado-das-avaliacoes/', '{{ site.social_networks.google_plus.share.width }}', '{{ site.social_networks.google_plus.share.height }}');">compartilhe no google+</a></li>
+        </ul>
+    </div>
+</div>
+
 <div id="review-info">
     <p id="qty-total-reviews">total de <strong>{{ resultInfo.total_reviews }} avaliações</strong></p>
     <p id="last-update">
