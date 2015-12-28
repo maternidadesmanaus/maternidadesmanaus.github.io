@@ -82,7 +82,7 @@
 }
 
 #go-to-top {
-    background: #e5e5e5 url("../img/arrow-top.png") no-repeat center center;
+    background: #e5e5e5 url("../img/arrow-top.png") no-repeat center 15px;
     border-radius: 200px;
     bottom: 40px;
     position: fixed;
@@ -394,7 +394,7 @@
         }
 
         .info {
-            background: url("../img/bg/bg-gold1.png");
+            background: url("../img/bg-gold1.png");
         }
 
         .maternity-name {
@@ -436,7 +436,7 @@
         }
 
         .info {
-            background: url("../img/bg/bg-silver.png");
+            background: url("../img/bg-silver.png");
         }
 
         .maternity-name {
@@ -463,7 +463,7 @@
         }
 
         .info {
-            background: url("../img/bg/bg-bronze.png");
+            background: url("../img/bg-bronze.png");
         }
 
         .maternity-name {
