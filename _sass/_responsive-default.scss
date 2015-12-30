@@ -27,6 +27,7 @@
 
 @include media-query(1200px) {
     #go-to-top {
+        background-position: center 5px;
         width: 60px;
         height: 60px;
         bottom: 25px;
