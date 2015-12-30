@@ -59,7 +59,8 @@ module.exports = function(grunt) {
                     minifyCSS: true
                 },
                 files: {
-                    '_site/index.html': '_site/index.html'
+                    '_site/index.html': '_site/index.html',
+                    '_site/resultado-das-avaliacoes/index.html': '_site/resultado-das-avaliacoes/index.html'
                 }
             }
         },
