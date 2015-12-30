@@ -608,3 +608,25 @@
         left: 0;
     }
 }
+
+@-moz-document url-prefix() { 
+    #ranking-box {
+        .badge {
+            width: 245px;
+        }
+
+        h3 {
+            font-size: 22px;
+        }
+
+        .position1 {
+            .badge {
+                width: 310px;
+            }
+
+            h3 {
+                font-size: 42px;
+            }
+        }
+    }
+}
