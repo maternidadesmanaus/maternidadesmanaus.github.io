@@ -141,6 +141,9 @@ module.exports = function(grunt) {
             jekyll: {
                 files: [
 
+                    // data
+                    '_data/results.json',
+
                     // styles (sass)
                     '_sass/*.scss',
                     'css/*.scss',
