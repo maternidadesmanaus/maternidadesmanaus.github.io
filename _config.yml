@@ -12,10 +12,11 @@ exclude: [
 ]
 
 # Site settings
+version: "v2.0"
 title: Maternidades Manaus
 email: maternidadesmanaus@gmail.com
 baseurl: "/" # the subpath of your site, e.g. /blog/
-url: "http://local.maternidadesmanaus.com.br" # the base hostname & protocol for your site
+url: "http://maternidadesmanaus.com.br" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown

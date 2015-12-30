@@ -155,7 +155,7 @@ module.exports = function(grunt) {
                     'resultado-das-avaliacoes/*.html',
 
                     // configurations
-                    '_config.yml',
+                    '*.yml',
                     'Gruntfile.js',
                 ],
 
@@ -175,13 +175,13 @@ module.exports = function(grunt) {
 
             // builds
             buildDev: {
-                cmd: 'JEKYLL_ENV=development jekyll build'
+                cmd: 'JEKYLL_ENV=development jekyll build -c _config.yml,_config_dev.yml'
             },
             buildStg: {
-                cmd: 'JEKYLL_ENV=staging jekyll build'
+                cmd: 'JEKYLL_ENV=staging jekyll build -c _config.yml,_config_stg.yml'
             },
             buildPrd: {
-                cmd: 'JEKYLL_ENV=production jekyll build'
+                cmd: 'JEKYLL_ENV=production jekyll build -c _config.yml,_config_prd.yml'
             },
 
             // deploys
