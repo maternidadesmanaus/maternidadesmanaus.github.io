@@ -1,7 +1,7 @@
 var casper = require('casper').create();
 var fs = require("fs");
-// var googleFormUrl = 'https://docs.google.com/forms/d/1UVB3EqhdY4abRrzRegIn19ef1bhPaX4STuFvrbpwSIg/viewform';  // PRD
-var googleFormUrl = 'https://docs.google.com/forms/d/1egfBCuUuQiYxtpo6_fUrMNUb_RnajuCkMkVekWlfsDs/viewform';  // BETA
+var googleFormUrl = 'https://docs.google.com/forms/d/1UVB3EqhdY4abRrzRegIn19ef1bhPaX4STuFvrbpwSIg/viewform';  // PRD
+// var googleFormUrl = 'https://docs.google.com/forms/d/1egfBCuUuQiYxtpo6_fUrMNUb_RnajuCkMkVekWlfsDs/viewform';  // BETA
 
 console.log("\nacessando formulário do google...");
 casper.start(googleFormUrl, function() {
