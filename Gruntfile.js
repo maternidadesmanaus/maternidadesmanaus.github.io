@@ -189,8 +189,8 @@ module.exports = function(grunt) {
                 cmd: 'rsync -azpog --progress --delete-excluded --exclude "Gruntfile.js" --exclude "img/src-sprite" --exclude "package.json" --exclude "node_modules/" --exclude "readme.md" -e "ssh -q" _site/ root@andrewslince.me:/var/www/beta.maternidadesmanaus.com.br/'
             },
             deployPrd: {
-                // cmd: 'rsync -azpog --progress --delete-excluded --exclude "Gruntfile.js" --exclude "img/src-sprite" --exclude "package.json" --exclude "node_modules/" --exclude "readme.md" -e "ssh -q" _site/ root@andrewslince:/var/www/maternidadesmanaus/'
-                cmd: 'echo "\nPara que seus dentes se mantenham intactos, o deploy de PRD ainda está desabilitado! :)\n"'
+                cmd: 'rsync -azpog --progress --delete-excluded --exclude "Gruntfile.js" --exclude "img/src-sprite" --exclude "package.json" --exclude "node_modules/" --exclude "readme.md" -e "ssh -q" _site/ root@andrewslince.me:/var/www/maternidadesmanaus/'
+                // cmd: 'echo "\nPara que seus dentes se mantenham intactos, o deploy de PRD ainda está desabilitado! :)\n"'
             }
         }
     });
