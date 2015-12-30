@@ -1,213 +1,192 @@
 ---
 layout: default
 title: "Resultado das Avaliações"
-excerpt: "saiba quais são as maternidades mais bem avaliadas da cidade de Manaus!"
-keywords: "maternidades em manaus, maternidades manaus, maternidades de manaus, maternidades, manaus"
-thumbnail: "/img/ranking.jpg"
+excerpt: "Saiba quais são as maternidades mais bem avaliadas da cidade de Manaus!"
+keywords: "Maternidades em Manaus, Maternidades Manaus, Maternidades de Manaus, Maternidades, Manaus, Melhores Maternidades de Manaus, Piores Maternidades de Manaus"
+thumbnail: "/img/thumbnail-resultados.jpg"
+seo:
+  facebook: "Você está grávida e gostaria de saber qual a maternidade mais indicada para ter seu bebê em Manaus? Confira aqui quais são as instituições mais bem avaliadas da cidade!"
+  twitter: "Confira%20aqui%20quais%20são%20as%20maternidades%20mais%20bem%20avaliadas%20da%20cidade%20de%20Manaus.%20"
 ---
 
 {% assign resultInfo = site.data.results %}
 
 <div id="float-share-bar">
-    <a href="javascript:void(0);" id="share">compartilhe os resultados</a>
-    <a href="javascript:void(0);" id="go-to-top">&nbsp;</a>
-    <i class="close">x</i>
-    <div id="share-content">
-        <p>escolha a rede social</p>
-        <ul class="share-buttons">
-            <li><a class="sb fb" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('{{ site.social_networks.facebook.share.url }}resultado-das-avaliacoes/', '{{ site.social_networks.facebook.share.width }}', '{{ site.social_networks.facebook.share.height }}');">compartilhe no facebook</a></li>
-            <li><a class="sb tw" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('{{ site.social_networks.twitter.share.url }}resultado-das-avaliacoes/', '{{ site.social_networks.twitter.share.width }}', '{{ site.social_networks.twitter.share.height }}');">compartilhe no twitter</a></li>
-            <li><a class="sb gp" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('{{ site.social_networks.google_plus.share.url }}resultado-das-avaliacoes/', '{{ site.social_networks.google_plus.share.width }}', '{{ site.social_networks.google_plus.share.height }}');">compartilhe no google+</a></li>
-        </ul>
-    </div>
+  <a href="javascript:void(0);" id="share">compartilhe os resultados</a>
+  <a href="javascript:void(0);" id="go-to-top">&nbsp;</a>
+  <i class="close">x</i>
+  <div id="share-content">
+    <p>escolha a rede social</p>
+    <ul class="share-buttons">
+      <li><a class="sb fb" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('https://www.facebook.com/dialog/share?app_id={{ site.social_networks.facebook.app_id }}&amp;display=popup&amp;href={{ site.url }}{{ page.url }}&amp;redirect_uri={{ site.url }}{{ page.url }}', '560', '630');">compartilhe no facebook</a></li>
+      <li><a class="sb tw" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;text={{ page.seo.twitter }}&amp;tw_p=tweetbutton&amp;url={{ site.url }}{{ page.url }}', '{{ site.social_networks.twitter.share.width }}', '{{ site.social_networks.twitter.share.height }}');">compartilhe no twitter</a></li>
+      <li><a class="sb gp" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('https://plus.google.com/share?url={{ site.url }}{{ page.url }}&amp;t=Resultados+das+avaliações+|+Maternidades+Manaus', '{{ site.social_networks.google_plus.share.width }}', '{{ site.social_networks.google_plus.share.height }}');">compartilhe no google+</a></li>
+    </ul>
+  </div>
 </div>
 
 <div id="review-info">
-    <p id="qty-total-reviews">total de <strong>{{ resultInfo.total_reviews }} avaliações</strong></p>
-    <p id="last-update">
-        a última atualização dos resultados foi feita em
-        <strong>
-            {{ resultInfo.last_update.date }}, às {{ resultInfo.last_update.hour }}h
-        </strong>
-    </p>
+  <p id="qty-total-reviews">
+    total de <strong>{{ resultInfo.total_reviews }} avaliações</strong>
+  </p>
+  <p id="last-update">
+    a última atualização dos resultados foi feita em
+    <strong>
+      {{ resultInfo.last_update.date }}, às {{ resultInfo.last_update.hour }}h
+    </strong>
+  </p>
 </div>
 
 <script>var globalCharts = [];</script>
 
 <section id="maternity-ranking">
-    <h2>melhores maternidades</h2>
-    <div class="description">
-        <p>Os gráficos do ranking mostram informações com base em alguns critérios:</p>
+  <h2>melhores maternidades</h2>
+  <div class="description">
+    <p>Os gráficos do ranking mostram informações com base em alguns critérios:</p>
+    <ul>
+      <li id="help-concept">
+        <strong>Conceitos:</strong> as repostas foram classificadas em 3 grupos:
         <ul>
-            <li id="help-concept">
-                <strong>Conceitos:</strong> as repostas foram classificadas em 3 grupos:
-                <ul>
-                    <li><strong>Negativo:</strong> conjunto de respostas do tipo <em>Ruim</em> e <em>Péssimo</em>;</li>
-                    <li><strong>Regular:</strong> respostas do tipo <em>Bom</em>;</li>
-                    <li><strong>Positivo:</strong> conjunto de respostas do tipo <em>Ótimo</em> e <em>Excelente</em>.</li>
-                </ul>
-            </li>
-            <li id="help-recent-reviews">
-                <strong>Período do Parto:</strong> avaliações recentes <em>(últimos 3 anos)</em> possuem um peso maior que avaliações mais antigas;
-            </li>
-            <li id="help-pregnant-reviews">
-                <strong>Avaliações de Gestantes:</strong> avaliações de gestantes também possuem um peso maior que avaliações de acompanhantes.
-            </li>
+          <li><strong>Negativo:</strong> conjunto de respostas do tipo <em>Ruim</em> e <em>Péssimo</em>;</li>
+          <li><strong>Regular:</strong> respostas do tipo <em>Bom</em>;</li>
+          <li><strong>Positivo:</strong> conjunto de respostas do tipo <em>Ótimo</em> e <em>Excelente</em>.</li>
         </ul>
-    </div>
-    <ul id="ranking-box">
-        {% for rank in resultInfo.ranking %}
-            {% assign chartIndex = forloop.index %}
-            <li class="position{{ forloop.index }}">
-                <h3>{{ forloop.index }}º</h3>
-                <div class="info">
-                    <h4 class="maternity-name">{{ rank.name }}</h4>
-                    <i class="badge">{{ rank.reviews }} avaliações</i>
-                    {% for chart in rank.charts %}
-                        <div id="chart{{ chartIndex }}{{ forloop.index }}" class="wrapper-chart">
-                            <h5>{{ chart.title }}</h5>
-                            
-                            {% if chartIndex == 1 %}
-                                <div class="ct-chart ct-golden-section"></div>
-                            {% else %}
-                                <div class="ct-chart ct-square"></div>
-                            {% endif %}
-
-                            <script>
-                                window.addEventListener("load", function(){
-                                    var data = {
-                                        series: []
-                                    };
-
-                                    var conceptData = {{ chart.data | jsonify }};
-                                    var htmlLegend  = '<ul class="legend">';
-                                    var count       = 0;
-                                    for (var prop in conceptData) {
-                                        data.series.push(conceptData[prop])
-                                        htmlLegend += '<li class="slice' + count + ' qty-' + Object.keys(conceptData).length + '">' + prop + '</li>';
-                                        count++;
-                                    }
-                                    htmlLegend += '<ul>';
-
-                                    var sum = function(a, b) {
-                                        return a + b
-                                    };
-
-                                    var options = {
-                                        labelInterpolationFnc: function(value) {
-                                            return Math.round(value / data.series.reduce(sum) * 100) + '%';
-                                        }
-                                    };
-
-                                    // plot chart
-                                    var thisChart = new Chartist.Pie(
-                                        '#chart'+ {{ chartIndex }} + {{ forloop.index }} + ' .ct-chart',
-                                        data,
-                                        options
-                                    );
-
-                                    globalCharts.push(thisChart);
-
-                                    // display legend
-                                    if (!document.querySelector('#chart' + {{ chartIndex }} + {{ forloop.index }} + ' .legend')) {
-                                        document.querySelector('#chart' + {{ chartIndex }} + {{ forloop.index }}).insertAdjacentHTML('beforeend', htmlLegend);
-                                    }
-                                });
-                            </script>
-                        </div>
-                    {% endfor %}
-                </div>
-            </li>
-        {% endfor %}
+      </li>
+      <li id="help-recent-reviews">
+        <strong>Período do Parto:</strong> avaliações recentes <em>(últimos 3 anos)</em> possuem um peso maior que avaliações mais antigas;
+      </li>
+      <li id="help-pregnant-reviews">
+        <strong>Avaliações de Gestantes:</strong> avaliações de gestantes também possuem um peso maior que avaliações de acompanhantes.
+      </li>
     </ul>
-    <div style="clear:both;"></div>
+  </div>
+  <ul id="ranking-box">
+    {% for rank in resultInfo.ranking %}
+      {% assign chartIndex = forloop.index %}
+      <li class="position{{ forloop.index }}">
+        <h3>{{ forloop.index }}º</h3>
+        <div class="info">
+          <h4 class="maternity-name">{{ rank.name }}</h4>
+          <i class="badge">{{ rank.reviews }} avaliações</i>
+          {% for chart in rank.charts %}
+            <div id="chart{{ chartIndex }}{{ forloop.index }}" class="wrapper-chart">
+              <h5>{{ chart.title }}</h5>
+              
+              {% if chartIndex == 1 %}
+                <div class="ct-chart ct-golden-section"></div>
+              {% else %}
+                <div class="ct-chart ct-square"></div>
+              {% endif %}
+
+              <script>
+                  window.addEventListener("load", function(){
+                      var data = {
+                          series: []
+                      };
+
+                      var conceptData = {{ chart.data | jsonify }};
+                      var htmlLegend  = '<ul class="legend">';
+                      var count       = 0;
+                      for (var prop in conceptData) {
+                          data.series.push(conceptData[prop])
+                          htmlLegend += '<li class="slice' + count + ' qty-' + Object.keys(conceptData).length + '">' + prop + '</li>';
+                          count++;
+                      }
+                      htmlLegend += '<ul>';
+
+                      var sum = function(a, b) {
+                          return a + b
+                      };
+
+                      var options = {
+                          labelInterpolationFnc: function(value) {
+                              return Math.round(value / data.series.reduce(sum) * 100) + '%';
+                          }
+                      };
+
+                      // plot chart
+                      var thisChart = new Chartist.Pie(
+                          '#chart'+ {{ chartIndex }} + {{ forloop.index }} + ' .ct-chart',
+                          data,
+                          options
+                      );
+
+                      globalCharts.push(thisChart);
+
+                      // display legend
+                      if (!document.querySelector('#chart' + {{ chartIndex }} + {{ forloop.index }} + ' .legend')) {
+                          document.querySelector('#chart' + {{ chartIndex }} + {{ forloop.index }}).insertAdjacentHTML('beforeend', htmlLegend);
+                      }
+                  });
+              </script>
+            </div>
+          {% endfor %}
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+  <div style="clear:both;"></div>
 </section>
 
-<script>
-    function resizeCharts() {
-        if (window.innerWidth <= 800) {
-            for (var i = 0; i < window.globalCharts.length; i++) {
-                if (window.globalCharts[i].container.classList.contains("ct-octave")) {
-                    window.globalCharts[i].container.classList.remove("ct-octave");
-                    window.globalCharts[i].container.classList.add("ct-square");
-                    window.globalCharts[i].update();
-                } else if (window.globalCharts[i].container.classList.contains("ct-golden-section")) {
-                    window.globalCharts[i].container.classList.remove("ct-golden-section");
-                    window.globalCharts[i].container.classList.add("ct-square");
-                    window.globalCharts[i].update();
-                }
-            }
-        } else {
-            for (var i = 0; i < window.globalCharts.length; i++) {
-                if (window.globalCharts[i].container.classList.contains("ct-square")) {
-                    window.globalCharts[i].container.classList.remove("ct-square");
-                    window.globalCharts[i].container.classList.add("ct-octave");
-                    window.globalCharts[i].update();
-                }
-            }
-        }
-    }
-</script>
-
 <section id="other-statistics">
-    <h2>dados gerais da avaliação</h2>
-    {% for graph in resultInfo.other_statistics %}
-        <div id="piechart{{ forloop.index }}" class="mm-chart">
-            <h3>{{ graph.title }}</h3>
-            <div class="wrapper-chart">
-                <div class="ct-chart ct-octave"></div>
-            </div>
-        </div>
+  <h2>dados gerais da avaliação</h2>
+  {% for graph in resultInfo.other_statistics %}
+    <div id="piechart{{ forloop.index }}" class="mm-chart">
+      <h3>{{ graph.title }}</h3>
+      <div class="wrapper-chart">
+        <div class="ct-chart ct-octave"></div>
+      </div>
+    </div>
 
-        <script>
-            window.addEventListener("load", function(){
-                var data = {
-                    series: []
-                };
-
-                var seila = {{ graph | jsonify }};
-                var htmlLegend  = '<ul class="legend">';
-                var count       = 0;
-                for (var prop in seila.data) {
-                    data.series.push(seila.data[prop]);
-                    htmlLegend += '<li class="slice' + count + ' qty-' + Object.keys(seila.data).length + '">' + prop + '</li>';
-                    count++;
-                }
-                htmlLegend += '<ul>';
-
-
-                var sum = function(a, b) {
-                    return a + b
-                };
-
-                var options = {
-                    labelInterpolationFnc: function(value) {
-                        return Math.round(value / data.series.reduce(sum) * 100) + '%';
-                    }
-                };
-
-                // plot chart
-                var thisChart = new Chartist.Pie(
-                    '#piechart'+ {{ forloop.index }} + ' .ct-chart',
-                    data,
-                    options
-                );
-
-                globalCharts.push(thisChart);
-
-                // display legend
-                if (!document.querySelector('#piechart' + {{ forloop.index }} + ' .wrapper-chart .legend')) {
-                    document.querySelector('#piechart' + {{ forloop.index }} + ' .wrapper-chart').insertAdjacentHTML('beforeend', htmlLegend);
-                }
-            });
-            
-            window.addEventListener("resize", function(){
-                resizeCharts();
-            });
-        </script>
-    {% endfor %}
     <script>
+        window.addEventListener("load", function(){
+            var data = {
+                series: []
+            };
+
+            var seila = {{ graph | jsonify }};
+            var htmlLegend  = '<ul class="legend">';
+            var count       = 0;
+            for (var prop in seila.data) {
+                data.series.push(seila.data[prop]);
+                htmlLegend += '<li class="slice' + count + ' qty-' + Object.keys(seila.data).length + '">' + prop + '</li>';
+                count++;
+            }
+            htmlLegend += '<ul>';
+
+
+            var sum = function(a, b) {
+                return a + b
+            };
+
+            var options = {
+                labelInterpolationFnc: function(value) {
+                    return Math.round(value / data.series.reduce(sum) * 100) + '%';
+                }
+            };
+
+            // plot chart
+            var thisChart = new Chartist.Pie(
+                '#piechart'+ {{ forloop.index }} + ' .ct-chart',
+                data,
+                options
+            );
+
+            globalCharts.push(thisChart);
+
+            // display legend
+            if (!document.querySelector('#piechart' + {{ forloop.index }} + ' .wrapper-chart .legend')) {
+                document.querySelector('#piechart' + {{ forloop.index }} + ' .wrapper-chart').insertAdjacentHTML('beforeend', htmlLegend);
+            }
+        });
+        
+        window.addEventListener("resize", function(){
+            resizeCharts();
+        });
     </script>
+  {% endfor %}
+  <script>
+  </script>
 </section>
 
 <script>

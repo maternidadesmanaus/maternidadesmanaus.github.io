@@ -2,13 +2,16 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>{{ page.title | default: site.title }}</title>
+  {% if page.url == "/" %}
+    <title>{{ page.title }}</title>
+  {% else %}
+    <title>{{ page.title }} | Maternidades Manaus</title>
+  {% endif %}
   <meta name="description" content="{{ page.excerpt }}">
   <meta name="keywords" content="{{ page.keywords }}">
 
   <link rel="stylesheet" href="{{ page.css_file | default: "/css/main.css" }}">
-  <link rel="canonical" href="{{ site.url }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   <link rel="alternate" href="{{ site.url }}" hreflang="pt-br" />
 
   {% if jekyll.environment == "development" %}
@@ -16,29 +19,33 @@
   {% endif %}
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="57x57" href="{{ site.baseurl }}img/favicon/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="{{ site.baseurl }}img/favicon/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="{{ site.baseurl }}img/favicon/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ site.baseurl }}img/favicon/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="{{ site.baseurl }}img/favicon/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="{{ site.baseurl }}img/favicon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="{{ site.baseurl }}img/favicon/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="{{ site.baseurl }}img/favicon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}img/favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="{{ site.baseurl }}img/favicon/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}img/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="{{ site.baseurl }}img/favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}img/favicon/favicon-16x16.png">
-  <link rel="manifest" href="{{ site.baseurl }}img/favicon/manifest.json">
+  <link rel="apple-touch-icon" sizes="57x57" href="{{ site.url }}/img/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="{{ site.url }}/img/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{ site.url }}/img/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ site.url }}/img/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="{{ site.url }}/img/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="{{ site.url }}/img/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="{{ site.url }}/img/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{ site.url }}/img/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ site.url }}/img/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="{{ site.url }}/img/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ site.url }}/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{ site.url }}/img/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ site.url }}/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="{{ site.url }}/img/favicon/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
 
   <!-- Facebook properties -->
   <meta property="fb:app_id"      content="{{ site.social_networks.facebook.app_id }}" />
-  <meta property="og:url"         content="{{ page.url | default: site.url }}" />
+  <meta property="og:url"         content="{{ site.url }}{{ page.url }}" />
   <meta property="og:type"        content="website" />
-  <meta property="og:title"       content="{{ page.title | default: site.title }}" />
-  <meta property="og:description" content="{{ page.excerpt }}" />
-  <meta property="og:image"       content="{{ page.thumbnail | default: "/img/favicon/apple-icon-precomposed.png" }}" />
+  {% if page.url == "/" %}
+    <meta property="og:title" content="{{ page.title }}" />
+  {% else %}
+    <meta property="og:title" content="{{ page.title }} | Maternidades Manaus" />
+  {% endif %}
+  <meta property="og:description" content="{{ page.seo.facebook }}" />
+  <meta property="og:image"       content="{{ site.url }}{{ page.thumbnail | default: "/img/favicon/apple-icon-precomposed.png" }}" />
 </head>
