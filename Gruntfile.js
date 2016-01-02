@@ -186,7 +186,7 @@ module.exports = function(grunt) {
 
             // deploys
             deployStg: {
-                cmd: 'rsync -azpog --progress --delete-excluded --exclude "Gruntfile.js" --exclude "img/src-sprite" --exclude "package.json" --exclude "node_modules/" --exclude "readme.md" -e "ssh -q" _site/ root@andrewslince.me:/var/www/beta.maternidadesmanaus.com.br/'
+                cmd: 'rsync -azpog --progress --delete-excluded --exclude "Gruntfile.js" --exclude "sitemap.xml" --exclude "robots.txt" --exclude "img/src-sprite" --exclude "package.json" --exclude "node_modules/" --exclude "readme.md" -e "ssh -q" _site/ root@andrewslince.me:/var/www/beta.maternidadesmanaus.com.br/'
             },
             deployPrd: {
                 cmd: 'rsync -azpog --progress --delete-excluded --exclude "Gruntfile.js" --exclude "img/src-sprite" --exclude "package.json" --exclude "node_modules/" --exclude "readme.md" -e "ssh -q" _site/ root@andrewslince.me:/var/www/maternidadesmanaus/'
