@@ -605,6 +605,10 @@
     }
 }
 
+.ssl-badge {
+    text-align:center;
+}
+
 @-moz-document url-prefix() { 
     #ranking-box {
         .badge {

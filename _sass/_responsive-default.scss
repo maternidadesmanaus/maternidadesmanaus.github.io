@@ -45,7 +45,7 @@
 
     .footer {
         width: 100%;
-        padding: 0 50px;
+        padding: 0 50px 80px 50px;
 
         .wrapper {
             width: 100%;
@@ -218,7 +218,7 @@
     }
 
     .footer {
-        padding: 0 30px 125px 30px;
+        padding: 0 30px 65px 30px;
 
         .copyright {
             text-align: center;
@@ -226,9 +226,11 @@
         }
 
         i {
-            top: 105px;
-            right: 0;
+            background-position: center center;
+            padding: 40px 0;
+            position: relative;
             margin: auto;
+            top: 0;
         }
     }
 
