@@ -1,74 +1,74 @@
 {
-    "total_reviews": 477,
+    "total_reviews": 493,
     "last_update": {
-        "date": "30/12/2015",
-        "hour": "01:36"
+        "date": "03/01/2016",
+        "hour": "22:00"
     },
-    "ranking": [
+    "top_ranking": [
         {
             "name": "Maternidade Estadual Balbina Mestrinho",
-            "reviews": 72,
+            "reviews": 74,
             "charts": [
                 {
                     "title": "Conceitos",
                     "data": {
                         "Positivo": 35,
-                        "Bom": 22,
+                        "Bom": 24,
                         "Negativo": 15
                     }
                 },
                 {
                     "title": "Per\u00edodo do Parto",
                     "data": {
-                        "Recentes": 63,
-                        "Antigos": 9
+                        "Recentes": 62,
+                        "Antigos": 12
                     }
                 },
                 {
                     "title": "Avalia\u00e7\u00f5es de Gestantes",
                     "data": {
-                        "Gestantes": 58,
-                        "Acompanhantes": 14
+                        "Gestantes": 59,
+                        "Acompanhantes": 15
                     }
                 }
             ]
         },
         {
             "name": "Instituto da Mulher Dona Lindu",
-            "reviews": 83,
+            "reviews": 89,
             "charts": [
                 {
                     "title": "Conceitos",
                     "data": {
-                        "Positivo": 24,
-                        "Bom": 41,
-                        "Negativo": 18
+                        "Positivo": 25,
+                        "Bom": 45,
+                        "Negativo": 19
                     }
                 },
                 {
                     "title": "Per\u00edodo do Parto",
                     "data": {
                         "Recentes": 68,
-                        "Antigos": 15
+                        "Antigos": 21
                     }
                 },
                 {
                     "title": "Avalia\u00e7\u00f5es de Gestantes",
                     "data": {
-                        "Gestantes": 65,
-                        "Acompanhantes": 18
+                        "Gestantes": 70,
+                        "Acompanhantes": 19
                     }
                 }
             ]
         },
         {
             "name": "Maternidade Azilda da Silva Marreiro",
-            "reviews": 57,
+            "reviews": 58,
             "charts": [
                 {
                     "title": "Conceitos",
                     "data": {
-                        "Positivo": 19,
+                        "Positivo": 20,
                         "Bom": 25,
                         "Negativo": 13
                     }
@@ -76,101 +76,173 @@
                 {
                     "title": "Per\u00edodo do Parto",
                     "data": {
-                        "Recentes": 49,
-                        "Antigos": 8
+                        "Recentes": 46,
+                        "Antigos": 12
                     }
                 },
                 {
                     "title": "Avalia\u00e7\u00f5es de Gestantes",
                     "data": {
-                        "Gestantes": 52,
+                        "Gestantes": 53,
                         "Acompanhantes": 5
                     }
                 }
             ]
         }
     ],
+    "general_ranking": [
+        {
+            "name": "Maternidade Estadual Balbina Mestrinho",
+            "reviews": 74,
+            "rank": 196
+        },
+        {
+            "name": "Instituto da Mulher Dona Lindu",
+            "reviews": 89,
+            "rank": 194
+        },
+        {
+            "name": "Maternidade Azilda da Silva Marreiro",
+            "reviews": 58,
+            "rank": 143
+        },
+        {
+            "name": "Hospital Maternidade Unimed",
+            "reviews": 56,
+            "rank": 142
+        },
+        {
+            "name": "Maternidade Dr. Moura Tapaj\u00f3z",
+            "reviews": 39,
+            "rank": 115
+        },
+        {
+            "name": "Maternidade Samel",
+            "reviews": 30,
+            "rank": 102
+        },
+        {
+            "name": "Hospital e Maternidade Santo Alberto",
+            "reviews": 34,
+            "rank": 99
+        },
+        {
+            "name": "Hospital Adventista de Manaus",
+            "reviews": 1,
+            "rank": 4
+        },
+        {
+            "name": "Hospital Santa J\u00falia",
+            "reviews": 1,
+            "rank": 4
+        },
+        {
+            "name": "Hospital Militar de \u00c1rea de Manaus (HMAM)",
+            "reviews": 1,
+            "rank": -3
+        },
+        {
+            "name": "Maternidade Alvorada",
+            "reviews": 1,
+            "rank": -3
+        },
+        {
+            "name": "Hospital Beneficente Portugu\u00eas do Amazonas",
+            "reviews": 13,
+            "rank": -18
+        },
+        {
+            "name": "Maternidade Dona Nazira Daou",
+            "reviews": 40,
+            "rank": -83
+        },
+        {
+            "name": "Maternidade Ana Braga",
+            "reviews": 55,
+            "rank": -94
+        }
+    ],
     "other_statistics": [
         {
             "title": "Tipos de Avaliadores",
             "data": {
-                "Acompanhante": 84,
-                "Gestante": 474
+                "Acompanhante": 89,
+                "Gestante": 485
             }
         },
         {
             "title": "Tipos de Parto",
             "data": {
-                "Normal": 240,
-                "Ces\u00e1rea": 318
+                "Normal": 244,
+                "Ces\u00e1rea": 330
             }
         },
         {
             "title": "Estrutura do Pr\u00e9dio",
             "data": {
-                "P\u00e9ssimo": 53,
-                "Ruim": 65,
-                "Bom": 234,
-                "\u00d3timo": 122,
-                "Excelente": 84
+                "P\u00e9ssimo": 55,
+                "Ruim": 66,
+                "Bom": 243,
+                "\u00d3timo": 123,
+                "Excelente": 87
             }
         },
         {
             "title": "Disponibilidade de Leitos",
             "data": {
-                "N\u00e3o consegui leito e tive que ir a outra maternidade": 16,
-                "Depois de esperar por um tempo, consegui um leito": 167,
-                "N\u00e3o tive nenhum problema para conseguir leito": 375
+                "N\u00e3o consegui leito e tive que ir a outra maternidade": 21,
+                "Depois de esperar por um tempo, consegui um leito": 172,
+                "N\u00e3o tive nenhum problema para conseguir leito": 381
             }
         },
         {
             "title": "Higiene dos Leitos e Banheiros",
             "data": {
-                "P\u00e9ssimo": 45,
-                "Ruim": 89,
-                "Bom": 222,
-                "\u00d3timo": 115,
-                "Excelente": 87
+                "P\u00e9ssimo": 47,
+                "Ruim": 92,
+                "Bom": 228,
+                "\u00d3timo": 117,
+                "Excelente": 90
             }
         },
         {
             "title": "Atendimento do m\u00e9dico obstetra",
             "data": {
-                "P\u00e9ssimo": 79,
-                "Ruim": 46,
-                "Bom": 121,
-                "\u00d3timo": 146,
-                "Excelente": 166
+                "P\u00e9ssimo": 83,
+                "Ruim": 49,
+                "Bom": 123,
+                "\u00d3timo": 148,
+                "Excelente": 171
             }
         },
         {
             "title": "Atendimento da Equipe Multidisciplinar",
             "data": {
-                "P\u00e9ssimo": 57,
-                "Ruim": 59,
-                "Bom": 147,
-                "\u00d3timo": 143,
-                "Excelente": 152
+                "P\u00e9ssimo": 60,
+                "Ruim": 63,
+                "Bom": 150,
+                "\u00d3timo": 145,
+                "Excelente": 156
             }
         },
         {
             "title": "Tempo de Espera Para Receber Atendimento na Chegada \u00e0 Maternidade",
             "data": {
-                "15 minutos": 218,
-                "30 minutos": 139,
-                "1 hora": 92,
-                "2 horas": 28,
-                "Mais de 2 horas": 81
+                "15 minutos": 225,
+                "30 minutos": 141,
+                "1 hora": 93,
+                "2 horas": 30,
+                "Mais de 2 horas": 85
             }
         },
         {
             "title": "Tempo de Espera Para a 1\u00aa Amamenta\u00e7\u00e3o do Rec\u00e9m-Nascido",
             "data": {
-                "30 minutos": 290,
-                "1 hora": 115,
+                "30 minutos": 296,
+                "1 hora": 119,
                 "2 horas": 55,
-                "3 horas": 12,
-                "Mais de 3 horas": 86
+                "3 horas": 14,
+                "Mais de 3 horas": 90
             }
         }
     ]

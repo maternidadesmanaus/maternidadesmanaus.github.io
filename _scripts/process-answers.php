@@ -445,8 +445,13 @@ function getRanking($finalAnswers) {
             + ($values['Ruim'] * -2)
             + $values['Bom']
             + ($values['Ótimo'] * 2)
-            + ($values['Excelente'] * 3)
-            + $maternitie['weight'];
+            + ($values['Excelente'] * 3);
+
+        if (($values['Ruim'] + $values['Péssimo']) > ($values['Ótimo'] + $values['Excelente'])) {
+            $maternities[$key]['rank'] -= $maternitie['weight'];
+        } else {
+            $maternities[$key]['rank'] += $maternitie['weight'];
+        }
 
         $sortKeys[$key] = $maternities[$key]['rank'];
     }
@@ -492,10 +497,8 @@ function writeJsonResult($ranking, $finalAnswers, $answerLabels) {
     $obj->last_update->date = date('d/m/Y');
     $obj->last_update->hour = date('H:i');
 
-    $obj->ranking = array();
+    $obj->top_ranking = array();
     foreach ($ranking as $value) {
-
-        // dbg($value);
 
         if ($countRanking <= 2) {
             $rank = new stdClass;
@@ -529,10 +532,21 @@ function writeJsonResult($ranking, $finalAnswers, $answerLabels) {
             $pregnantReviews->data->Acompanhantes = $value['qtyAnswers'] - $value['pregnant'];
             $rank->charts[] = $pregnantReviews;
 
-            $obj->ranking[] = $rank;
+            $obj->top_ranking[] = $rank;
             $countRanking++;
         } else {
             break;
+        }
+    }
+
+    $obj->general_ranking = array();
+    foreach ($ranking as $value) {
+        if (!strstr($value['name'], 'Outro__')) {
+            $obj->general_ranking[] = array(
+                'name'    => $value['name'],
+                'reviews' => $value['qtyAnswers'],
+                'rank'    => $value['rank'],
+            );
         }
     }
 

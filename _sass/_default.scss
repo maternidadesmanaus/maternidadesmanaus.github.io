@@ -487,6 +487,37 @@
     stroke: #fff;
 }
 
+#general-ranking {
+    .even td {
+        background-color: #ffe7ed;
+    }
+
+    table {
+        border-bottom: 1px #aaa solid;
+        border-top: 1px #aaa solid;
+        border-collapse: separate;
+        border-spacing: 0;
+        color: #555;
+        width:100%;
+        text-align: center;
+
+        td {
+            padding: 10px 5px;
+            text-transform: lowercase;
+        }
+
+        thead {
+            td {
+                background-color: #f9f9f9;
+                border-bottom: 1px #aaa solid;
+                color: #777;
+                font-family: "MontSerrat";
+                padding: 15px 5px;
+            }
+        }
+    }
+}
+
 #other-statistics {
     h3 {
         margin: 20px auto 0 auto;

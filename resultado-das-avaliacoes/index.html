@@ -61,7 +61,7 @@ seo:
     </ul>
   </div>
   <ul id="ranking-box">
-    {% for rank in resultInfo.ranking %}
+    {% for rank in resultInfo.top_ranking %}
       {% assign chartIndex = forloop.index %}
       <li class="position{{ forloop.index }}">
         <h3>{{ forloop.index }}º</h3>
@@ -126,6 +126,54 @@ seo:
     {% endfor %}
   </ul>
   <div style="clear:both;"></div>
+</section>
+
+<section id="general-ranking">
+  <h2>classificação geral das maternidades</h2>
+  <table>
+    <thead>
+      <tr>
+        <td style="width:10%;">posição</td>
+        <td style="width:60%;">maternidade</td>
+        <td style="width:20%;">nº de avaliações</td>
+        <td style="width:10%;">pontuação</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rank in resultInfo.general_ranking %}
+        <tr class="{% cycle 'odd', 'even' %}">
+          <td>{{ forloop.index }}</td>
+          <td>{{ rank.name }}</td>
+          <td>{{ rank.reviews }}</td>
+          <td>{{ rank.rank }}</td>
+        </tr>
+      {% endfor %}
+      <!-- <tr class="even">
+        <td>2</td>
+        <td>Instituto da Mulher Dona Lindu</td>
+        <td>89</td>
+        <td>194</td>
+      </tr>
+      <tr class="odd">
+        <td>3</td>
+        <td>Maternidade Azilda da Silva Marreiro</td>
+        <td>58</td>
+        <td>143</td>
+      </tr>
+      <tr class="even">
+        <td>4</td>
+        <td>Hospital Maternidade Unimed</td>
+        <td>56</td>
+        <td>142</td>
+      </tr>
+      <tr class="odd">
+        <td>5</td>
+        <td>Maternidade Dr. Moura Tapajóz</td>
+        <td>39</td>
+        <td>115</td>
+      </tr> -->
+    </tbody>
+  </table>
 </section>
 
 <section id="other-statistics">
