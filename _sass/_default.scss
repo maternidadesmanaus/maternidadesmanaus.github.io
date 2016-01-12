@@ -504,6 +504,7 @@
         td {
             padding: 10px 5px;
             text-transform: lowercase;
+            cursor: pointer;
         }
 
         thead {
@@ -515,6 +516,201 @@
                 padding: 15px 5px;
             }
         }
+
+        tbody {
+            tr {
+                &:hover {
+                    td {
+                        background-color: #3590dd;
+                        color: #e3f0fa;
+                    }
+
+                    .view-details {
+                        background: #3590dd url("../img/details-white.png") no-repeat center center;
+                    }
+                }
+            }
+        }
+    }
+
+    .view-details {
+        background: url("../img/details.png") no-repeat center center;
+    }
+
+    .negative {
+        color: #f01927;
+    }
+}
+
+.error-report {
+    background: url("../img/exclamation.png") #ee726d no-repeat 25px 25px;
+    color: #fce7e7;
+    padding: 20px 25px;
+    margin-bottom: 30px;
+
+    strong {
+        text-decoration: underline;
+    }
+
+    ul {
+        margin: 0 0 20px 15px;
+
+        li {
+            list-style: disc;
+        }
+    }
+
+    a {
+        color: gold;
+        margin-left: 2px;
+
+        &:hover {
+            border-bottom: 1px gold dotted;
+        }
+    }
+
+    h3 {
+        color: #fce7e7;
+        margin-left: 45px;
+        line-height: 40px;
+        text-shadow: #222 2px 1px 3px;
+        font-size: 24px;
+        font-weight: normal;
+    }
+}
+
+.overlay {
+    background-color: #000;
+    height: 100%;
+    top:0;
+    left: 0;
+    opacity: 0.7;
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+
+}
+
+#review-detail {
+    display: none;
+
+    .content-detail {
+        background-color: #fff;
+        box-shadow: #000 3px 4px 9px;
+        color: #555;
+        display: block;
+        width: 800px;
+        height: 600px;
+        padding: 30px 50px 50px 50px;
+        z-index: 11;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-top: -300px;
+        margin-left: -400px;
+    }
+
+    h3 {
+        border-bottom: 1px #FF4E79 solid;
+        font-weight: normal;
+        margin-bottom: 30px;
+    }
+
+    h4 {
+        color: #555;
+        font-size: 26px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+    }
+
+    .close {
+        background: url("../img/close.png") no-repeat center center;
+        cursor: pointer;
+        height: 24px;
+        float: right;
+        margin-right: -35px;
+        margin-top: -15px;
+        width: 24px;
+
+        &:hover {
+            opacity:0.8;
+        }
+    }
+
+    .detail-info {
+        border-bottom: 1px #eee solid;
+        border-left: 7px #ddd solid;
+        padding: 3px 3px 3px 14px;
+        /*margin-bottom: 15px   ;*/
+        margin-bottom: 1px;
+
+        ul {
+            margin-left: 20px;
+
+            li {
+                list-style: disc;
+                font-size: 15px;
+            }
+        }
+    }
+
+    .score {
+        color:#fff;
+        text-align: center;
+        margin: 30px auto;
+        width: 250px;
+        padding: 10px 20px;
+        text-align: right;
+        position: relative;
+
+        label {
+            padding: 7px 18px;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-style: italic;
+        }
+
+        span {
+            font-size: 26px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        &.positive {
+            background-color: #347d13;
+
+            label {
+                background-color: #22510c;
+            }
+        }
+
+        &.negative {
+            background-color: #f01927;
+
+            label {
+                background-color: #b90c17;
+            }
+        }
+    }
+
+    .asterisk {
+        color: #3590dd;
+        font-size: 20px;
+        line-height: 10px;
+    }
+
+    .asterisk-explanation {
+        color: #3590dd;
+        font-style: italic;
+        font-size: 15px;
+        font-family: serif;
+        text-align: right;
+        margin-top: 30px;
     }
 }
 
@@ -640,7 +836,7 @@
     text-align:center;
 }
 
-@-moz-document url-prefix() { 
+@-moz-document url-prefix() {
     #ranking-box {
         .badge {
             width: 245px;

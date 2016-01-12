@@ -124,6 +124,16 @@
     #last-update {
         font-size: 60%;
     }
+
+    #review-detail {
+        .content-detail {
+            width: calc(100% - 60px);
+            left: 0;
+            margin: auto 30px;
+            top: 30px;
+            height: auto;
+        }
+    }
 }
 
 @include media-query(800px) {
@@ -400,7 +410,7 @@
     }
 
     #general-ranking {
-        padding: 0 10px;
+        padding: 0 30px;
 
         table {
             td {
@@ -434,6 +444,59 @@
             li {
                 font-size: 90%;
             }
+        }
+    }
+
+    #review-detail {
+        .close {
+            margin-right: -25px;
+            margin-top: -25px;
+        }
+
+        .content-detail {
+            padding: 30px;
+
+            h3 {
+                font-size: 16px;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+            h4 {
+                font-size: 16px;
+                line-height: 26px;
+                margin-bottom: 15px;
+            }
+        }
+
+        .detail-info {
+            font-size: 14px;
+
+            ul {
+                li {
+                    font-size: 13px;
+                }
+            }
+        }
+
+        .score {
+            width:180px;
+
+            label {
+                padding: 7px 10px;
+                font-size: 11px;
+            }
+
+            span {
+                font-size: 20px;
+            }
+        }
+
+        .asterisk-explanation {
+            font-size: 13px;
+            margin-top: 15px;
+            text-align: center;
+            line-height: 18px;
         }
     }
 }

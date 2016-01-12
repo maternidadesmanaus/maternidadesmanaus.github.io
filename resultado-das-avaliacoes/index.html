@@ -71,7 +71,7 @@ seo:
           {% for chart in rank.charts %}
             <div id="chart{{ chartIndex }}{{ forloop.index }}" class="wrapper-chart">
               <h5>{{ chart.title }}</h5>
-              
+
               {% if chartIndex == 1 %}
                 <div class="ct-chart ct-golden-section"></div>
               {% else %}
@@ -130,48 +130,91 @@ seo:
 
 <section id="general-ranking">
   <h2>classificação geral das maternidades</h2>
+  <div id="review-detail">
+    <div class="overlay"></div>
+    <div class="content-detail">
+      <span class="close"></span>
+      <h3>detalhes da avaliação</h3>
+      <h4 class="detail-maternity-name"></h4>
+      <div class="detail-info">
+        <strong>total de avaliações:</strong>
+        <span class="qty-reviews"></span>
+      </div>
+      <div class="detail-info">
+        <strong>avaliações de gestantes:</strong>
+        <span class="pregnant-reviews"></span>
+      </div>
+      <div class="detail-info">
+        <strong><span class="asterisk">*</span>avaliações recentes:</strong>
+        <span class="recent-reviews"></span>
+      </div>
+      <div class="detail-info">
+        <strong>respostas:</strong>
+        <ul>
+          <li class="excelente"><em>Excelente:</em> <span></span></li>
+          <li class="otimo"><em>Ótimo:</em> <span></span></li>
+          <li class="bom"><em>Bom:</em> <span></span></li>
+          <li class="ruim"><em>Ruim:</em> <span></span></li>
+          <li class="pessimo"><em>Péssimo:</em> <span></span></li>
+        </ul>
+      </div>
+      <div class="score">
+        <label>Total de pontos:</label>
+        <span></span>
+      </div>
+      <p class="asterisk-explanation">
+        * avaliações recentes equivalem aos <strong>últimos 3 anos</strong>.
+      </p>
+    </div>
+  </div>
+  <p class="description">
+    aqui você encontra um listão geral com a classificação e pontuação de todas
+    as maternidades que participaram da avaliação. clique na maternidade para
+    ver dados mais detalhados.
+  </p>
+  <div class="error-report">
+    <h3>atenção!!!</h3>
+    <p>
+      infelizmente, tivemos alguns problemas durante o processamento das
+      avaliações para as maternidades abaixo:
+    </p>
+    <ul>
+      <li>hospital e maternidade santo alberto</li>
+      <li>hospital adventista de manaus</li>
+      <li>hospital maternidade hapvida adrianópolis</li>
+      <li>hospital santa júlia</li>
+      <li>hospital e maternidade chapot prevost</li>
+      <li>maternidade alvorada</li>
+      <li>hospital militar de área de manaus (hmam)</li>
+    </ul>
+    <p>
+      se você fez sua avaliação antes do dia <strong>30/12/2015</strong> para
+      uma dessas maternidades, entre em contato conosco através do e-mail
+      <strong>maternidadesmanaus@gmail.com</strong> ou também pela nossa
+      <a href="https://www.facebook.com/maternidadesmanaus/" target="_blank">página do Facebook</a>.
+    </p>
+  </div>
   <table>
     <thead>
       <tr>
         <td style="width:10%;">posição</td>
-        <td style="width:60%;">maternidade</td>
-        <td style="width:20%;">nº de avaliações</td>
+        <td style="width:75%;">maternidade</td>
         <td style="width:10%;">pontuação</td>
+        <td style="width:5%;">detalhes</td>
       </tr>
     </thead>
     <tbody>
       {% for rank in resultInfo.general_ranking %}
-        <tr class="{% cycle 'odd', 'even' %}">
+        <tr
+          class="{% cycle 'odd', 'even' %}{% if rank.rank < 0 %} negative{% endif %}"
+          data-review-details='{{ rank | jsonify }}'
+        >
           <td>{{ forloop.index }}</td>
           <td>{{ rank.name }}</td>
-          <td>{{ rank.reviews }}</td>
           <td>{{ rank.rank }}</td>
+          <td class="view-details"></td>
         </tr>
       {% endfor %}
-      <!-- <tr class="even">
-        <td>2</td>
-        <td>Instituto da Mulher Dona Lindu</td>
-        <td>89</td>
-        <td>194</td>
-      </tr>
-      <tr class="odd">
-        <td>3</td>
-        <td>Maternidade Azilda da Silva Marreiro</td>
-        <td>58</td>
-        <td>143</td>
-      </tr>
-      <tr class="even">
-        <td>4</td>
-        <td>Hospital Maternidade Unimed</td>
-        <td>56</td>
-        <td>142</td>
-      </tr>
-      <tr class="odd">
-        <td>5</td>
-        <td>Maternidade Dr. Moura Tapajóz</td>
-        <td>39</td>
-        <td>115</td>
-      </tr> -->
     </tbody>
   </table>
 </section>
@@ -192,12 +235,12 @@ seo:
                 series: []
             };
 
-            var seila = {{ graph | jsonify }};
+            var generalData = {{ graph | jsonify }};
             var htmlLegend  = '<ul class="legend">';
             var count       = 0;
-            for (var prop in seila.data) {
-                data.series.push(seila.data[prop]);
-                htmlLegend += '<li class="slice' + count + ' qty-' + Object.keys(seila.data).length + '">' + prop + '</li>';
+            for (var prop in generalData.data) {
+                data.series.push(generalData.data[prop]);
+                htmlLegend += '<li class="slice' + count + ' qty-' + Object.keys(generalData.data).length + '">' + prop + '</li>';
                 count++;
             }
             htmlLegend += '<ul>';
@@ -227,7 +270,7 @@ seo:
                 document.querySelector('#piechart' + {{ forloop.index }} + ' .wrapper-chart').insertAdjacentHTML('beforeend', htmlLegend);
             }
         });
-        
+
         window.addEventListener("resize", function(){
             resizeCharts();
         });

@@ -69,6 +69,43 @@ document.querySelector("#float-share-bar .close").addEventListener("click", func
     this.parentNode.classList.toggle("active");
 }, false);
 
+var containerReviewDetails = document.getElementById("review-detail");
+var trs = document.querySelectorAll("#general-ranking table tbody tr");
+for (var i = 0; i < trs.length; i++) {
+    trs[i].addEventListener("click", function(event) {
+
+        // show layer
+        document.getElementById("review-detail").style.display = "block";
+
+        // get review details
+        var reviewDetails = JSON.parse(this.getAttribute("data-review-details"));
+
+        containerReviewDetails.querySelector(".detail-maternity-name").innerHTML = reviewDetails.name;
+        containerReviewDetails.querySelector(".qty-reviews").innerHTML = reviewDetails.reviews;
+        containerReviewDetails.querySelector(".pregnant-reviews").innerHTML = reviewDetails.pregnant;
+        containerReviewDetails.querySelector(".recent-reviews").innerHTML = reviewDetails.recent;
+
+        containerReviewDetails.querySelector(".excelente span").innerHTML = reviewDetails.values.Excelente;
+        containerReviewDetails.querySelector(".otimo span").innerHTML = reviewDetails.values.Ótimo;
+        containerReviewDetails.querySelector(".bom span").innerHTML = reviewDetails.values.Bom;
+        containerReviewDetails.querySelector(".ruim span").innerHTML = reviewDetails.values.Ruim;
+        containerReviewDetails.querySelector(".pessimo span").innerHTML = reviewDetails.values.Péssimo;
+
+        containerReviewDetails.querySelector(".score span").innerHTML = reviewDetails.rank;
+        if (reviewDetails.rank > 0) {
+            containerReviewDetails.querySelector(".score").classList.remove("negative");
+            containerReviewDetails.querySelector(".score").classList.add("positive");
+        } else {
+            containerReviewDetails.querySelector(".score").classList.remove("positive");
+            containerReviewDetails.querySelector(".score").classList.add("negative");
+        }
+    }, false);
+}
+
+document.querySelector("#general-ranking .close").addEventListener("click", function(event) {
+    this.parentNode.parentNode.style.display = "none";
+}, false);
+
 window.addEventListener("scroll", function(){
     var bar = document.getElementById("float-share-bar");
 

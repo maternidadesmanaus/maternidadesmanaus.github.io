@@ -30,7 +30,9 @@ function dbg($param, $exit = true) {
     }
 }
 
-function isAAnswer($date) {
+function isAAnswer($line) {
+    $date = strtok($line, ',');
+
     $format = 'd/m/Y H:i:s';
 
     $d = DateTime::createFromFormat($format, $date);
@@ -156,6 +158,23 @@ function correctCsvSplit($line) {
     return $line;
 }
 
+function isATestAnswer($line) {
+    $isATestAnswer = false;
+
+    if (isAAnswer($line)) {
+        $answers = explode(',', correctCsvSplit($line));
+
+        if (
+            isset($answers['1'])
+            && strstr(strtolower($answers['1']), 'teste')
+        ) {
+            $isATestAnswer = true;
+        }
+    }
+
+    return $isATestAnswer;
+}
+
 function getFinalAnswers($csvFormContent) {
     $correctLines  = array();
     $repeatedLines = array();
@@ -177,10 +196,7 @@ function getFinalAnswers($csvFormContent) {
             if ($lastLine != $currentLine) {
 
                 // disregarding test answers
-                if (
-                    !strstr(strtolower($line), 'teste do andrews')
-                    && !strstr(strtolower($line), 'agora é o andrews')
-                ) {
+                if (!isATestAnswer($line)) {
                     
                     // update the last line
                     $lastLine = $currentLine;
@@ -189,7 +205,7 @@ function getFinalAnswers($csvFormContent) {
                     $line = str_replace('"Acompanhante (parente, amigo, marido etc.)"', 'Acompanhante', $line);
                     $line = str_replace('"Depois de esperar por um tempo, consegui um leito"', 'Depois de esperar por um tempo|MARK_VIRGULA| consegui um leito', $line);
 
-                    if (isAAnswer(strtok($line, ','))) {
+                    if (isAAnswer($line)) {
                         $correctLines[] = $line;
                     } else {
                         $lastIndex = count($correctLines)-1;
@@ -265,6 +281,10 @@ function getFinalAnswers($csvFormContent) {
             $fields['1'] = 'Joyce Santos';
         }
 
+        if ($fields['0'] == '31/08/2015 10:37:22') {
+            $fields['3'] = 'Hospital Santa Júlia';
+        }
+
         /**
          * TODO: verificar porque a "Francine dos Santos fernandes" não
          * foi detectada como repetida
@@ -281,9 +301,9 @@ function normalizeIndex8($data) {
     // $data == 'não consegui leito e tive que ir a outra maternidade'
     $normalizedIndex = 'Péssimo';
 
-    if ($data == 'depois de esperar por um tempo, consegui um leito') {
+    if ($data == 'Depois de esperar por um tempo, consegui um leito') {
         $normalizedIndex = 'Bom';
-    } else if ($data == 'não tive nenhum problema para conseguir leito') {
+    } else if ($data == 'Não tive nenhum problema para conseguir leito') {
         $normalizedIndex = 'Excelente';
     }
 
@@ -418,14 +438,34 @@ function getMaternitiesInfo($finalAnswers) {
             //     $maternities[$info['3']]['weight']++;
             // }
 
+            $mapValues = array(
+                'Péssimo' => 0,
+                'Ruim' => 0,
+                'Bom' => 0,
+                'Ótimo' => 0,
+                'Excelente' => 0,
+            );
+
             foreach ($info as $keyInfo => $valueInfo) {
                 if (array_key_exists($valueInfo, $availableAnswers)) {
                     $maternities[$info['3']]['values'][$valueInfo]++;
-                    break;
+                    $mapValues[$valueInfo]++;
+                    // break;
                 }
+            }
+
+            // apply the weights
+            $negativeConcept = $mapValues['Ruim'] + $mapValues['Péssimo'];
+            $positiveConcept = $mapValues['Ótimo'] + $mapValues['Excelente'];
+            if ($negativeConcept > $positiveConcept) {
+                $maternities[$info['3']]['weight']--;
+            } else {
+                $maternities[$info['3']]['weight']++;
             }
         }
     }
+
+    // dbg($maternities);
 
     return $maternities;
 }
@@ -445,13 +485,14 @@ function getRanking($finalAnswers) {
             + ($values['Ruim'] * -2)
             + $values['Bom']
             + ($values['Ótimo'] * 2)
-            + ($values['Excelente'] * 3);
+            + ($values['Excelente'] * 3)
+            + $maternities[$key]['weight'];
 
-        if (($values['Ruim'] + $values['Péssimo']) > ($values['Ótimo'] + $values['Excelente'])) {
-            $maternities[$key]['rank'] -= $maternitie['weight'];
-        } else {
-            $maternities[$key]['rank'] += $maternitie['weight'];
-        }
+        // if (($values['Ruim'] + $values['Péssimo']) > ($values['Ótimo'] + $values['Excelente'])) {
+        //     $maternities[$key]['rank'] -= $maternitie['weight'];
+        // } else {
+        //     $maternities[$key]['rank'] += $maternitie['weight'];
+        // }
 
         $sortKeys[$key] = $maternities[$key]['rank'];
     }
@@ -543,9 +584,12 @@ function writeJsonResult($ranking, $finalAnswers, $answerLabels) {
     foreach ($ranking as $value) {
         if (!strstr($value['name'], 'Outro__')) {
             $obj->general_ranking[] = array(
-                'name'    => $value['name'],
-                'reviews' => $value['qtyAnswers'],
-                'rank'    => $value['rank'],
+                'name'     => $value['name'],
+                'reviews'  => $value['qtyAnswers'],
+                'rank'     => $value['rank'],
+                'pregnant' => $value['pregnant'],
+                'recent'   => $value['recent'],
+                'values'   => $value['values']
             );
         }
     }
@@ -662,4 +706,4 @@ $answerLabels = getAnswerLabels($csvFormContent);
 
 $ranking = getRanking($finalAnswers);
 
-dbg(writeJsonResult($ranking, $finalAnswers, $answerLabels));
+writeJsonResult($ranking, $finalAnswers, $answerLabels);
