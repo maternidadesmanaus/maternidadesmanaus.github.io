@@ -553,7 +553,7 @@ function writeJsonResult($ranking, $finalAnswers, $answerLabels) {
             $conceptChart->title = 'Conceitos';
             $conceptChart->data = new stdClass;
             $conceptChart->data->Positivo = $value['values']['Ótimo'] + $value['values']['Excelente'];
-            $conceptChart->data->Bom      = $value['values']['Bom'];
+            $conceptChart->data->Regular  = $value['values']['Bom'];
             $conceptChart->data->Negativo = $value['values']['Ruim'] + $value['values']['Péssimo'];
             $rank->charts[] = $conceptChart;
 

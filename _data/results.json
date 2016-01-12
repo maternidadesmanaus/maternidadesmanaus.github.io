@@ -2,7 +2,7 @@
     "total_reviews": 494,
     "last_update": {
         "date": "12/01/2016",
-        "hour": "06:37"
+        "hour": "07:33"
     },
     "top_ranking": [
         {
@@ -13,7 +13,7 @@
                     "title": "Conceitos",
                     "data": {
                         "Positivo": 292,
-                        "Bom": 198,
+                        "Regular": 198,
                         "Negativo": 133
                     }
                 },
@@ -41,7 +41,7 @@
                     "title": "Conceitos",
                     "data": {
                         "Positivo": 251,
-                        "Bom": 97,
+                        "Regular": 97,
                         "Negativo": 58
                     }
                 },
@@ -69,7 +69,7 @@
                     "title": "Conceitos",
                     "data": {
                         "Positivo": 281,
-                        "Bom": 129,
+                        "Regular": 129,
                         "Negativo": 108
                     }
                 },
