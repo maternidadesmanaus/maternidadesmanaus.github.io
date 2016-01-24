@@ -6,11 +6,13 @@
       <p>copyright &copy; {{ site.time | date: '%Y' }}</p>
     </div>
     <i></i>
-    <div class="ssl-badge">
-      <script language="JavaScript" type="text/javascript">
-      TrustLogo("https://maternidadesmanaus.com.br/img/comodo_secure_113x59_white.png", "CL1", "none");
-      </script>
-      <a  href="https://www.positivessl.com/" id="comodoTL">Positive SSL</a>
-    </div>
+    {% if jekyll.environment != "development" %}
+      <div class="ssl-badge">
+        <script language="JavaScript" type="text/javascript">
+        TrustLogo("https://maternidadesmanaus.com.br/img/comodo_secure_113x59_white.png", "CL1", "none");
+        </script>
+        <a  href="https://www.positivessl.com/" id="comodoTL">Positive SSL</a>
+      </div>
+    {% endif %}
   </div>
 </footer>

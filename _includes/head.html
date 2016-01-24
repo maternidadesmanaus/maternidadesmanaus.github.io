@@ -54,10 +54,11 @@
   <meta property="og:description" content="{{ page.seo.facebook }}" />
   <meta property="og:image"       content="{{ site.url }}{{ page.thumbnail | default: "/img/favicon/apple-icon-precomposed.png" }}" />
 
-  <script type="text/javascript"> //<![CDATA[ 
-  var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.comodo.com/" : "http://www.trustlogo.com/");
-  document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
-  //]]>
-  </script>
+  {% if jekyll.environment != "development" %}
+    <script type="text/javascript"> //<![CDATA[ 
+    var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.comodo.com/" : "http://www.trustlogo.com/");
+    document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
+    //]]>
+    </script>
+  {% endif %}
 </head>
-
