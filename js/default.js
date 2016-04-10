@@ -102,9 +102,12 @@ for (var i = 0; i < trs.length; i++) {
     }, false);
 }
 
-document.querySelector("#general-ranking .close").addEventListener("click", function(event) {
-    this.parentNode.parentNode.style.display = "none";
-}, false);
+var closeGeneralRanking = document.querySelector("#general-ranking .close");
+if (closeGeneralRanking) {
+    closeGeneralRanking.addEventListener("click", function(event) {
+        this.parentNode.parentNode.style.display = "none";
+    }, false);
+}
 
 window.addEventListener("scroll", function(){
     var bar = document.getElementById("float-share-bar");

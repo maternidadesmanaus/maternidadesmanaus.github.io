@@ -19,6 +19,9 @@ module.exports = function(grunt) {
                     '_site/css/main.css': [
                         'bower_components/chartist/dist/chartist.min.css',
                         '_site/css/main.css'
+                    ],
+                    '_site/css/home.css': [
+                        '_site/css/home.css'
                     ]
                 }
             }
@@ -145,6 +148,7 @@ module.exports = function(grunt) {
                     '_data/results.json',
 
                     // styles (sass)
+                    '_sass/**/*.scss',
                     '_sass/*.scss',
                     'css/*.scss',
 
@@ -153,6 +157,7 @@ module.exports = function(grunt) {
                     '_includes/*.html',
                     'index.html',
                     'resultado-das-avaliacoes/*.html',
+                    'na-midia/*.html',
 
                     // configurations
                     '*.yml',
