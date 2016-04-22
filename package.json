@@ -32,6 +32,7 @@
     "imagemin-gifsicle": "^4.2.0",
     "imagemin-mozjpeg": "^5.1.0",
     "imagemin-optipng": "^4.3.0",
-    "imagemin-pngout": "^2.0.0"
+    "imagemin-pngout": "^2.0.0",
+    "lodash": "^4.11.1"
   }
 }
