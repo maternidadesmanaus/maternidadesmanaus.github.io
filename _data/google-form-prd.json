@@ -1,0 +1,227 @@
+{
+	"action": "https://docs.google.com/forms/d/1UVB3EqhdY4abRrzRegIn19ef1bhPaX4STuFvrbpwSIg/formResponse",
+	"fields": [
+		{
+			"helpText": "",
+			"label": "Qual o seu nome completo?",
+			"name": "entry.1247955677",
+			"required": 1,
+			"type": "text"
+		},
+		{
+			"helpText": "Não se preocupe, também odiamos spam e não enviaremos e-mails chatos! =)",
+			"label": "Qual o seu e-mail? (opcional)",
+			"name": "entry.1931072142",
+			"required": 0,
+			"type": "text"
+		},
+		{
+			"helpText": "",
+			"label": "Qual maternidade você vai avaliar?",
+			"name": "entry.1061846173",
+			"options": [
+				"Instituto da Mulher Dona Lindu",
+				"Hospital Beneficente Português do Amazonas",
+				"Maternidade Ana Braga",
+				"Maternidade Estadual Balbina Mestrinho",
+				"Maternidade Dr. Moura Tapajóz",
+				"Maternidade Samel",
+				"Hospital Maternidade Unimed",
+				"Hospital e Maternidade Santo Alberto",
+				"Maternidade Dona Nazira Daou",
+				"Maternidade Azilda da Silva Marreiro",
+				"Hospital e Maternidade Santo Alberto",
+				"Hospital Adventista de Manaus",
+				"Hospital Maternidade Hapvida Adrianópolis",
+				"Hospital Santa Júlia",
+				"Hospital e Maternidade Chapot Prevost",
+				"Maternidade Alvorada",
+				"Hospital Militar de Área de Manaus (HMAM)",
+				"Outro:"
+			],
+			"required": 1,
+			"type": "radio-with-other"
+		},
+		{
+			"helpText": "",
+			"label": "Você era:",
+			"name": "entry.349558102",
+			"options": [
+				"Gestante",
+				"Acompanhante (parente, amigo, marido etc.)"
+			],
+			"required": 1,
+			"type": "radio"
+		},
+		{
+			"helpText": "",
+			"label": "Qual foi o tipo de parto?",
+			"name": "entry.2058270825",
+			"options": [
+				"Normal",
+				"Cesária"
+			],
+			"required": 1,
+			"type": "radio"
+		},
+		{
+			"helpText": "",
+			"label": "Em que ano foi isso?",
+			"name": "entry.1916799214",
+			"options": [
+				"Escolher",
+				"2015",
+				"2014",
+				"2013",
+				"2012",
+				"2011",
+				"2010",
+				"2009",
+				"2008",
+				"2007",
+				"2006",
+				"2005",
+				"2004",
+				"2003",
+				"2002",
+				"2001",
+				"2000",
+				"1999",
+				"1998",
+				"1997",
+				"1996",
+				"1995",
+				"1994",
+				"1993",
+				"1992",
+				"1991",
+				"1990",
+				"1989",
+				"1988",
+				"1987",
+				"1986",
+				"1985",
+				"1984",
+				"1983",
+				"1984",
+				"1983",
+				"1982",
+				"1981",
+				"1980",
+				"Antes de 1980"
+			],
+			"required": 1,
+			"type": "select"
+		},
+		{
+			"helpText": "pintura do prédio, iluminação dos setores, recepção, banheiros (inteiros, bem cuidados, reformados, recepção com cadeiras suficientes para atender a demanda, climatização dos setores, etc.)",
+			"label": "O que você achou da estrutura do prédio?",
+			"name": "entry.1112742752",
+			"options": [
+				"Péssimo",
+				"Ruim",
+				"Bom",
+				"Ótimo",
+				"Excelente"
+			],
+			"required": 1,
+			"type": "radio"
+		},
+		{
+			"helpText": "",
+			"label": "Você teve algum problema para conseguir leito?",
+			"name": "entry.640303855",
+			"options": [
+				"Não consegui leito e tive que ir a outra maternidade",
+				"Depois de esperar por um tempo, consegui um leito",
+				"Não tive nenhum problema para conseguir leito"
+			],
+			"required": 1,
+			"type": "radio"
+		},
+		{
+			"helpText": "banheiros limpos, corredores limpos, enfermaria/apartamentos limpos, roupas de cama limpas",
+			"label": "O que você achou da higiene dos leitos/banheiros?",
+			"name": "entry.886915890",
+			"options": [
+				"Péssimo",
+				"Ruim",
+				"Bom",
+				"Ótimo",
+				"Excelente"
+			],
+			"required": 1,
+			"type": "radio"
+		},
+		{
+			"helpText": "Cordial, educado, compreensivo etc.",
+			"label": "O que você achou do atendimento do médico/obstetra?",
+			"name": "entry.450833273",
+			"options": [
+				"Péssimo",
+				"Ruim",
+				"Bom",
+				"Ótimo",
+				"Excelente"
+			],
+			"required": 1,
+			"type": "radio"
+		},
+		{
+			"helpText": "Simpáticos, educados, cordiais, compreensivos etc.",
+			"label": "Qual sua opinião sobre o atendimento da equipe multidisciplinar (pediatras, obstetras, nutricionistas, enfermeiros e técnicos de enfermagem)?",
+			"name": "entry.1049537599",
+			"options": [
+				"Péssimo",
+				"Ruim",
+				"Bom",
+				"Ótimo",
+				"Excelente"
+			],
+			"required": 1,
+			"type": "radio"
+		},
+		{
+			"helpText": "",
+			"label": "Quanto tempo demorou (em média) o atendimento pela equipe médica depois que você deu entrada na recepção do hospital?",
+			"name": "entry.695838508",
+			"options": [
+				"15 minutos",
+				"30 minutos",
+				"1 hora",
+				"2 horas",
+				"mais de 2 horas"
+			],
+			"required": 1,
+			"type": "radio"
+		},
+		{
+			"helpText": "",
+			"label": "Quanto tempo se passou (em média) até que o recém-nascido fosse liberado para a mãe amamentar?",
+			"name": "entry.319912225",
+			"options": [
+				"30 minutos",
+				"1 hora",
+				"2 horas",
+				"3 horas",
+				"mais de 3 horas"
+			],
+			"required": 1,
+			"type": "radio"
+		},
+		{
+			"helpText": "",
+			"label": "Quais outros critérios que não estão nessa pesquisa você acha que seriam interessantes de serem avaliados?",
+			"name": "entry.1333291415",
+			"required": 0,
+			"type": "textarea"
+		},
+		{
+			"helpText": "",
+			"label": "Caso queira acrescentar mais alguma observação sobre sua experiência, sinta-se à vontade para nos contar! =)",
+			"name": "entry.1155389184",
+			"required": 0,
+			"type": "textarea"
+		}
+	]
+}

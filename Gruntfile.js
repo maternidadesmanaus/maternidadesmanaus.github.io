@@ -173,9 +173,17 @@ module.exports = function(grunt) {
 
         exec: {
 
-            // update google form
-            updateForm: {
-                cmd: 'casperjs _scripts/update-form.js'
+            // sync google form
+            syncFormDev: {
+                cmd: 'casperjs _scripts/update-form.js --env=dev'
+            },
+
+            syncFormStg: {
+                cmd: 'casperjs _scripts/update-form.js --env=stg'
+            },
+
+            syncFormPrd: {
+                cmd: 'casperjs _scripts/update-form.js --env=prd'
             },
 
             // builds
@@ -211,7 +219,9 @@ module.exports = function(grunt) {
 
     // register tasks
     grunt.registerTask('default', [ 'exec:buildDev', 'concat' ]);
-    grunt.registerTask('update-form', [ 'exec:updateForm', 'exec:buildDev', 'concat' ]);
+    grunt.registerTask('sync-form-dev', [ 'exec:syncFormDev' ]);
+    grunt.registerTask('sync-form-stg', [ 'exec:syncFormStg' ]);
+    grunt.registerTask('sync-form-prd', [ 'exec:syncFormPrd' ]);
     grunt.registerTask('deploy-stg', [
         'exec:buildStg',
         'uglify',
