@@ -3,7 +3,7 @@
 	"fields": [
 		{
 			"helpText": "",
-			"label": "Qual o seu nome completo?",
+			"label": "Qual o seu nome completo? *",
 			"name": "entry.1247955677",
 			"required": 1,
 			"type": "text"
@@ -17,7 +17,7 @@
 		},
 		{
 			"helpText": "",
-			"label": "Qual maternidade você vai avaliar?",
+			"label": "Qual maternidade você vai avaliar? *",
 			"name": "entry.1061846173",
 			"options": [
 				"Instituto da Mulher Dona Lindu",
@@ -44,7 +44,7 @@
 		},
 		{
 			"helpText": "",
-			"label": "Você era:",
+			"label": "Você era: *",
 			"name": "entry.349558102",
 			"options": [
 				"Gestante",
@@ -55,7 +55,7 @@
 		},
 		{
 			"helpText": "",
-			"label": "Qual foi o tipo de parto?",
+			"label": "Qual foi o tipo de parto? *",
 			"name": "entry.2058270825",
 			"options": [
 				"Normal",
@@ -66,7 +66,7 @@
 		},
 		{
 			"helpText": "",
-			"label": "Em que ano foi isso?",
+			"label": "Em que ano foi isso? *",
 			"name": "entry.1916799214",
 			"options": [
 				"Escolher",
@@ -115,7 +115,7 @@
 		},
 		{
 			"helpText": "pintura do prédio, iluminação dos setores, recepção, banheiros (inteiros, bem cuidados, reformados, recepção com cadeiras suficientes para atender a demanda, climatização dos setores, etc.)",
-			"label": "O que você achou da estrutura do prédio?",
+			"label": "O que você achou da estrutura do prédio? *",
 			"name": "entry.1112742752",
 			"options": [
 				"Péssimo",
@@ -129,7 +129,7 @@
 		},
 		{
 			"helpText": "",
-			"label": "Você teve algum problema para conseguir leito?",
+			"label": "Você teve algum problema para conseguir leito? *",
 			"name": "entry.640303855",
 			"options": [
 				"Não consegui leito e tive que ir a outra maternidade",
@@ -141,7 +141,7 @@
 		},
 		{
 			"helpText": "banheiros limpos, corredores limpos, enfermaria/apartamentos limpos, roupas de cama limpas",
-			"label": "O que você achou da higiene dos leitos/banheiros?",
+			"label": "O que você achou da higiene dos leitos/banheiros? *",
 			"name": "entry.886915890",
 			"options": [
 				"Péssimo",
@@ -155,7 +155,7 @@
 		},
 		{
 			"helpText": "Cordial, educado, compreensivo etc.",
-			"label": "O que você achou do atendimento do médico/obstetra?",
+			"label": "O que você achou do atendimento do médico/obstetra? *",
 			"name": "entry.450833273",
 			"options": [
 				"Péssimo",
@@ -169,7 +169,7 @@
 		},
 		{
 			"helpText": "Simpáticos, educados, cordiais, compreensivos etc.",
-			"label": "Qual sua opinião sobre o atendimento da equipe multidisciplinar (pediatras, obstetras, nutricionistas, enfermeiros e técnicos de enfermagem)?",
+			"label": "Qual sua opinião sobre o atendimento da equipe multidisciplinar (pediatras, obstetras, nutricionistas, enfermeiros e técnicos de enfermagem)? *",
 			"name": "entry.1049537599",
 			"options": [
 				"Péssimo",
@@ -183,7 +183,7 @@
 		},
 		{
 			"helpText": "",
-			"label": "Quanto tempo demorou (em média) o atendimento pela equipe médica depois que você deu entrada na recepção do hospital?",
+			"label": "Quanto tempo demorou (em média) o atendimento pela equipe médica depois que você deu entrada na recepção do hospital? *",
 			"name": "entry.695838508",
 			"options": [
 				"15 minutos",
@@ -197,7 +197,7 @@
 		},
 		{
 			"helpText": "",
-			"label": "Quanto tempo se passou (em média) até que o recém-nascido fosse liberado para a mãe amamentar?",
+			"label": "Quanto tempo se passou (em média) até que o recém-nascido fosse liberado para a mãe amamentar? *",
 			"name": "entry.319912225",
 			"options": [
 				"30 minutos",

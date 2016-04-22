@@ -101,7 +101,7 @@ if (!casper.cli.has("env")) {
                     field.label = function(element){
                         return element.querySelector(
                             ".freebirdFormviewerViewItemsItemItemTitle"
-                        ).textContent.replace(" *", "");
+                        ).textContent;
                     }(element);
 
                     // help text

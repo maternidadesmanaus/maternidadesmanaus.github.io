@@ -20,11 +20,6 @@
         }
     }
 
-    .freebirdMaterialSelectPaperselectOptionList {
-        width: 100%;
-        width: calc(100% - 19px);
-    }
-
     #na-midia {
         li {
             margin: 15px 0;
@@ -44,11 +39,6 @@
 }
 
 @include media-query(800px) {
-    .freebirdMaterialSelectPaperselectOptionList {
-        width: 100%;
-        width: calc(100% - 19px);
-    }
-
     #call-to-action {
         width: 100%;
     }
@@ -136,30 +126,23 @@
         padding: 20px;
     }
 
-    .freebirdFormviewerViewItemsItemItemTitle,
-    .freebirdFormviewerViewItemsRadioChoice,
-    .freebirdMaterialSelectPaperselectContent {
+    #review-maternity .lbl,
+    #review-maternity .ropt,
+    #review-maternity .slt {
         font-size: 16px;
-        line-height: 24px;
-        text-transform: lowercase;
     }
 
-    .freebirdMaterialSelectPaperselectOptionList {
-        width: 100%;
-        width: calc(100% - 19px);
-    }
-
-    .freebirdFormviewerViewItemsItemItemHelpText {
+    #review-maternity .hlptxt {
         line-height: 20px;
         margin: 3px 0 7px 0;
     }
 
-    .freebirdFormviewerViewItemsRadioChoice {
+    #review-maternity .ropt {
         line-height: 20px;
         margin-bottom: 10px;
         background-position: 0 2px;
 
-        .freebirdThemedRadio {
+        i {
             top: 0;
         }
 
@@ -172,13 +155,11 @@
         }
     }
 
-    .freebirdMaterialSelectPaperselectOptionSeparator {
-        top: 8px;
-        height: 25px;
+    #review-maternity .down {
+        top: 52px;
     }
 
-
-    .freebirdFormviewerViewItemsItemErrorMessage {
+    #review-maternity .row.error {
         padding: 0 10px;
         font-size: 13px;
     }
@@ -282,7 +263,7 @@
 }
 
 @include media-query(500px) {
-    .freebirdFormviewerViewItemsItemItem {
+    #review-maternity .row {
         margin-bottom: 20px;
     }
 
