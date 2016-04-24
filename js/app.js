@@ -101,17 +101,6 @@ function selectChoiceRadioButton(elm) {
 }
 
 /**
- * Debug informations
- * @author Andrews Lince <andrews.lince@gmail.com>
- * @since  1.0.0
- * @param  {[type]} data [description]
- * @return {[type]}      [description]
- */
-function dbg(data) {
-    console.log(data);
-}
-
-/**
  * Checks if user is a mobile device
  * @author Andrews Lince <andrews.lince@gmail.com>
  * @since  2.3.4
@@ -387,22 +376,26 @@ function submitForm(frm) {
          * submitted more than one time
          */
         frm.setAttribute("onsubmit", "return false;");
-        
-        $.ajaxSetup({ cache: false });
-        $.ajax({
+
+        ajax({
             url: frm.action,
-            data: submitDataObj,
+            data: obj2UrlParams(submitDataObj),
             type: "POST",
-            dataType: "xml",
-            statusCode: {
-                0: function() {
+            success: function(response, statusCode) {
+                showFeedbackMessage(
+                    "ok",
+                    "avaliação enviada com sucesso!!!",
+                    "muito obrigado por participar desse projeto e ajudar outras mulheres a escolher a melhor maternidade de Manaus!"
+                );
+            },
+            error: function(response, statusCode) {
+                if (statusCode === 0) {
                     showFeedbackMessage(
                         "ok",
                         "avaliação enviada com sucesso!!!",
                         "muito obrigado por participar desse projeto e ajudar outras mulheres a escolher a melhor maternidade de Manaus!"
                     );
-                },
-                200: function() {
+                } else {
                     showFeedbackMessage(
                         "nok",
                         "problemas no envio da avaliação!!!",
@@ -465,5 +458,182 @@ function openModalSharer(url, width, height) {
     );
 }
 
+function setDataTestForm() {
+
+    var fields = document.querySelectorAll(".row"),
+        fieldWrapper = null;
+
+    for (var i = 0; i < fields.length; i++) {
+        fieldWrapper = fields[i];
+        fieldType    = getFieldType(fieldWrapper);
+
+        // text
+        if (fieldType === "text") {
+
+            // email
+            fieldWrapper.querySelector(".txt").value = (
+                fieldWrapper.querySelector(".lbl").innerHTML.indexOf("e-mail") != -1
+            )
+                ? "a@a.com"
+                : "nome de teste";
+        }
+
+        // textarea
+        else if (fieldType === "textarea") {
+            fieldWrapper.querySelector(".txtar").value = getRandomString(
+                getRandomArbitrary(20, 30)
+            );
+        }
+        
+        // select
+        else if (fieldType === "select") {
+            var elmSelect = fieldWrapper.querySelector(".slt");
+            var selectOptionIndex = getRandomArbitrary(
+                0,
+                elmSelect.options.length
+            );
+
+            elmSelect.value = elmSelect.options[selectOptionIndex].value;
+        }
+
+        // radios
+        else if (fieldType.indexOf("radio") != -1) {
+            var options = fieldWrapper.querySelectorAll(".ropt");
+            var randomOption = getRandomArbitrary(0, options.length);
+
+            options[randomOption].classList.add("selected");
+
+            fieldWrapper.querySelector(".rgrp").
+                setAttribute(
+                    "field-value",
+                    options[randomOption].querySelector("span").innerHTML
+                );
+
+            if (options[randomOption].classList.contains("with-other")) {
+                options[randomOption].querySelector(".otheropt").style.display = "block";
+
+                options[randomOption].querySelector(".txt").value =
+                    getRandomString(30);
+            }
+        }
+    }
+}
+
+/**
+ * Convert an object to string by url parameters format
+ * @{@link http://stackoverflow.com/a/6566471/2431214}
+ * @since  2.3.4
+ * @param  {Object} object
+ * @return {String}
+ */
+function obj2UrlParams(object) {
+    var urlParams = "";
+
+    for (var key in object) {
+        if (urlParams != "") {
+            urlParams += "&";
+        }
+        urlParams += key + "=" + encodeURIComponent(object[key]);
+    }
+
+    return urlParams;
+}
+
+/**
+ * [ajax description]
+ * @since  2.3.4
+ * @param  {Object} options
+ * - dataType
+ * - type
+ * - data
+ * - url
+ * - success
+ * - error
+ * @return {Void}
+ */
+function ajax(options) {
+
+    // declare the variable at the top, even though it will be null at first
+    var req = null;
+
+    // defines default "dataType" as "json"
+    if (options.dataType === undefined) {
+        options.dataType = "json";
+    }
+
+    // figure out what kind of support we have for the XMLHttpRequest object
+    req = (window.XMLHttpRequest)
+        ? new XMLHttpRequest()                     // modern browsers
+        : new ActiveXObject("Microsoft.XMLHTTP");  // good ol' lousy IE
+
+    // setup the readystatechange listener
+    req.onreadystatechange = function() {
+        if (req.readyState == XMLHttpRequest.DONE) {
+
+            // success
+            if(req.status === 200) {
+                var response;
+
+                try {
+                    response = JSON.parse(req.responseText);
+                } catch(e) {
+                    response = req.responseText;
+                }
+                options.success(response, req.status);
+            }
+
+            // error
+            else {
+                options.error(response, req.status);
+            }
+        }
+    };
+
+    // open the XMLHttpRequest connection
+    req.open(options.type, options.url, true);
+
+    /**
+     * send the XMLHttpRequest request (nothing has actually been
+     * sent until this very line)
+     */
+    if (options.type.toLowerCase() === "post") {
+        req.setRequestHeader(
+            'Content-Type',
+            'application/x-www-form-urlencoded; charset=UTF-8'
+        );
+        req.send(options.data);
+    } else {
+        req.send();
+    }
+}
+
+/**
+ * Debug informations
+ * @author Andrews Lince <andrews.lince@gmail.com>
+ * @since  1.0.0
+ * @param  {[type]} data [description]
+ * @return {[type]}      [description]
+ */
+function dbg(data) {
+    console.log(data);
+}
+
+function getRandomString(length) {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzãõçàáéíóú0123456789";
+
+    for( var i=0; i < length; i++ ) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+
+    return text;
+}
+
+function getRandomArbitrary(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
 // initial setup
 init();
+
+// setDataTestForm();
