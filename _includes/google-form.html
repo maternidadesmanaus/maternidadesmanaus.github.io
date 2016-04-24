@@ -1,9 +1,9 @@
 {% if jekyll.environment == "development" %}
     {% assign form = site.data.google-form-dev %}
-{% else if jekyll.environment == "staging" %}
-    {% assign form = site.data.google-form-stg.json %}
-{% else if jekyll.environment == "production" %}
-    {% assign form = site.data.google-form-prd.json %}
+{% elsif jekyll.environment == "staging" %}
+    {% assign form = site.data.google-form-stg %}
+{% elsif jekyll.environment == "production" %}
+    {% assign form = site.data.google-form-prd %}
 {% endif %}
 
 <form id="review-maternity" action="{{ form.action }}" method="_POST">
@@ -15,11 +15,15 @@
             required="{{ field.required }}"
         >
             <label for="{{ field.name }}" class="lbl">{{ field.label }}</label>
-        
+
+            {% if field.required %}
+                <div class="msg"></div>
+            {% endif %}
+            
             {% if field.helpText != "" %}
                 <div class="hlptxt">{{ field.helpText }}</div>
             {% endif %}
-            
+
             {% if field.type == "text" %}
                 <input
                     name="{{ field.name }}"
@@ -27,9 +31,7 @@
                     class="txt"
                     type="text"
                 >
-            {% endif %}
-            
-            {% if field.type == "textarea" %}
+            {% elsif field.type == "textarea" %}
                 <textarea
                     name="{{ field.name }}"
                     id="{{ field.name }}"
@@ -37,9 +39,7 @@
                     cols="30"
                     rows="10"
                 ></textarea>
-            {% endif %}
-            
-            {% if field.type == "select" %}
+            {% elsif field.type == "select" %}
                 <i class="down"></i>
                 <select class="slt" name="{{ field.name }}" id="{{ field.name }}">
                     {% for selectOption in field.options %}
@@ -48,14 +48,12 @@
                         </option>
                     {% endfor %}
                 </select>
-            {% endif %}
-            
-            {% if field.type == "radio" or field.type == "radio-with-other" %}
+            {% elsif field.type == "radio" or field.type == "radio-with-other" %}
                 <ul class="rgrp" name="{{ field.name }}">
                     {% for radioOption in field.options %}
-                        <li class="ropt">
+                        <li class="ropt{% if radioOption == "Outro:" %} with-other{% endif %}">
                             <i></i>
-                            <span>{{ radioOption }}</span>
+                            <span>{{ radioOption | replace:'Cesária', 'Cesárea' }}</span>
 
                             {% if radioOption == "Outro:" %}
                                 <div class="otheropt">

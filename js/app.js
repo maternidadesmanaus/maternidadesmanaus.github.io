@@ -12,103 +12,77 @@ if (!String.prototype.trim) {
     };
 }
 
-function getForm() {
-    return document.querySelector("#rate form");
-}
-
 /**
- * Defines the initial styles from the form
- *
+ * Setup page elements
+ * @author Andrews Lince <andrews.lince@gmail.com>
+ * @since  2.3.4
  * @return {Void}
  */
-function setFormStyles() {
+function init() {
 
-    var form = getForm();
-
-    // username with upper case
-    form.querySelectorAll(".freebirdFormviewerViewItemsItemItem")[0].querySelector(".exportInput").classList.add("upper");
-    
-    // email with lower case
-    form.querySelectorAll(".freebirdFormviewerViewItemsItemItem")[1].querySelector(".exportInput").classList.add("lower");
-}
-
-function registerEventOnSubmitForm(frm) {
-    frm.setAttribute("onsubmit", "return submitForm(this);");
-}
-
-function removeEventOnSubmitForm(frm) {
-    frm.setAttribute("onsubmit", "return false;");
-}
-
-/**
- * Register select choice events (another field)
- * 
- * @return {Void}
- */
-function registerEventFromAnotherField() {
-    var anotherFields = document.querySelectorAll(".freebirdFormviewerViewItemsRadioOtherInput input");
-    for (var i = 0; i < anotherFields.length; i++) {
-        anotherFields[i].addEventListener("focus", function(event) {
-            this
-                .parentNode
-                .parentNode
-                .parentNode
-                .parentNode
-                .parentNode
-                .parentNode
-                .querySelector(".freebirdFormviewerViewItemsRadioChoice")
-                .classList
-                .add("selected");
-        }, false);
+    // sets the mobile flag
+    if (isMobile()) {
+        document.body.classList.add("mobile");
     }
-}
 
-/**
- * Register select choice events (select)
- * 
- * @return {Void}
- */
-function registerEventFromSelectField() {
-    var selectFields = document.querySelectorAll(".freebirdMaterialSelectPaperselectOption.isSelected");
-    for (var i = 0; i < selectFields.length; i++) {
-        selectFields[i].setAttribute("onclick", "openSelectChoice(this)");
-    }
-}
+    // register menu navigation events
+    document.querySelector(".nav .menu").addEventListener("click", function(event) {
+        this.parentNode.classList.toggle("active");
+    }, false);
 
-/**
- * Register select choice events (radio buttons)
- * 
- * @return {Void}
- */
-function registerEventFromRadioButtonField() {
-    var radioButtons = document.querySelectorAll(".LabeledRadioContainer");
+    // register lazy loading images
+    echo.init({
+        offset   : 100,
+        throttle : 250,
+        unload   : false
+    });
+
+    // register select choice events (radio buttons)
+    var radioButtons = document.querySelectorAll(".ropt");
     for (var i = 0; i < radioButtons.length; i++) {
         radioButtons[i].setAttribute("onclick", "selectChoiceRadioButton(this)");
     }
+
+    // get form
+    var frm = getForm();
+
+    // register submit event
+    frm.setAttribute("onsubmit", "return submitForm(this);");
+
+    /***************************************************************************
+     * defines the initial styles from the form
+     **************************************************************************/
+
+    // username with upper case
+    frm.querySelectorAll(".row")[0].
+        querySelector("input").
+        classList.
+        add("upper");
+
+    // email with lower case
+    frm.querySelectorAll(".row")[1].
+        querySelector("input").
+        classList.
+        add("lower");
 }
 
-/**
- * Register event to open select field
- * 
- * @return {Void}
- */
-function registerEventOpenSelect(elm) {
-    var options = elm.parentNode.querySelectorAll(".freebirdMaterialSelectPaperselectOption");
-    for (var i = 0; i < options.length; i++) {
-        options[i].setAttribute("onclick", "selectChoiceDropdown(this)");
-    }
+function getForm() {
+    return document.getElementById("review-maternity");
 }
 
 function selectChoiceRadioButton(elm) {
-    var hasAnother = false,
-        anotherInput = null,
-        parent = elm.parentNode,
-        nodes = parent.querySelectorAll(".freebirdFormviewerViewItemsRadioChoice");
+    var parent = elm.parentNode,
+        nodes = parent.querySelectorAll(".ropt");
 
     // checks if has a another answer
-    if ((parent.classList.contains("freebirdFormviewerViewItemsRadioOtherContainer"))) {
-        nodes = parent.parentNode.querySelectorAll(".freebirdFormviewerViewItemsRadioChoice");
-        hasAnother = true;
+    if (elm.classList.contains("with-other")) {
+        elm.querySelector(".otheropt").style.display = "block";
+        elm.querySelector("input").focus();
+    } else {
+        var otherWrapper = parent.querySelector(".otheropt");
+        if (otherWrapper) {
+            otherWrapper.style.display = "none";
+        }
     }
 
     // unselect all answers
@@ -119,37 +93,31 @@ function selectChoiceRadioButton(elm) {
     // select the option
     elm.classList.add("selected");
 
-    // if has a another answer
-    if (hasAnother) {
-        parent.querySelector(".freebirdFormviewerViewItemsRadioOtherInput").style.display = "block";
-        parent.querySelector("input").focus();
-    } else {
-        anotherInput = parent.parentNode.querySelector(".freebirdFormviewerViewItemsRadioOtherInput");
-        if (anotherInput !== null) {
-            anotherInput.style.display = "none";
-        }
-    }
+    // defines the selected value
+    parent.setAttribute(
+        "field-value",
+        elm.querySelector("span").textContent
+    );
 }
 
-function selectChoiceDropdown(elm) {
-    var parent = elm.parentNode;
-    parent.querySelector(".isSelected content").innerHTML = elm.querySelector("content").innerHTML;
-    parent.classList.remove("opened");
-
-    registerEventFromSelectField();
-}
-
-function openSelectChoice(elm) {
-    elm.parentNode.classList.add("opened");
-
-    registerEventOpenSelect(elm);
-}
-
+/**
+ * Debug informations
+ * @author Andrews Lince <andrews.lince@gmail.com>
+ * @since  1.0.0
+ * @param  {[type]} data [description]
+ * @return {[type]}      [description]
+ */
 function dbg(data) {
     console.log(data);
 }
 
-function _isMobile() {
+/**
+ * Checks if user is a mobile device
+ * @author Andrews Lince <andrews.lince@gmail.com>
+ * @since  2.3.4
+ * @return {Boolean}
+ */
+function isMobile() {
     var check = false;
 
     (function(a){
@@ -159,9 +127,15 @@ function _isMobile() {
     })(navigator.userAgent||navigator.vendor||window.opera);
 
     return check;
-};
+}
 
-function _isValidEmail(email) {
+/**
+ * Checks if email is valid
+ * @author Andrews Lince <andrews.lince@gmail.com>
+ * @since  2.3.4
+ * @return {Boolean}
+ */
+function isValidEmail(email) {
     var isValidEmail = false,
         regexPattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
@@ -172,131 +146,148 @@ function _isValidEmail(email) {
     return isValidEmail;
 }
 
-function _removeValidationError(fieldWrapper) {
+/**
+ * Clean validation information and styles from the field form
+ * @author Andrews Lince <andrews.lince@gmail.com>
+ * @since  2.3.4
+ * @return {Void}
+ */
+function removeValidationError(fieldWrapper) {
 
     // remove class error on field wrapper
     fieldWrapper.classList.remove("error");
 
     // hides error message
-    if (fieldWrapper.querySelector(".freebirdFormviewerViewItemsItemErrorMessage")) {
-        fieldWrapper.querySelector(".freebirdFormviewerViewItemsItemErrorMessage").style.display = "none";
+    if (fieldWrapper.querySelector(".msg")) {
+        fieldWrapper.querySelector(".msg").style.display = "none";
     }
 }
 
-function _setValidationError(fieldWrapper, message) {
+/**
+ * Add validation information and styles on the field form
+ * @author Andrews Lince <andrews.lince@gmail.com>
+ * @since  2.3.4
+ * @return {Void}
+ */
+function setValidationError(fieldWrapper, message) {
 
     // set class error on field wrapper
     fieldWrapper.classList.add("error");
 
-    if (fieldWrapper.querySelector(".freebirdFormviewerViewItemsItemErrorMessage")) {
+    if (fieldWrapper.querySelector(".msg")) {
 
         // set error message
-        fieldWrapper.querySelector(".freebirdFormviewerViewItemsItemErrorMessage").innerHTML = message;
+        fieldWrapper.querySelector(".msg").innerHTML = message;
         
         // displays error message
-        fieldWrapper.querySelector(".freebirdFormviewerViewItemsItemErrorMessage").style.display = "block";
+        fieldWrapper.querySelector(".msg").style.display = "block";
     }
 }
 
+/**
+ * Get the type from field (text, textarea, select etc.)
+ * @author Andrews Lince <andrews.lince@gmail.com>
+ * @since  2.3.4
+ * @param  {[type]} fieldWrapper
+ * @return {String}
+ */
 function getFieldType(fieldWrapper) {
-
-    var fieldType = 'undefined';
-
-    // textarea
-    if (fieldWrapper.querySelector(".exportContentArea")) {
-        fieldType = "textarea";
-    }
-
-    // select
-    else if (fieldWrapper.querySelector(".freebirdMaterialSelectPaperselectOptionList")) {
-        fieldType = "select";
-    }
-
-    // radio buttons
-    else if (fieldWrapper.querySelector(".freebirdFormviewerViewItemsRadioChoice")) {
-        fieldType = "radios";
-    }
-
-    // input text
-    else if (fieldWrapper.querySelector(".exportContent")) {
-        fieldType = "input_text";
-    }
-
-    return fieldType;
+    var attrFieldType = fieldWrapper.getAttribute("field-type");
+    return (attrFieldType)
+        ? attrFieldType
+        : "undefined";
 }
 
-function getField(fieldWrapper) {
-
-    var field = undefined;
-
-    // textarea
-    if (fieldWrapper.querySelector(".exportContentArea")) {
-        field = fieldWrapper.querySelector(".exportTextarea");
-    }
-
-    // select
-    else if (fieldWrapper.querySelector(".freebirdMaterialSelectPaperselectOptionList")) {
-        field = fieldWrapper.querySelector(".freebirdMaterialSelectPaperselectOptionList");
-    }
-
-    // radio buttons
-    else if (fieldWrapper.querySelector(".freebirdFormviewerViewItemsRadioChoice")) {
-        field = fieldWrapper;
-    }
-
-    // input text
-    else if (fieldWrapper.querySelector(".exportContent")) {
-        field = fieldWrapper.querySelector(".exportInput");
-    }
-
-    return field;
-}
-
-function isRequired(fieldWrapper) {
-    return (fieldWrapper.getAttribute("data-required") !== null)
-        ? true
-        : false;
-}
-
-function getFieldValue(field) {
-    
-    var classList  = field.classList,
-        fieldValue = "";
+/**
+ * Get the "name" attribute (google form) from the field
+ * @author Andrews Lince <andrews.lince@gmail.com>
+ * @since  2.3.4
+ * @param  {[type]} fieldWrapper
+ * @param  {String} fieldType
+ * @return {String}
+ */
+function getFieldName(fieldWrapper, fieldType) {
+    var fieldName = "",
+        selector  = "";
 
     // radio button
-    if (classList.contains("freebirdFormviewerViewItemsItemItem")) {
+    if (fieldType.indexOf("radio") != -1) {
+        selector = ".rgrp";
+    }
 
-        // simple choice (radio)
-        var fieldElement = field.querySelector(".freebirdFormviewerViewItemsRadioChoice.selected span");
-        fieldValue = (fieldElement !== null)
-            ? fieldElement.innerHTML
-            : "";
+    // input text
+    else if (fieldType === "text") {
+        selector = ".txt";
+    }
 
-        // another choice (input)
-        if (fieldValue.toLowerCase().indexOf("outro") != -1) {
-            var anotherField = field.querySelector(".freebirdFormviewerViewItemsRadioOtherInput .exportInput");
-            fieldValue = (anotherField !== null && anotherField.value !== "")
-                ? fieldValue = "Outro__" + anotherField.value
-                : "";
+    // textarea
+    else if (fieldType === "textarea") {
+        selector = ".txtar";
+    }
+
+    // select
+    else if (fieldType === "select") {
+        selector = ".slt";
+    }
+
+    if (selector !== "") {
+        fieldName = fieldWrapper.querySelector(selector).getAttribute("name");
+    }
+
+    return fieldName;
+}
+
+/**
+ * Get the value from the field
+ * @author Andrews Lince <andrews.lince@gmail.com>
+ * @since  2.0.0
+ * @param  {[type]} fieldWrapper
+ * @param  {String} fieldType
+ * @return {String}
+ */
+function getFieldValue(fieldWrapper, fieldType) {
+    
+    var fieldValue = "";
+
+    // radio button
+    if (fieldType.indexOf("radio") != -1) {
+        var radioGroup = fieldWrapper.querySelector(".rgrp"),
+            radioValue = radioGroup.getAttribute("field-value");
+
+        if (radioValue) {
+            fieldValue = radioValue;
+
+            // radio button with other (input field)
+            if (
+                fieldType === "radio-with-other" &&
+                fieldValue.toLowerCase().indexOf("outro") != -1
+            ) {
+                var otherValue = radioGroup.querySelector("input").value.trim();
+
+                fieldValue = (otherValue !== "")
+                    ? fieldValue = "Outro__" + otherValue
+                    : "";
+            }
         }
     }
 
     // input text
-    else if (classList.contains("exportInput")) {
-        fieldValue = field.value;
-    }
-
-    // select
-    else if (classList.contains("freebirdMaterialSelectPaperselectOptionList")) {
-        fieldValue = field.querySelector("content").innerHTML;
-        if (fieldValue === "Escolher") {
-            fieldValue = "";
-        }
+    else if (fieldType === "text") {
+        fieldValue = fieldWrapper.querySelector(".txt").value;
     }
 
     // textarea
-    else if (classList.contains("exportTextarea")) {
-        fieldValue = field.value;
+    else if (fieldType === "textarea") {
+        fieldValue = fieldWrapper.querySelector(".txtar").value;
+    }
+
+    // select
+    else if (fieldType === "select") {
+        var elmSelect   = fieldWrapper.querySelector("select");
+            selectedOpt = elmSelect.options[elmSelect.selectedIndex].value;
+        if (selectedOpt !== "Escolher") {
+            fieldValue = selectedOpt;
+        }
     }
 
     return fieldValue.trim();
@@ -304,10 +295,10 @@ function getFieldValue(field) {
 
 function showFeedbackMessage(className, title, message) {
 
-    var container = document.getElementById("rate");
+    var container = getForm();
 
     smoothScroll.init({
-        target   : document.getElementById("rate-maternity"),
+        target   : container,
         discount : 4
     });
 
@@ -331,85 +322,43 @@ function showFeedbackMessage(className, title, message) {
     }, 300);
 }
 
-function getFormData(fieldList, valuesList) {
-    var formData = {};
-
-    for (var i = 0; i < fieldList.length; i++) {
-        var nodeType = fieldList[i].nodeName.toLowerCase(),
-            ariaLabel = null,
-            elm = null,
-            name = "";
-
-        if (nodeType === "input" || nodeType === "textarea") {
-            ariaLabel = fieldList[i].getAttribute("aria-label");
-            elm = (
-                nodeType === "textarea"
-                || (ariaLabel !== null && ariaLabel.indexOf("e-mail") != -1)
-            )
-                
-                // input (email) or textarea
-                ? fieldList[i].parentNode.parentNode.parentNode.parentNode
-
-                // input (text)
-                : fieldList[i].parentNode.parentNode.parentNode.parentNode.parentNode;
-        }
-
-        else {
-            elm = (fieldList[i].classList.contains("freebirdFormviewerViewItemsItemItem"))
-
-                // radio
-                ? fieldList[i].querySelector("content").parentNode.parentNode
-
-                // select
-                : fieldList[i].parentNode.parentNode;
-        }
-
-        name = elm.querySelector("input[type=hidden]").name;
-
-        if (name.indexOf("other_option_response") != -1) {
-            name = name.replace(".other_option_response", "");
-
-            if (valuesList[i].indexOf("Outro__") != -1) {
-                formData[name + ".other_option_response"] = valuesList[i];
-                formData[name] = "__other_option__";
-            } else {
-                formData[name + ".other_option_response"] = "";
-                formData[name] = valuesList[i];
-            }
-        } else {
-            formData[name] = valuesList[i];
-        }
-    }
-
-    return formData;
-}
-
 function submitForm(frm) {
 
     var frmIsValid    = true,
         fieldWrapper  = null,
-        fieldValue    = "",
         htmlOutput    = "",
-        frmFields     = frm.querySelectorAll(".freebirdFormviewerViewItemsItemItem"),
-        fieldList     = [],
-        valuesList    = [],
+        fieldValue    = "",
+        fieldName     = "",
+        fieldType     = "",
+        frmFields     = frm.querySelectorAll(".row"),
         submitDataObj = {};
 
     // validate form fields
     for (var i = 0; i < frmFields.length; i++) {
 
-        var fieldWrapper    = frmFields[i],
-            fieldType       = getFieldType(fieldWrapper),
-            field           = getField(fieldWrapper),
-            fieldIsRequired = isRequired(fieldWrapper),
-            fieldValue      = getFieldValue(field);
+        fieldWrapper = frmFields[i];
+        fieldType    = getFieldType(fieldWrapper);
+        fieldValue   = getFieldValue(fieldWrapper, fieldType);
+        fieldName    = getFieldName(fieldWrapper, fieldType);
 
-        fieldList.push(field);
-        valuesList.push(fieldValue);
+        if (fieldType === "radio-with-other") {
+            if (fieldValue.indexOf("Outro__") != -1) {
+                submitDataObj[fieldName + ".other_option_response"] = fieldValue;
+                submitDataObj[fieldName] = "__other_option__";
+            } else {
+                submitDataObj[fieldName + ".other_option_response"] = "";
+                submitDataObj[fieldName] = fieldValue;
+            }
+        } else {
+            submitDataObj[fieldName] = fieldValue;
+        }
 
         // invalid field
-        if (fieldValue === "" && fieldIsRequired) {
-            _setValidationError(fieldWrapper, "campo obrigatório");
+        if (
+            fieldValue === "" &&
+            fieldWrapper.getAttribute("required") === "1"
+        ) {
+            setValidationError(fieldWrapper, "campo obrigatório");
 
             // register flag from form error
             if (frmIsValid) {
@@ -419,14 +368,14 @@ function submitForm(frm) {
 
         // valid field
         else {
-            _removeValidationError(fieldWrapper);
+            removeValidationError(fieldWrapper);
 
             if (
-                fieldWrapper.querySelector(".freebirdFormviewerViewItemsItemItemTitle").innerHTML.indexOf("e-mail") != -1
+                fieldWrapper.querySelector(".lbl").innerHTML.indexOf("e-mail") != -1
                 && fieldValue !== ""
-                && !_isValidEmail(fieldValue)
+                && !isValidEmail(fieldValue)
             ) {
-                _setValidationError(fieldWrapper, "e-mail inválido");
+                setValidationError(fieldWrapper, "e-mail inválido");
             }
         }
     }
@@ -437,12 +386,12 @@ function submitForm(frm) {
          * removes the "onsubmit" event, to prevent which the form do not be
          * submitted more than one time
          */
-        removeEventOnSubmitForm(frm);
+        frm.setAttribute("onsubmit", "return false;");
         
         $.ajaxSetup({ cache: false });
         $.ajax({
             url: frm.action,
-            data: getFormData(fieldList, valuesList),
+            data: submitDataObj,
             type: "POST",
             dataType: "xml",
             statusCode: {
@@ -468,11 +417,11 @@ function submitForm(frm) {
         frm.classList.add("error");
 
         // set the focus to the first invalid field
-        frm.querySelector("#rate .error").focus();
+        frm.querySelector("#review-maternity .error").focus();
 
         // go to the top of the form
         smoothScroll.init({
-            target   : frm.querySelector("#rate .error"),
+            target   : frm.querySelector("#review-maternity .error"),
             discount : (window.innerWidth <= 600)
                 ? -220
                 : -30
@@ -494,19 +443,9 @@ function menuNav(target) {
 }
 
 /**
- * Register go to top
- * 
- * @return {Void}
- */
-function goToTop() {
-    smoothScroll.init({
-        target : document.body
-    });
-}
-
-/**
  * Register modal configurations
- * 
+ * @author Andrews Lince <andrews.lince@gmail.com>
+ * @since  1.0.0
  * @param  {String}  url
  * @param  {Integer} width
  * @param  {Integer} height
@@ -515,33 +454,16 @@ function goToTop() {
 function openModalSharer(url, width, height) {
     var left = (screen.width/2)-(width/2);
     var top  = (screen.height/2)-(height/2);
-    window.open(url, '', 'width=' + width + ', height=' + height + ', scrollbars=no, left=' + left + ', top=' + top);
+    window.open(
+        url,
+        '',
+        'width=' + width +
+            ', height=' + height +
+            ', scrollbars=no' +
+            ', left=' + left +
+            ', top=' + top
+    );
 }
 
-// sets the mobile flag
-if (_isMobile()) {
-    document.body.classList.add("mobile");
-}
-
-// register menu navigation events
-document.querySelector(".nav .menu").addEventListener("click", function(event) {
-    this.parentNode.classList.toggle("active");
-}, false);
-
-// register lazy loading images
-echo.init({
-    offset   : 100,
-    throttle : 250,
-    unload   : false
-});
-
-// register submit event
-registerEventOnSubmitForm(getForm());
-
-registerEventFromAnotherField();
-
-registerEventFromRadioButtonField();
-
-registerEventFromSelectField();
-
-setFormStyles();
+// initial setup
+init();

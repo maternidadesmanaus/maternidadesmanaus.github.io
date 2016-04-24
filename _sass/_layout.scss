@@ -338,11 +338,16 @@
         &.error {
             background-color: #fff4f6;
             border-color: #feb0bf;
+
+            .otheropt input {
+                border-color: #feb0bf;
+            }
         }
 
         .msg {
             background-color: #fd1943;
             color: #fff;
+            display: none;
             font-size: 14px;
             font-style: italic;
             padding: 5px 10px;
@@ -451,6 +456,7 @@
 
     .otheropt {
         display: none;
+        margin-left: -28px;
     }
 }
 
