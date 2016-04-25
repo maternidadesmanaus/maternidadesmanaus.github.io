@@ -96,6 +96,9 @@ module.exports = function(grunt) {
 
         uglify : {
             target : {
+                options: {
+                    beautify: true
+                },
                 files : {
                     '_site/js/main.js' : [
                         'js/smooth-scroll.js',
