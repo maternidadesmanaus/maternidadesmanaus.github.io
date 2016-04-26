@@ -182,9 +182,9 @@ function setValidationError(fieldWrapper, message) {
  */
 function getFieldType(fieldWrapper) {
     var attrFieldType = fieldWrapper.getAttribute("field-type");
-    return (attrFieldType)
-        ? attrFieldType
-        : "undefined";
+    return (attrFieldType) ?
+        attrFieldType :
+        "undefined";
 }
 
 /**
@@ -253,9 +253,9 @@ function getFieldValue(fieldWrapper, fieldType) {
             ) {
                 var otherValue = radioGroup.querySelector("input").value.trim();
 
-                fieldValue = (otherValue !== "")
-                    ? fieldValue = "Outro__" + otherValue
-                    : "";
+                fieldValue = (otherValue !== "") ?
+                    fieldValue = "Outro__" + otherValue :
+                    "";
             }
         }
     }
@@ -272,7 +272,7 @@ function getFieldValue(fieldWrapper, fieldType) {
 
     // select
     else if (fieldType === "select") {
-        var elmSelect   = fieldWrapper.querySelector("select");
+        var elmSelect   = fieldWrapper.querySelector("select"),
             selectedOpt = elmSelect.options[elmSelect.selectedIndex].value;
         if (selectedOpt !== "Escolher") {
             fieldValue = selectedOpt;
@@ -360,9 +360,9 @@ function submitForm(frm) {
             removeValidationError(fieldWrapper);
 
             if (
-                fieldWrapper.querySelector(".lbl").innerHTML.indexOf("e-mail") != -1
-                && fieldValue !== ""
-                && !isValidEmail(fieldValue)
+                fieldWrapper.querySelector(".lbl").innerHTML.indexOf("e-mail") != -1 &&
+                fieldValue !== "" &&
+                !isValidEmail(fieldValue)
             ) {
                 setValidationError(fieldWrapper, "e-mail inválido");
             }
@@ -415,9 +415,9 @@ function submitForm(frm) {
         // go to the top of the form
         smoothScroll.init({
             target   : frm.querySelector("#review-maternity .error"),
-            discount : (window.innerWidth <= 600)
-                ? -220
-                : -30
+            discount : (window.innerWidth <= 600) ?
+                -220 :
+                -30
         });
     }
 
@@ -458,7 +458,7 @@ function openModalSharer(url, width, height) {
     );
 }
 
-function setDataTestForm() {
+/*function setDataTestForm() {
 
     var fields = document.querySelectorAll(".row"),
         fieldWrapper = null;
@@ -517,7 +517,7 @@ function setDataTestForm() {
             }
         }
     }
-}
+}*/
 
 /**
  * Convert an object to string by url parameters format
@@ -530,7 +530,7 @@ function obj2UrlParams(object) {
     var urlParams = "";
 
     for (var key in object) {
-        if (urlParams != "") {
+        if (urlParams !== "") {
             urlParams += "&";
         }
         urlParams += key + "=" + encodeURIComponent(object[key]);
@@ -562,17 +562,18 @@ function ajax(options) {
     }
 
     // figure out what kind of support we have for the XMLHttpRequest object
-    req = (window.XMLHttpRequest)
-        ? new XMLHttpRequest()                     // modern browsers
-        : new ActiveXObject("Microsoft.XMLHTTP");  // good ol' lousy IE
+    req = (window.XMLHttpRequest) ?
+        new XMLHttpRequest() :                   // modern browsers
+        new ActiveXObject("Microsoft.XMLHTTP");  // good ol' lousy IE
 
     // setup the readystatechange listener
     req.onreadystatechange = function() {
         if (req.readyState == XMLHttpRequest.DONE) {
 
+            var response;
+
             // success
             if(req.status === 200) {
-                var response;
 
                 try {
                     response = JSON.parse(req.responseText);
@@ -614,7 +615,7 @@ function ajax(options) {
  * @param  {[type]} data [description]
  * @return {[type]}      [description]
  */
-function dbg(data) {
+/*function dbg(data) {
     console.log(data);
 }
 
@@ -631,7 +632,7 @@ function getRandomString(length) {
 
 function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
-}
+}*/
 
 // initial setup
 init();

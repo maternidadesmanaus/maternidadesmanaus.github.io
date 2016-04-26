@@ -94,6 +94,15 @@ module.exports = function(grunt) {
             }
         },
 
+        jshint: {
+            beforeconcat: [
+                'js/smooth-scroll.js',
+                'js/echo.js',
+                'js/app.js'
+            ]/*,
+            afterconcat: ['_site/js/main.js']*/
+        },
+
         uglify : {
             target : {
                 options: {
@@ -212,6 +221,7 @@ module.exports = function(grunt) {
     // load tasks
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -219,12 +229,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-exec');
 
     // register tasks
-    grunt.registerTask('default', [ 'exec:buildDev', 'concat' ]);
+    grunt.registerTask('default', [ 'exec:buildDev', 'jshint', 'concat' ]);
     grunt.registerTask('sync-form-dev', [ 'exec:syncFormDev' ]);
     grunt.registerTask('sync-form-stg', [ 'exec:syncFormStg' ]);
     grunt.registerTask('sync-form-prd', [ 'exec:syncFormPrd' ]);
     grunt.registerTask('deploy-stg', [
         'exec:buildStg',
+        'jshint',
         'uglify',
         'htmlmin',
         'imagemin',
@@ -233,6 +244,7 @@ module.exports = function(grunt) {
     ]);
     grunt.registerTask('deploy-prd', [
         'exec:buildPrd',
+        'jshint',
         'uglify',
         'htmlmin',
         'imagemin',

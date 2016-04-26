@@ -13,18 +13,18 @@ var smoothScroll = (function (window, document, undefined) {
     };
 
     var getElement = function(elm) {
-        return (typeof(elm) === "string")
-            ? document.querySelector(elm)
-            : elm;
+        return (typeof(elm) === "string") ?
+            document.querySelector(elm) :
+            elm;
     };
 
     var smoothScroll = function(options) {
         var eID      = getElement(options.target),
             discount = options.discount,
             startY   = currentYPosition(),
-            stopY    = (options.discount !== undefined)
-                ? elmYPosition(eID) + discount
-                : elmYPosition(eID),
+            stopY    = (options.discount !== undefined) ?
+                elmYPosition(eID) + discount :
+                elmYPosition(eID),
             distance = stopY > startY ? stopY - startY : startY - stopY;
 
         if (distance < 100) {
@@ -58,7 +58,7 @@ var smoothScroll = (function (window, document, undefined) {
             return;
         }
 
-        for ( var i=startY; i>stopY; i-=step ) {
+        for ( var j=startY; j>stopY; j-=step ) {
             window.setTimeout(
                 "window.scrollTo(0, " + leapY + ")",
                 timer * speed
@@ -96,9 +96,9 @@ var smoothScroll = (function (window, document, undefined) {
     };
 
     var elmYPosition = function(eID) {
-        var elm = (typeof(eID) === "string")
-          ? document.getElementById(eID)
-          : eID;
+        var elm = (typeof(eID) === "string") ?
+            document.getElementById(eID) :
+            eID;
         var y = elm.offsetTop;
         var node = elm;
         while (node.offsetParent && node.offsetParent != document.body) {
