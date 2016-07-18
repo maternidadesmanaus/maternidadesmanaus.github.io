@@ -200,19 +200,19 @@
         }
 
         &.fb {
-            background: #5a79b8 url("../img/icon-fb.png") no-repeat -48px -28px;
+            background: #5a79b8 url("../img/icon-fb.png") no-repeat;
             border: 1px #5a79b8 solid;
             padding-right: 12px;
         }
 
         &.tw {
-            background: #67d1f3 url("../img/icon-tw.png") no-repeat -48px -28px;
+            background: #67d1f3 url("../img/icon-tw.png") no-repeat;
             border: 1px #67d1f3 solid;
             padding-right: 18px;
         }
 
         &.gp {
-            background: #e36b56 url("../img/icon-gp.png") no-repeat -48px -28px;
+            background: #e36b56 url("../img/icon-gp.png") no-repeat;
             border: 1px #e36b56 solid;
             padding-right: 15px;
         }
@@ -379,7 +379,7 @@
     }
 
     .down {
-        background: #fff url("../img/arrow-down.jpg") right center no-repeat;
+        background: #fff url("../img/arrow-down.png") right center no-repeat;
         position:absolute;
         width:48px;
         height:26px;

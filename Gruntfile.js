@@ -28,8 +28,8 @@ module.exports = function(grunt) {
         },
 
         imagemin: {
-            dynamic: {                         
-                options: {                     
+            dynamic: {
+                options: {
                     optimizationLevel: 3,
                     svgoPlugins: [{ removeViewBox: false }],
                     use: [
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: '_site/img/', 
+                        cwd: '_site/img/',
                         src: [ '**/*.{png,jpg,gif}' ],
                         dest: '_site/img/'
                     }
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
             scripts : {
                 src : [
                     'js/smooth-scroll.js',
-                    'js/echo.js',
+                    // 'js/echo.js',
                     'js/app.js'
                 ],
                 dest : '_site/js/main.js',
@@ -96,7 +96,7 @@ module.exports = function(grunt) {
         jshint: {
             beforeconcat: [
                 'js/smooth-scroll.js',
-                'js/echo.js',
+                // 'js/echo.js',
                 'js/app.js'
             ]/*,
             afterconcat: ['_site/js/main.js']*/
@@ -107,7 +107,7 @@ module.exports = function(grunt) {
                 files : {
                     '_site/js/main.js' : [
                         'js/smooth-scroll.js',
-                        'js/echo.js',
+                        // 'js/echo.js',
                         'js/app.js'
                     ]
                 }

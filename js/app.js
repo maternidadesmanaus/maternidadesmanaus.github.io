@@ -31,11 +31,11 @@ function init() {
     }, false);
 
     // register lazy loading images
-    echo.init({
-        offset   : 100,
-        throttle : 250,
-        unload   : false
-    });
+    // echo.init({
+    //     offset   : 100,
+    //     throttle : 250,
+    //     unload   : false
+    // });
 
     // register select choice events (radio buttons)
     var radioButtons = document.querySelectorAll(".ropt");
@@ -167,7 +167,7 @@ function setValidationError(fieldWrapper, message) {
 
         // set error message
         fieldWrapper.querySelector(".msg").innerHTML = message;
-        
+
         // displays error message
         fieldWrapper.querySelector(".msg").style.display = "block";
     }
@@ -235,7 +235,7 @@ function getFieldName(fieldWrapper, fieldType) {
  * @return {String}
  */
 function getFieldValue(fieldWrapper, fieldType) {
-    
+
     var fieldValue = "";
 
     // radio button
@@ -484,7 +484,7 @@ function openModalSharer(url, width, height) {
                 getRandomArbitrary(20, 30)
             );
         }
-        
+
         // select
         else if (fieldType === "select") {
             var elmSelect = fieldWrapper.querySelector(".slt");
