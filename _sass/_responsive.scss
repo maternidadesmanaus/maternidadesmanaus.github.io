@@ -44,8 +44,12 @@
     }
 
     #na-midia {
-        li {
-            width: 40%;
+        ul {
+            display: block;
+
+            li {
+                width: 40%;
+            }
         }
     }
 
@@ -66,7 +70,6 @@
             width: 100%;
 
             .menu {
-                background: url("../img/icon-menu.png") no-repeat center right 20px;
                 color: #333;
                 display: block;
                 font-family: "MontSerrat";
@@ -76,6 +79,17 @@
                 text-align: left;
                 text-transform: uppercase;
                 padding: 0 15px;
+                position: relative;
+
+                i {
+                    background: url("../img/sprite-global.png") 0 -199px no-repeat;
+                    display: block;
+                    height: 21px;
+                    position: absolute;
+                    right: 15px;
+                    top: 15px;
+                    width: 32px;
+                }
             }
 
             ul {
@@ -226,6 +240,7 @@
     .social-media.bottom li {
         display: inline-block;
         height: auto;
+        margin-top: 45px;
         width: 100%;
     }
 
@@ -251,9 +266,19 @@
     }
 
     #na-midia {
-        li {
-            width: 100%;
-            margin: 20px 0;
+        ul {
+            li {
+                display: block;
+                width: 100%;
+                margin: 40px 0;
+
+                a {
+                    display: block;
+                    -webkit-filter: grayscale(0);
+                    filter: grayscale(0);
+                    margin: auto;
+                }
+            }
         }
     }
 }

@@ -19,7 +19,7 @@
             {% if field.required %}
                 <div class="msg"></div>
             {% endif %}
-            
+
             {% if field.helpText != "" %}
                 <div class="hlptxt">{{ field.helpText }}</div>
             {% endif %}
@@ -72,6 +72,7 @@
     {% endfor %}
 
     <div class="sbt-wrp">
-        <input value="Enviar" id="sbt" type="submit">
+        <button id="sbt" type="submit" value="Enviar"><i></i></button>
+        <!-- <input value="Enviar" id="sbt" type="submit"> -->
     </div>
 </form>
