@@ -19,6 +19,7 @@
   "author": "Andrews Lince <andrews.lince@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "echo-js": "^1.7.3",
     "grunt": "^0.4.5",
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-cssmin": "^0.12.3",

@@ -13,7 +13,7 @@
 
     li {
         display: block;
-        margin-top: 20px;
+        margin-top: 0;
     }
 
     a {
@@ -22,33 +22,54 @@
         font-family: "MontSerrat";
         font-weight: normal;
         font-size: 14px;
-        text-align: right;
-        padding: 15px 12px 15px 0;
         overflow: inherit;
-        text-indent: inherit;
-        width: 100%;
+        padding: 15px 12px 15px 0;
+        position: relative;
+        text-align: right;
+        text-indent: -999px;
+        width: 50px;
         @include transition;
 
+        i {
+            background: transparent url('../img/sprite-global.png') no-repeat;
+            display: block;
+            height: 24px;
+            position: absolute;
+            right: 14px;
+            top: 14px;
+            width: 24px;
+        }
+
         &:hover {
-            opacity: 0.8;
+            width: 70px;
+            // opacity: 0.8;
         }
 
         &.fb {
-            background: #5a79b8 url("../img/icon-fb2.png") no-repeat center left 12px;
+            background-color: #5a79b8;
             border: 1px #5a79b8 solid;
-            padding-right: 12px;
+
+            i {
+                background-position: 0 -284px;
+            }
         }
 
         &.tw {
-            background: #67d1f3 url("../img/icon-twitter2.png") no-repeat center left 12px;
+            background-color: #67d1f3;
             border: 1px #67d1f3 solid;
-            padding-right: 18px;
+
+            i {
+                background-position: 0 -308px;
+            }
         }
 
         &.gp {
-            background: #e36b56 url("../img/icon-go2.png") no-repeat center left 12px;
+            background-color: #e36b56;
             border: 1px #e36b56 solid;
-            padding-right: 15px;
+
+            i {
+                background-position: -24px -284px;
+            }
         }
     }
 }
@@ -59,21 +80,6 @@
     display: none;
 }
 
-.share-buttons {
-    li {
-        margin-top: 0;
-    }
-
-    a {
-        width: 50px;
-        text-indent: -999px;
-
-        &:hover {
-            width: 70px;
-        }
-    }
-}
-
 #share-content {
     position: fixed;
     left: 0;
@@ -82,14 +88,27 @@
 }
 
 #go-to-top {
-    background: #e5e5e5 url("../img/arrow-top.png") no-repeat center 15px;
+    background-color: #e5e5e5;
     border-radius: 200px;
     bottom: 40px;
+    cursor: pointer;
     position: fixed;
     width: 80px;
     height: 80px;
     right: 70px;
     z-index: 5;
+
+    i {
+        background: url("../img/sprite-global.png") no-repeat center -26px;
+        display: block;
+        height: 42px;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 15px;
+        width: 48px;
+    }
 }
 
 /**
@@ -131,7 +150,7 @@
     width: 320px;
 
     .menu {
-        background: url("../img/icon-menu-w.png") no-repeat center right;
+        // background: url("../img/icon-menu-w.png") no-repeat center right;
         color: #fff;
         display: block;
         font-family: "MontSerrat";
@@ -141,6 +160,17 @@
         text-transform: uppercase;
         text-shadow: #000 1px 1px 1px;
         line-height: 50px;
+        position: relative;
+
+        i {
+            background: url("../img/sprite-global.png") 0 -178px no-repeat;
+            display: block;
+            height: 21px;
+            position: absolute;
+            right: 5px;
+            top: 15px;
+            width: 32px;
+        }
     }
 
     a {
@@ -202,7 +232,7 @@
  * Heart icon
  */
 .heart {
-    background: #FF4E79 url("../img/heart2.png") no-repeat center center;
+    background-color: #FF4E79;
     border: 3px #fff solid;
     box-shadow: #000 3px 2px 8px;
     display: block;
@@ -213,6 +243,18 @@
     left: -155px;
     top: -60px;
     @include full-radius;
+
+    i {
+        background: url("../img/sprite-global.png") no-repeat 0 -68px;
+        display: block;
+        height: 43px;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 40px;
+        width: 48px;
+    }
 }
 
 #content {
@@ -263,13 +305,13 @@
     }
 
     i {
-        background: transparent url("../img/heart-gs.png") no-repeat center left;
+        background: transparent url("../img/sprite-global.png") 0 -147px no-repeat;
         display: block;
-        width: 48px;
-        height: 43px;
+        height: 31px;
+        left: 0;
         position: absolute;
         top: 35px;
-        left: 0;
+        width: 35px;
     }
 }
 

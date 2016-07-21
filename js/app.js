@@ -33,7 +33,7 @@ function init() {
     // register lazy loading images
     // echo.init({
     //     offset   : 100,
-    //     throttle : 250,
+    //     throttle : 100,
     //     unload   : false
     // });
 

@@ -136,14 +136,14 @@
     }
 
     .badge {
-        background: url("../img/badge-gold.png") no-repeat center left;
+        background: url("../img/sprite-badges.png") no-repeat;
         color: #fcba39;
         display: block;
         font-weight: bold;
         font-size: 24px;
         font-family: serif;
         margin:  0 auto 30px auto;
-        height: 45px;
+        height: 48px;
         text-align: right;
         line-height: 45px;
         width: 185px;
@@ -171,6 +171,7 @@
         }
 
         .badge {
+            background-position: 0 -50px;
             font-size: 34px;
             width: 240px;
         }
@@ -213,7 +214,7 @@
         }
 
         .badge {
-            background-image: url("../img/badge-silver.png");
+            background-position: 0 -97px;
             color: #999;
         }
 
@@ -240,7 +241,7 @@
         }
 
         .badge {
-            background-image: url("../img/badge-bronze.png");
+            background-position: 0 0;
             color: #a63039;
         }
 
@@ -298,7 +299,9 @@
                     }
 
                     .view-details {
-                        background: #3590dd url("../img/details-white.png") no-repeat center center;
+                        i {
+                            background-position: -24px -308px;
+                        }
                     }
                 }
             }
@@ -306,48 +309,16 @@
     }
 
     .view-details {
-        background: url("../img/details.png") no-repeat center center;
+        i {
+            background: url("../img/sprite-global.png") no-repeat -24px -328px;
+            display: block;
+            height: 20px;
+            width: 20px;
+        }
     }
 
     .negative {
         color: #f01927;
-    }
-}
-
-.error-report {
-    background: url("../img/exclamation.png") #ee726d no-repeat 25px 25px;
-    color: #fce7e7;
-    padding: 20px 25px;
-    margin-bottom: 30px;
-
-    strong {
-        text-decoration: underline;
-    }
-
-    ul {
-        margin: 0 0 20px 15px;
-
-        li {
-            list-style: disc;
-        }
-    }
-
-    a {
-        color: gold;
-        margin-left: 2px;
-
-        &:hover {
-            border-bottom: 1px gold dotted;
-        }
-    }
-
-    h3 {
-        color: #fce7e7;
-        margin-left: 45px;
-        line-height: 40px;
-        text-shadow: #222 2px 1px 3px;
-        font-size: 24px;
-        font-weight: normal;
     }
 }
 
