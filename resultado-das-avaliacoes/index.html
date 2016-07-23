@@ -51,9 +51,9 @@ seo:
       {% assign chartIndex = forloop.index %}
       <li class="position{{ forloop.index }}">
         <h3>{{ forloop.index }}º</h3>
-        <div class="info">
+        <div class="info" data-echo-background="{{site_url}}/img/bg-position-{{ forloop.index }}.png">
           <h4 class="maternity-name">{{ rank.name }}</h4>
-          <i class="badge">{{ rank.reviews }} avaliações</i>
+          <i class="badge" data-echo-background="{{site_url}}/img/sprite-badges.png">{{ rank.reviews }} avaliações</i>
           {% for chart in rank.charts %}
             <div id="chart{{ chartIndex }}{{ forloop.index }}" class="wrapper-chart">
               <h5>{{ chart.title }}</h5>

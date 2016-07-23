@@ -196,7 +196,7 @@
     }
 
     a {
-        background: url("../img/sprite-share.png") no-repeat;
+        background-repeat: no-repeat;
         color: #fff;
         display: inline-block;
         font-family: "MontSerrat";
@@ -212,15 +212,6 @@
 
         &:hover {
             opacity: 0.8;
-        }
-
-        i {
-            display: block;
-            height: 51px;
-            position: absolute;
-            top: 0;
-            width: 80px;
-            background: url("../img/sprite-share.png") no-repeat;
         }
 
         &.fb {
@@ -263,7 +254,6 @@
             display: inline-block;
 
             i {
-                background: url("../img/sprite-follow.png") no-repeat;
                 display: block;
                 width: 48px;
                 height: 48px;
@@ -513,7 +503,7 @@
  * On the media
  */
 #na-midia {
-    background: url("../img/bg-na-midia.jpg") no-repeat center;
+    background-repeat: no-repeat;
 
     ul {
         display: flex;
@@ -526,7 +516,7 @@
             padding: 0 5px;
 
             a {
-                background: url('../img/sprite-media.png') center center no-repeat;
+                background-repeat: no-repeat;
                 color: transparent;
                 display: inline-block;
                 width: 146px;

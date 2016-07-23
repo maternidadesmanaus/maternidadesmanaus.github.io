@@ -31,11 +31,11 @@ function init() {
     }, false);
 
     // register lazy loading images
-    // echo.init({
-    //     offset   : 100,
-    //     throttle : 100,
-    //     unload   : false
-    // });
+    echo.init({
+        offset   : 100,
+        throttle : 100,
+        unload   : false
+    });
 
     // register select choice events (radio buttons)
     var radioButtons = document.querySelectorAll(".ropt");

@@ -1,6 +1,6 @@
 /**
  * Register go to top
- * 
+ *
  * @return {Void}
  */
 function goToTop() {
@@ -11,7 +11,7 @@ function goToTop() {
 
 /**
  * Register modal configurations
- * 
+ *
  * @param  {String}  url
  * @param  {Integer} width
  * @param  {Integer} height
@@ -117,8 +117,15 @@ window.addEventListener("scroll", function(){
     //         ? "block"
     //         : bar.style.display = "none";
     // }
-    
+
     bar.style.display = (window.pageYOffset > 300)
         ? "block"
         : bar.style.display = "none";
+});
+
+// register lazy loading images
+echo.init({
+    offset   : 100,
+    throttle : 100,
+    unload   : false
 });

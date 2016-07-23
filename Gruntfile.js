@@ -1,8 +1,24 @@
 module.exports = function(grunt) {
 
+    // modules to compress images
     var mozjpeg = require('imagemin-mozjpeg');
     var pngout  = require('imagemin-pngout');
     var optipng = require('imagemin-optipng');
+
+    // defines the common scripts from site pages
+    var scripts = {
+        home: [
+            'js/smooth-scroll.js',
+            'node_modules/echo-js/dist/echo.js',
+            'js/app.js'
+        ],
+        default: [
+            'bower_components/chartist/dist/chartist.min.js',
+            'node_modules/echo-js/dist/echo.js',
+            'js/smooth-scroll.js',
+            'js/default.js'
+        ]
+    }
 
     // project configuration
     grunt.initConfig({
@@ -69,19 +85,11 @@ module.exports = function(grunt) {
 
         concat : {
             scripts : {
-                src : [
-                    'js/smooth-scroll.js',
-                    // 'js/echo.js',
-                    'js/app.js'
-                ],
+                src : scripts.home,
                 dest : '_site/js/main.js',
             },
             js_default: {
-                src: [
-                    'bower_components/chartist/dist/chartist.min.js',
-                    'js/smooth-scroll.js',
-                    'js/default.js'
-                ],
+                src: scripts.default,
                 dest: '_site/js/default.js'
             },
             css: {
@@ -94,31 +102,19 @@ module.exports = function(grunt) {
         },
 
         jshint: {
-            beforeconcat: [
-                'js/smooth-scroll.js',
-                // 'js/echo.js',
-                'js/app.js'
-            ]/*,
+            beforeconcat: scripts.home/*,
             afterconcat: ['_site/js/main.js']*/
         },
 
         uglify : {
             target : {
                 files : {
-                    '_site/js/main.js' : [
-                        'js/smooth-scroll.js',
-                        // 'js/echo.js',
-                        'js/app.js'
-                    ]
+                    '_site/js/main.js' : scripts.home
                 }
             },
             js_default : {
                 files: {
-                    '_site/js/default.js' : [
-                        'bower_components/chartist/dist/chartist.min.js',
-                        'js/smooth-scroll.js',
-                        'js/default.js'
-                    ]
+                    '_site/js/default.js' : scripts.default
                 }
             }
         },
