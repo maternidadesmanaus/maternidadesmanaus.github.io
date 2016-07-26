@@ -10,17 +10,17 @@
       </p>
       <ul class="share-buttons">
         <li>
-            <a class="sb fb" data-echo-background="{{ site.url }}/img/sprite-share.png" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('{{ site.social_networks.facebook.share.url }}', '{{ site.social_networks.facebook.share.width }}', '{{ site.social_networks.facebook.share.height }}');">
+            <a class="lazy-load sb fb" data-echo-background="{{ site.url }}/img/sprite-share.png" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('{{ site.social_networks.facebook.share.url }}', '{{ site.social_networks.facebook.share.width }}', '{{ site.social_networks.facebook.share.height }}');">
                 compartilhe no facebook
             </a>
         </li>
         <li>
-            <a class="sb tw" data-echo-background="{{ site.url }}/img/sprite-share.png" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('{{ site.social_networks.twitter.share.url }}', '{{ site.social_networks.twitter.share.width }}', '{{ site.social_networks.twitter.share.height }}');">
+            <a class="lazy-load sb tw" data-echo-background="{{ site.url }}/img/sprite-share.png" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('{{ site.social_networks.twitter.share.url }}', '{{ site.social_networks.twitter.share.width }}', '{{ site.social_networks.twitter.share.height }}');">
                 compartilhe no twitter
             </a>
         </li>
         <li>
-            <a class="sb gp" data-echo-background="{{ site.url }}/img/sprite-share.png" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('{{ site.social_networks.google_plus.share.url }}', '{{ site.social_networks.google_plus.share.width }}', '{{ site.social_networks.google_plus.share.height }}');">
+            <a class="lazy-load sb gp" data-echo-background="{{ site.url }}/img/sprite-share.png" rel="modal:open" href="javascript:void(0);" onclick="openModalSharer('{{ site.social_networks.google_plus.share.url }}', '{{ site.social_networks.google_plus.share.width }}', '{{ site.social_networks.google_plus.share.height }}');">
                 compartilhe no google+
             </a>
         </li>
@@ -34,19 +34,19 @@
       <ul class="social-media bottom">
         <li>
           <a target="_blank" href="{{ site.social_networks.instagram.profile_url }}">
-            <i class="{{ site.social_networks.instagram.class }}" data-echo-background="{{ site.url }}/img/sprite-follow.png"></i>
+            <i class="lazy-load {{ site.social_networks.instagram.class }}" data-echo-background="{{ site.url }}/img/sprite-follow.png"></i>
             {{ site.social_networks.instagram.name }}
           </a>
         </li>
         <li>
           <a target="_blank" href="{{ site.social_networks.google_plus.profile_url }}">
-            <i class="go" data-echo-background="{{ site.url }}/img/sprite-follow.png"></i>
+            <i class="lazy-load go" data-echo-background="{{ site.url }}/img/sprite-follow.png"></i>
             {{ site.social_networks.google_plus.name }}
           </a>
         </li>
         <li>
           <a target="_blank" href="{{ site.social_networks.facebook.profile_url }}">
-            <i class="{{ site.social_networks.facebook.class }}" data-echo-background="{{ site.url }}/img/sprite-follow.png"></i>
+            <i class="lazy-load {{ site.social_networks.facebook.class }}" data-echo-background="{{ site.url }}/img/sprite-follow.png"></i>
             {{ site.social_networks.facebook.name }}
           </a>
         </li>

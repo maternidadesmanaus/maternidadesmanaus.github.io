@@ -1,3 +1,13 @@
+.lazy-load {
+    background-image: url("/img/blank.gif");
+    background-repeat: no-repeat;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+    transition-property: background-image;
+}
+
 #call-to-action {
     background-color: #4c8d31;
     color: #fff;
@@ -349,7 +359,7 @@
  * Summary
  */
 #summary {
-    background: url("../img/bg-summary3.jpg") no-repeat center;
+    // background: url("../img/bg-summary3.jpg") no-repeat center;
     background-size: cover;
     padding: 350px 50px 50px;
 }
@@ -503,7 +513,6 @@
  * On the media
  */
 #na-midia {
-    background-repeat: no-repeat;
 
     ul {
         display: flex;
