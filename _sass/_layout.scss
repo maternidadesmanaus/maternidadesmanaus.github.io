@@ -87,6 +87,7 @@
 .heart {
     background-color: #FF4E79;
     border: 3px #fff solid;
+    bottom: -65px;
     box-shadow: #000 3px 2px 8px;
     display: block;
     width: 128px;
@@ -96,7 +97,6 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 180px;
     @include full-radius;
 
     i {

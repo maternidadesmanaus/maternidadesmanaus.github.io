@@ -59,7 +59,16 @@
         }
 
         .heart {
-            top: 195px;
+            bottom: -45px;
+            height: 90px;
+            width: 90px;
+
+            i {
+                background: url("../img/sprite-global.png") 0 -52px/100% no-repeat;
+                height: 38px;
+                top: 25px;
+                width: 38px;
+            }
         }
 
         .nav {
@@ -144,11 +153,14 @@
     #review-maternity .ropt,
     #review-maternity .slt {
         font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 10px;
     }
 
     #review-maternity .hlptxt {
+        font-size: 14px;
         line-height: 20px;
-        margin: 3px 0 7px 0;
+        margin: -5px 0 10px 0;
     }
 
     #review-maternity .ropt {
@@ -174,18 +186,34 @@
     }
 
     #review-maternity .row.error {
-        padding: 0 10px;
         font-size: 13px;
+    }
+
+    #review-maternity .row .msg {
+        font-size: 13px;
+        padding: 0 10px;
+    }
+
+    #review-maternity {
+        .otheropt {
+            margin-top: 10px;
+        }
     }
 
     .header {
         padding: 0 50px 50px;
 
         .heart {
-            background-size: 43%;
-            top: 152px;
-            width: 70px;
-            height: 70px;
+            bottom: -47px;
+            height: 90px;
+            width: 90px;
+
+            i {
+                background: url("../img/sprite-global.png") 0 -43px/100% no-repeat;
+                height: 33px;
+                top: 24px;
+                width: 33px;
+            }
         }
 
         .logo {
@@ -193,10 +221,6 @@
             margin: 0;
             line-height: 85px;
         }
-    }
-
-    .page-content {
-        padding: 0;
     }
 
     #sent-message {
@@ -253,16 +277,14 @@
         }
 
         i {
-            background-position: center center;
-            padding: 40px 0;
+            margin: 0 auto 50px auto;
             position: relative;
-            margin: auto;
-            top: 0;
+            top: 25px;
         }
     }
 
     #summary {
-        padding: 240px 50px 50px;
+        padding: 225px 50px 50px;
     }
 
     #na-midia {
@@ -285,7 +307,7 @@
 
 @include media-query(500px) {
     #review-maternity .row {
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
 
     #review-maternity .down {
@@ -297,6 +319,19 @@
 
         .logo {
             font-size: 26px;
+        }
+
+        .heart {
+            bottom: -40px;
+            height: 70px;
+            width: 70px;
+
+            i {
+                background: url("../img/sprite-global.png") 0 -38px/100% no-repeat;
+                height: 28px;
+                top: 19px;
+                width: 28px;
+            }
         }
 
         .nav {
@@ -341,11 +376,24 @@
     }
 
     #summary {
-        padding: 185px 0 0 0;
+        padding: 185px 0 0;
 
         .wrapper {
             padding-top: 50px;
         }
+    }
+}
+
+@include media-query(320px) {
+    .header {
+        .logo {
+            padding: 20px;
+            line-height: 42px;
+        }
+    }
+
+    #summary {
+        padding: 225px 0 0;
     }
 }
 
