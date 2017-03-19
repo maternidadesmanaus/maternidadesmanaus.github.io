@@ -13,7 +13,7 @@ module.exports = function(grunt) {
             'js/app.js'
         ],
         default: [
-            'bower_components/chartist/dist/chartist.min.js',
+            'node_modules/chartist/dist/chartist.min.js',
             'node_modules/echo-js/dist/echo.js',
             'js/smooth-scroll.js',
             'js/default.js'
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
             target: {
                 files: {
                     '_site/css/main.css': [
-                        'bower_components/chartist/dist/chartist.min.css',
+                        'node_modules/chartist/dist/chartist.min.css',
                         '_site/css/main.css'
                     ],
                     '_site/css/home.css': [
@@ -94,7 +94,7 @@ module.exports = function(grunt) {
             },
             css: {
                 src: [
-                    'bower_components/chartist/dist/chartist.min.css',
+                    'node_modules/chartist/dist/chartist.min.css',
                     '_site/css/main.css'
                 ],
                 dest: '_site/css/main.css'

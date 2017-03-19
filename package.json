@@ -4,7 +4,6 @@
   "description": "Site oficial do projeto Maternidades Manaus",
   "main": "index.html",
   "scripts": {
-    "postinstall": "bower install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +18,7 @@
   "author": "Andrews Lince <andrews.lince@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "chartist": "^0.10.1",
     "echo-js": "^1.7.3",
     "grunt": "^1.0.1",
     "grunt-contrib-concat": "^1.0.1",
