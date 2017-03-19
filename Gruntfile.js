@@ -18,7 +18,7 @@ module.exports = function(grunt) {
             'js/smooth-scroll.js',
             'js/default.js'
         ]
-    }
+    };
 
     // project configuration
     grunt.initConfig({
