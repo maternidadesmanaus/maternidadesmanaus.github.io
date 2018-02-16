@@ -56,3 +56,4 @@ social_networks:
       url: "https://plus.google.com/share?url=http%3A%2F%2Fmaternidadesmanaus.com.br%2F&t=Maternidades+Manaus"
       width: "500"
       height: "475"
+theme: jekyll-theme-minimal
